@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Atelier Suspendu — Ch Team Phones</title>
+<style>*{box-sizing:border-box}img{max-width:100%}[hidden]{display:none!important}body{margin:0;font:14px system-ui,sans-serif}</style>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#f2f3f5; --white:#ffffff; --ink:#0b0e14; --ink2:#525c6b; --ink3:#8b95a3;
+  --line:#e0e4ea; --line2:#c9d0da;
+  --volt:#2f26ff; --volt2:#5a52ff; --amber:#ff8a00; --mint:#00a878; --rose:#e11d48;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:'Familjen Grotesk',system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:none}
+:focus-visible{outline:2.5px solid var(--volt);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:'Archivo',system-ui,sans-serif;font-weight:800;letter-spacing:-.04em;margin:0;text-wrap:balance}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
+img{max-width:100%}
+
+.bg-grid{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:56px 56px;
+  -webkit-mask-image:radial-gradient(ellipse at 50% 24%,#000 12%,transparent 66%);
+  mask-image:radial-gradient(ellipse at 50% 24%,#000 12%,transparent 66%);
+  opacity:.9;
+}
+.shell{position:relative;z-index:2}
+
+/* ---------- nav ---------- */
+.topbar{
+  position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:clamp(10px,2vw,22px);
+  padding:13px clamp(16px,4vw,40px);
+  background:rgba(242,243,245,.86);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.brand{display:flex;align-items:center;gap:11px;flex:0 0 auto}
+.brand .cube{
+  width:32px;height:32px;border-radius:9px;flex:0 0 auto;display:grid;place-items:center;
+  background:var(--ink);color:#fff;font-family:'Archivo',sans-serif;font-weight:900;font-size:12.5px;letter-spacing:-.05em;
+}
+.brand b{font-family:'Archivo',sans-serif;font-weight:800;font-size:16px;letter-spacing:-.035em;display:block;line-height:1.1}
+.brand small{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.15em;color:var(--ink3);text-transform:uppercase}
+.topnav{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.topnav::-webkit-scrollbar{display:none}
+.topnav button{
+  padding:9px 15px;border-radius:9px;font-size:13.5px;font-weight:600;color:var(--ink2);white-space:nowrap;
+  transition:color .18s ease,background .18s ease;
+}
+.topnav button:hover{color:var(--ink);background:var(--white)}
+.topnav button[aria-current="page"]{background:var(--ink);color:#fff}
+.top-call{
+  flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;border-radius:9px;
+  background:var(--volt);color:#fff;font-weight:700;font-size:13.5px;padding:10px 16px;
+  box-shadow:0 10px 28px -12px var(--volt);
+}
+.top-call:hover{background:var(--volt2)}
+@media (max-width:920px){.brand small{display:none}.top-call span{display:none}}
+
+.wrap{max-width:1140px;margin:0 auto;padding:0 clamp(18px,4vw,44px)}
+section[data-view]{display:none;animation:lift .5s cubic-bezier(.22,.9,.3,1)}
+section[data-view].on{display:block}
+@keyframes lift{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.sec{padding:clamp(50px,7.5vw,102px) 0}
+.eyebrow{
+  display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--volt);margin-bottom:15px;
+}
+.sec-h{max-width:64ch;margin-bottom:36px}
+.sec-h h2{font-size:clamp(27px,4.6vw,50px);line-height:1.02;margin-bottom:13px}
+.sec-h p{margin:0;color:var(--ink2);font-size:16px;line-height:1.72}
+
+/* ---------- hero + vue éclatée ---------- */
+.hero{
+  display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(22px,4vw,54px);align-items:center;
+  padding:clamp(38px,6vw,80px) 0 clamp(30px,5vw,60px);
+}
+.hero h1{font-size:clamp(38px,6.6vw,86px);line-height:.94;margin-bottom:20px;max-width:13ch}
+.hero h1 span{
+  background:linear-gradient(96deg,var(--volt),var(--amber) 88%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p{max-width:48ch;font-size:clamp(15px,1.7vw,18px);line-height:1.7;color:var(--ink2);margin:0 0 28px}
+.acts{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;border-radius:11px;padding:13px 21px;
+  font-size:14px;font-weight:700;letter-spacing:-.01em;
+  transition:transform .16s ease,box-shadow .2s ease,background .18s ease,border-color .18s ease;
+}
+.btn:active{transform:translateY(1px)}
+.btn--volt{background:var(--volt);color:#fff;box-shadow:0 14px 34px -14px var(--volt)}
+.btn--volt:hover{background:var(--volt2);box-shadow:0 18px 44px -14px var(--volt)}
+.btn--ink{background:var(--ink);color:#fff}
+.btn--ink:hover{background:#1d2430}
+.btn--wire{border:1px solid var(--line2);color:var(--ink);background:var(--white)}
+.btn--wire:hover{border-color:var(--ink)}
+
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(122px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.kpis div{background:var(--white);padding:16px 18px}
+.kpis b{display:block;font-family:'Archivo',sans-serif;font-size:24px;font-weight:900;letter-spacing:-.045em;font-variant-numeric:tabular-nums;margin-bottom:2px}
+.kpis span{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+
+/* la scène 3D */
+.scene{
+  position:relative;min-height:470px;display:grid;place-items:center;
+  perspective:1400px;perspective-origin:50% 44%;
+}
+.rigged{
+  position:relative;width:210px;height:410px;
+  transform-style:preserve-3d;
+  transform:rotateX(58deg) rotateZ(-32deg);
+  animation:turn 26s linear infinite;
+}
+@keyframes turn{
+  from{transform:rotateX(58deg) rotateZ(-32deg)}
+  to{transform:rotateX(58deg) rotateZ(328deg)}
+}
+.plate{
+  position:absolute;inset:0;border-radius:28px;
+  border:1px solid var(--line2);background:var(--white);
+  box-shadow:0 22px 44px -30px rgba(11,14,20,.6);
+  display:grid;place-items:center;
+}
+.plate .lbl{
+  position:absolute;top:12px;left:14px;font-family:'IBM Plex Mono',monospace;
+  font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);
+}
+.p1{transform:translateZ(112px);background:linear-gradient(150deg,rgba(255,255,255,.9),rgba(224,228,234,.72));backdrop-filter:blur(2px)}
+.p2{transform:translateZ(66px);background:linear-gradient(160deg,#101725,#242f42)}
+.p3{transform:translateZ(20px);background:var(--white)}
+.p4{transform:translateZ(-26px);background:#f6f7f9}
+.p5{transform:translateZ(-72px);background:linear-gradient(160deg,#dfe4ea,#c9d0da)}
+.p2 .glass{
+  width:76%;height:80%;border-radius:18px;
+  background:linear-gradient(158deg,rgba(47,38,255,.55),rgba(255,138,0,.4));
+  filter:blur(.4px);
+}
+.p3 .cellrow{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;width:74%}
+.p3 .cellrow i{display:block;height:58px;border-radius:9px;background:#eceff3;border:1px solid var(--line)}
+.p4 .board{
+  width:76%;height:78%;border-radius:14px;background:#eef1f5;border:1px solid var(--line2);
+  background-image:linear-gradient(90deg,var(--line) 1px,transparent 1px),linear-gradient(var(--line) 1px,transparent 1px);
+  background-size:15px 15px;
+}
+.p5 .batt{width:66%;height:56%;border-radius:12px;background:linear-gradient(160deg,#aab4c2,#8c97a7)}
+
+.callout{
+  position:absolute;z-index:5;background:var(--white);border:1px solid var(--line2);
+  border-radius:10px;padding:9px 12px;box-shadow:0 14px 30px -18px rgba(11,14,20,.5);
+  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.02em;white-space:nowrap;
+}
+.callout b{color:var(--volt);font-weight:600}
+.callout::after{content:"";position:absolute;width:26px;height:1px;background:var(--line2)}
+.c1{top:8%;left:2%}
+.c1::after{right:-26px;top:50%}
+.c2{top:34%;right:0%}
+.c2::after{left:-26px;top:50%}
+.c3{bottom:26%;left:0%}
+.c3::after{right:-26px;top:50%}
+.c4{bottom:6%;right:4%}
+.c4::after{left:-26px;top:50%}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .scene{order:-1;min-height:400px}
+  .rigged{width:170px;height:330px}
+  .callout{display:none}
+}
+
+/* ---------- cartes ---------- */
+.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:14px}
+.tile{
+  border:1px solid var(--line);border-radius:18px;padding:24px;background:var(--white);
+  text-align:left;display:flex;flex-direction:column;gap:11px;
+  transition:transform .24s cubic-bezier(.22,.9,.3,1),border-color .24s ease,box-shadow .24s ease;
+}
+button.tile{cursor:pointer}
+.tile:hover{transform:translateY(-5px);border-color:var(--ink);box-shadow:0 26px 50px -34px rgba(11,14,20,.55)}
+.tile .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:#eef0f4;color:var(--ink)}
+.tile h3{font-size:18px}
+.tile p{margin:0;font-size:14px;line-height:1.62;color:var(--ink2)}
+.tile .foot{margin-top:auto;padding-top:13px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--volt)}
+
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chip{border:1px solid var(--line2);border-radius:999px;padding:9px 16px;font-size:13px;color:var(--ink2);background:var(--white);transition:all .18s ease}
+.chip:hover{color:var(--ink);border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:14px}
+.card{
+  border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--white);
+  display:flex;flex-direction:column;transition:transform .24s cubic-bezier(.22,.9,.3,1),border-color .24s ease,box-shadow .24s ease;
+}
+.card:hover{transform:translateY(-6px);border-color:var(--ink);box-shadow:0 26px 50px -34px rgba(11,14,20,.5)}
+.shot{
+  position:relative;height:188px;display:grid;place-items:center;background:#f7f8fa;
+  border-bottom:1px solid var(--line);overflow:hidden;
+}
+.shot .halo{position:absolute;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(47,38,255,.13),transparent 68%)}
+.obj{
+  position:relative;z-index:2;border-radius:13px;border:1px solid var(--line2);
+  background:linear-gradient(158deg,#ffffff,#dfe4ea);
+  box-shadow:0 20px 32px -22px rgba(11,14,20,.55);
+}
+.obj.ph{width:62px;height:124px}
+.obj.lap{width:132px;height:84px;border-radius:9px}
+.obj.wt{width:66px;height:74px;border-radius:21px}
+.obj.bd{width:70px;height:70px;border-radius:25px}
+.tag{
+  position:absolute;z-index:3;top:12px;left:12px;font-family:'IBM Plex Mono',monospace;
+  font-size:9px;letter-spacing:.13em;text-transform:uppercase;border-radius:6px;padding:5px 10px;
+  background:var(--ink);color:#fff;font-weight:500;
+}
+.tag--used{background:var(--mint)}
+.tag--order{background:var(--amber);color:#2a1500}
+.card .body{padding:17px 18px 19px;display:flex;flex-direction:column;gap:5px;flex:1}
+.card h3{font-family:'Familjen Grotesk',sans-serif;font-weight:700;font-size:15.5px;letter-spacing:-.02em}
+.card .spec{font-size:12.5px;color:var(--ink3);line-height:1.55}
+.card .price{margin-top:auto;padding-top:13px;border-top:1px solid var(--line);display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.card .price b{font-family:'Archivo',sans-serif;font-size:17px;font-weight:800;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.card .price span{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mint)}
+
+/* ---------- tableau ---------- */
+.tbl{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--white)}
+.tscroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:600px}
+th{
+  text-align:left;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:9.5px;
+  letter-spacing:.17em;text-transform:uppercase;color:var(--ink3);padding:15px 20px;
+  background:#f7f8fa;border-bottom:1px solid var(--line);
+}
+td{padding:16px 20px;border-bottom:1px solid var(--line);font-size:14.5px}
+tr:last-child td{border-bottom:none}
+tbody tr{transition:background .16s ease}
+tbody tr:hover{background:#f9fafb}
+td.n{font-family:'IBM Plex Mono',monospace;font-size:13px;font-variant-numeric:tabular-nums;font-weight:500}
+.free{color:var(--mint);font-weight:600}
+.stat{display:inline-block;border-radius:6px;padding:4px 10px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase}
+.stat--ok{background:#e4f6ef;color:#046c4e}
+.stat--wait{background:#fff1e3;color:#9a4b06}
+.note{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ink3);margin-top:13px;line-height:1.7}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(208px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.step{background:var(--white);padding:24px;position:relative}
+.step .num{
+  display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;
+  color:#fff;background:var(--ink);border-radius:5px;padding:4px 8px;margin-bottom:14px;
+}
+.step h3{font-family:'Familjen Grotesk',sans-serif;font-weight:700;font-size:16px;letter-spacing:-.02em;margin-bottom:7px}
+.step p{margin:0;font-size:13.5px;line-height:1.6;color:var(--ink2)}
+.step .t{position:absolute;top:24px;right:24px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--volt)}
+
+.checks{display:grid;grid-template-columns:repeat(auto-fill,minmax(192px,1fr));gap:8px}
+.check{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:11px;padding:12px 14px;font-size:13.5px;background:var(--white)}
+.check svg{flex:0 0 auto;color:var(--mint)}
+
+.form{border:1px solid var(--line);border-radius:20px;padding:clamp(22px,3.4vw,36px);background:var(--white)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+label{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2)}
+input,select,textarea{
+  font:inherit;font-size:14.5px;color:var(--ink);background:#f7f8fa;
+  border:1px solid var(--line2);border-radius:10px;padding:13px 15px;width:100%;
+  transition:border-color .16s ease,background .16s ease;
+}
+input::placeholder,textarea::placeholder{color:var(--ink3)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--volt);background:var(--white)}
+textarea{resize:vertical;min-height:98px}
+.help{font-size:12px;color:var(--ink3);line-height:1.55;margin:0}
+@media (max-width:700px){.fgrid{grid-template-columns:1fr}}
+
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:860px){.duo{grid-template-columns:1fr}}
+.pane{border:1px solid var(--line);border-radius:20px;padding:clamp(22px,3.4vw,34px);background:var(--white)}
+.pane h3{font-size:20px;margin-bottom:18px}
+.dl{display:grid;gap:15px;margin:0}
+.dl div{display:grid;grid-template-columns:22px 1fr;gap:13px;align-items:start}
+.dl svg{color:var(--volt);margin-top:2px}
+.dl b{display:block;font-size:15px;font-weight:700}
+.dl small{color:var(--ink3);font-size:12.5px}
+.hours{display:grid;gap:10px;font-size:14.5px}
+.hours div{display:flex;justify-content:space-between;gap:14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.hours div:last-child{border-bottom:none}
+.hours span{color:var(--ink3)}
+.hours b{font-variant-numeric:tabular-nums}
+.hours .shut{color:var(--rose)}
+.mapbox{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);min-height:330px;display:grid;place-items:center;background:#eceff3}
+.mapbox svg.roads{position:absolute;inset:0;width:100%;height:100%}
+.mapbox .marker{position:relative;z-index:2;text-align:center}
+.mapbox .marker .d{
+  width:15px;height:15px;border-radius:50%;background:var(--volt);margin:0 auto 11px;
+  box-shadow:0 0 0 7px rgba(47,38,255,.15),0 0 0 15px rgba(47,38,255,.07);
+}
+.mapbox .marker b{display:block;font-family:'Archivo',sans-serif;font-weight:800;font-size:15px;letter-spacing:-.03em}
+.mapbox .marker small{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ink3);letter-spacing:.1em}
+
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:14px}
+.quote{border:1px solid var(--line);border-radius:18px;padding:22px;background:var(--white)}
+.quote p{margin:0 0 12px;font-size:15px;line-height:1.65}
+.quote small{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3)}
+.stars{display:flex;gap:3px;color:var(--amber);margin-bottom:12px}
+
+.cta-final{
+  border:1px solid var(--ink);border-radius:24px;padding:clamp(30px,5vw,60px);text-align:center;
+  background:var(--ink);color:#fff;
+}
+.cta-final h2{font-size:clamp(25px,4.4vw,44px);margin-bottom:13px;color:#fff}
+.cta-final p{max-width:50ch;margin:0 auto 24px;color:#aeb7c4;font-size:16px;line-height:1.7}
+footer.site{
+  border-top:1px solid var(--line2);margin-top:clamp(38px,6vw,76px);padding:28px 0 46px;
+  display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;font-size:12.5px;color:var(--ink3);
+}
+.disclaim{
+  border:1px dashed var(--line2);border-radius:12px;padding:14px 18px;background:var(--white);
+  font-family:'IBM Plex Mono',monospace;font-size:10px;line-height:1.75;color:var(--ink2);margin-top:26px;
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .rigged{transform:rotateX(56deg) rotateZ(-30deg)}
+}
+</style>
+<div class="bg-grid" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <g id="i-wa"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1.1-4A8 8 0 1 1 20 12z"/><path d="M9 9.6c.3-.6.6-.6.9-.6h.5c.2 0 .5 0 .7.6l.7 1.6c.1.3 0 .5-.1.7l-.4.5c-.1.2-.2.3 0 .6.5.8 1.2 1.4 2 1.8.3.1.4.1.6-.1l.5-.6c.2-.2.4-.2.6-.1l1.5.8c.3.1.4.3.4.5-.1.6-.6 1.3-1.3 1.4-.6.1-1.4.2-3.2-.6-2.2-1-3.6-3.3-3.7-3.5-.1-.2-.9-1.2-.9-2.3 0-1.1.6-1.6.8-1.8z"/></g>
+  <g id="i-pin"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></g>
+  <g id="i-insta"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17" cy="7" r="1.1"/></g>
+  <g id="i-star"><path d="M12 3.6l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L3.5 9.8l5.9-.9z"/></g>
+  <g id="i-check"><path d="M4.5 12.5l5 5 10-11"/></g>
+  <g id="i-arrow"><path d="M5 12h14M13 6l6 6-6 6"/></g>
+  <g id="i-truck"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></g>
+  <g id="i-wrench"><path d="M14.7 6.3a4 4 0 0 1-5.2 5.2L4 17v3h3l5.5-5.5a4 4 0 0 0 5.2-5.2l-2.3 2.3-2.1-.6-.6-2.1 2.3-2.3z"/></g>
+  <g id="i-phone"><rect x="6.5" y="2.5" width="11" height="19" rx="3"/><path d="M10.5 5.5h3"/></g>
+  <g id="i-shield"><path d="M12 3l7 3v5c0 4.4-3 8.3-7 10-4-1.7-7-5.6-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></g>
+  <g id="i-buds"><path d="M8 4a3.5 3.5 0 0 1 3.5 3.5V16a3 3 0 1 1-6 0V9"/><path d="M16 4a3.5 3.5 0 0 0-3.5 3.5"/></g>
+</defs></svg>
+
+<header class="topbar">
+  <span class="brand">
+    <span class="cube" aria-hidden="true">CT</span>
+    <span><b>Ch Team Phones</b><small>Parc Plaza · Mohammédia</small></span>
+  </span>
+  <nav class="topnav" aria-label="Navigation principale">
+    <button data-go="accueil" aria-current="page">Accueil</button>
+    <button data-go="boutique">Boutique</button>
+    <button data-go="reparation">Réparation</button>
+    <button data-go="occasion">Occasion</button>
+    <button data-go="contact">Contact</button>
+  </nav>
+  <a class="top-call" href="tel:0661798782">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><use href="#i-wa"/></svg>
+    <span>06 61 79 87 82</span>
+  </a>
+</header>
+
+<div class="shell">
+
+<!-- ═════════ ACCUEIL ═════════ -->
+<section data-view="accueil" class="on">
+  <div class="wrap">
+    <header class="hero">
+      <div>
+        <span class="eyebrow">Ouvert lun–sam · 10h00 → 22h30</span>
+        <h1>Un téléphone, <span>couche par couche</span></h1>
+        <p>Chez Ch Team Phones, on ouvre les appareils devant vous. Vente de neuf et d'occasion, réparation en atelier, accessoires — Parc Plaza, sur la N7, à Mohammédia.</p>
+        <div class="acts">
+          <a class="btn btn--volt" href="tel:0661798782">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><use href="#i-wa"/></svg>
+            06 61 79 87 82
+          </a>
+          <button class="btn btn--wire" data-go="reparation">
+            Faire réparer
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </button>
+        </div>
+        <div class="kpis">
+          <div><b>4,9</b><span>206 avis</span></div>
+          <div><b>17,8K</b><span>abonnés</span></div>
+          <div><b>6 mois</b><span>garantie</span></div>
+          <div><b>48 h</b><span>commande</span></div>
+        </div>
+      </div>
+      <div class="scene">
+        <div class="rigged" aria-hidden="true">
+          <div class="plate p1"><span class="lbl">01 verre</span></div>
+          <div class="plate p2"><span class="lbl" style="color:#8b95a3">02 dalle</span><span class="glass"></span></div>
+          <div class="plate p3"><span class="lbl">03 nappes</span><span class="cellrow"><i></i><i></i><i></i></span></div>
+          <div class="plate p4"><span class="lbl">04 carte mère</span><span class="board"></span></div>
+          <div class="plate p5"><span class="lbl">05 batterie</span><span class="batt"></span></div>
+        </div>
+        <span class="callout c1">Verre trempé <b>posé sans bulle</b></span>
+        <span class="callout c2">Dalle OLED — <b>45 min</b></span>
+        <span class="callout c3">Connecteur — <b>40 min</b></span>
+        <span class="callout c4">Batterie — <b>30 min</b></span>
+      </div>
+    </header>
+
+    <section class="sec">
+      <div class="sec-h">
+        <span class="eyebrow">Le magasin</span>
+        <h2>Quatre métiers au même comptoir</h2>
+        <p>Chacun ouvre sa propre page. Tout se passe au Parc Plaza, immeuble C.</p>
+      </div>
+      <div class="trio">
+        <button class="tile" data-go="boutique">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><use href="#i-phone"/></svg></span>
+          <h3>Vendre</h3>
+          <p>iPhone, Samsung, Xiaomi, Huawei neufs et scellés. Montres, ordinateurs, accessoires. Facture remise à chaque achat.</p>
+          <span class="foot">La boutique →</span>
+        </button>
+        <button class="tile" data-go="reparation">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><use href="#i-wrench"/></svg></span>
+          <h3>Réparer</h3>
+          <p>Écran, batterie, connecteur de charge, désoxydation. Diagnostic gratuit, devis avant intervention, garantie six mois.</p>
+          <span class="foot">Les tarifs →</span>
+        </button>
+        <button class="tile" data-go="occasion">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><use href="#i-shield"/></svg></span>
+          <h3>Reprendre</h3>
+          <p>18 points de contrôle sur chaque occasion. Reprise de votre ancien appareil en déduction ou rachat comptant.</p>
+          <span class="foot">Le protocole →</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top:0">
+      <div class="sec-h"><span class="eyebrow">Sélection</span><h2>En vitrine cette semaine</h2></div>
+      <div class="grid">
+        <article class="card"><div class="shot"><span class="halo"></span><span class="tag">Neuf scellé</span><span class="obj ph"></span></div><div class="body"><h3>iPhone 17 Air</h3><span class="spec">256 Go · garantie boutique · facture</span><span class="price"><b>12 900 DH</b><span>disponible</span></span></div></article>
+        <article class="card"><div class="shot"><span class="halo"></span><span class="tag tag--used">Occasion</span><span class="obj ph"></span></div><div class="body"><h3>Galaxy S24 Ultra</h3><span class="spec">512 Go · batterie 92% · 18 points</span><span class="price"><b>7 400 DH</b><span>1 pièce</span></span></div></article>
+        <article class="card"><div class="shot"><span class="halo"></span><span class="tag">Neuf scellé</span><span class="obj wt"></span></div><div class="body"><h3>Apple Watch Ultra 3</h3><span class="spec">Titane 49 mm · bracelet au choix</span><span class="price"><b>9 200 DH</b><span>disponible</span></span></div></article>
+        <article class="card"><div class="shot"><span class="halo"></span><span class="tag tag--order">48 h</span><span class="obj lap"></span></div><div class="body"><h3>MacBook Pro 16″ M5 Max</h3><span class="spec">Scellé · commande sous 48 h</span><span class="price"><b>38 500 DH</b><span>sur commande</span></span></div></article>
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top:0">
+      <div class="sec-h"><span class="eyebrow">206 avis</span><h2>Ce que les clients écrivent</h2></div>
+      <div class="quotes">
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>« Écran changé en moins d'une heure, et le prix annoncé était le prix payé. »</p>
+          <small>Avis Google · exemple de mise en page</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>« Ils expliquent ce qui ne va pas avant de toucher au téléphone. »</p>
+          <small>Avis Google · exemple de mise en page</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>« Ouvert tard : le seul endroit où je peux passer après le travail. »</p>
+          <small>Avis Google · exemple de mise en page</small>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top:0">
+      <div class="cta-final">
+        <h2>Envoyez une photo, recevez le prix</h2>
+        <p>Le modèle, une photo de l'appareil, et vous avez le tarif et le délai avant de vous déplacer.</p>
+        <a class="btn btn--volt" href="tel:0661798782">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><use href="#i-wa"/></svg>
+          Écrire sur WhatsApp
+        </a>
+      </div>
+      <p class="disclaim">// MAQUETTE — Adresse, téléphone, horaires, note Google et compte Instagram sont réels. Les prix, délais et avis sont des repères de mise en page à remplacer par les données de la boutique.</p>
+      <footer class="site"><span>Ch Team Phones · Parc Plaza, Imm. C, N7 · Mohammédia 28810</span><span class="mono">DIRECTION 04 — ATELIER SUSPENDU</span></footer>
+    </section>
+  </div>
+</section>
+<!-- ═════════ BOUTIQUE ═════════ -->
+<section data-view="boutique">
+  <div class="wrap">
+    <header class="sec" style="padding-bottom:28px">
+      <span class="eyebrow">La boutique</span>
+      <h2 style="font-size:clamp(30px,6vw,66px);line-height:.98;margin-bottom:16px;max-width:15ch">Tout ce qui est en vitrine</h2>
+      <p style="max-width:56ch;color:var(--ink2);font-size:16.5px;line-height:1.72;margin:0">Neuf scellé, occasion contrôlée, accessoires, et ce qui se commande en 48 heures. Le stock bouge tous les jours — la disponibilité se confirme par téléphone ou en story.</p>
+    </header>
+    <section class="sec" style="padding-top:0">
+      <div class="filters" role="group" aria-label="Filtrer les produits">
+        <button class="chip" data-f="all" aria-pressed="true">Tout</button>
+        <button class="chip" data-f="neuf" aria-pressed="false">Neuf</button>
+        <button class="chip" data-f="occasion" aria-pressed="false">Occasion</button>
+        <button class="chip" data-f="accessoire" aria-pressed="false">Accessoires</button>
+        <button class="chip" data-f="ordi" aria-pressed="false">Ordinateurs &amp; montres</button>
+      </div>
+      <div class="grid" id="shopgrid">
+        <article class="card" data-cat="neuf"><div class="shot"><span class="halo"></span><span class="tag">Neuf scellé</span><span class="obj ph"></span></div><div class="body"><h3>iPhone 17 Air</h3><span class="spec">256 Go · titane · garantie boutique</span><span class="price"><b>12 900 DH</b><span>disponible</span></span></div></article>
+        <article class="card" data-cat="neuf"><div class="shot"><span class="halo"></span><span class="tag">Neuf scellé</span><span class="obj ph"></span></div><div class="body"><h3>iPhone 16 Pro</h3><span class="spec">128 Go · facture remise</span><span class="price"><b>10 400 DH</b><span>disponible</span></span></div></article>
+        <article class="card" data-cat="neuf"><div class="shot"><span class="halo"></span><span class="tag">Neuf scellé</span><span class="obj ph"></span></div><div class="body"><h3>Xiaomi 15 Ultra</h3><span class="spec">512 Go · garantie boutique</span><span class="price"><b>8 700 DH</b><span>disponible</span></span></div></article>
+        <article class="card" data-cat="occasion"><div class="shot"><span class="halo"></span><span class="tag tag--used">Occasion</span><span class="obj ph"></span></div><div class="body"><h3>Galaxy S24 Ultra</h3><span class="spec">512 Go · batterie 92% · 18 points</span><span class="price"><b>7 400 DH</b><span>1 pièce</span></span></div></article>
+        <article class="card" data-cat="occasion"><div class="shot"><span class="halo"></span><span class="tag tag--used">Occasion</span><span class="obj ph"></span></div><div class="body"><h3>iPhone 13</h3><span class="spec">128 Go · batterie 88% · écran d'origine</span><span class="price"><b>4 300 DH</b><span>2 pièces</span></span></div></article>
+        <article class="card" data-cat="ordi"><div class="shot"><span class="halo"></span><span class="tag">Neuf scellé</span><span class="obj wt"></span></div><div class="body"><h3>Apple Watch Ultra 3</h3><span class="spec">Titane 49 mm · bracelet au choix</span><span class="price"><b>9 200 DH</b><span>disponible</span></span></div></article>
+        <article class="card" data-cat="ordi"><div class="shot"><span class="halo"></span><span class="tag">Neuf scellé</span><span class="obj wt"></span></div><div class="body"><h3>Apple Watch Series 11</h3><span class="spec">45 mm · GPS</span><span class="price"><b>5 600 DH</b><span>disponible</span></span></div></article>
+        <article class="card" data-cat="ordi"><div class="shot"><span class="halo"></span><span class="tag tag--order">48 h</span><span class="obj lap"></span></div><div class="body"><h3>MacBook Pro 16″ M5 Max</h3><span class="spec">Scellé · configuration au choix</span><span class="price"><b>38 500 DH</b><span>sur commande</span></span></div></article>
+        <article class="card" data-cat="ordi"><div class="shot"><span class="halo"></span><span class="tag tag--order">48 h</span><span class="obj lap"></span></div><div class="body"><h3>MacBook Air 15″ M4</h3><span class="spec">Scellé · 16 Go / 512 Go</span><span class="price"><b>16 900 DH</b><span>sur commande</span></span></div></article>
+        <article class="card" data-cat="accessoire"><div class="shot"><span class="halo"></span><span class="tag">Accessoire</span><span class="obj bd"></span></div><div class="body"><h3>AirPods Pro 3</h3><span class="spec">Réduction de bruit · boîtier USB-C</span><span class="price"><b>2 950 DH</b><span>disponible</span></span></div></article>
+        <article class="card" data-cat="accessoire"><div class="shot"><span class="halo"></span><span class="tag">Pose offerte</span><span class="obj bd"></span></div><div class="body"><h3>Protection d'écran verre trempé</h3><span class="spec">Posée sans bulle en boutique</span><span class="price"><b>120 DH</b><span>pose incluse</span></span></div></article>
+        <article class="card" data-cat="accessoire"><div class="shot"><span class="halo"></span><span class="tag">Accessoire</span><span class="obj bd"></span></div><div class="body"><h3>Chargeur rapide 45 W</h3><span class="spec">USB-C · câble tressé fourni</span><span class="price"><b>260 DH</b><span>disponible</span></span></div></article>
+      </div>
+      <p class="note">// Prix et disponibilités de démonstration. Le catalogue réel sera repris de la liste de la boutique.</p>
+      <div class="sec" style="padding-bottom:0">
+        <div class="cta-final">
+          <h2>Un modèle que vous ne voyez pas ?</h2>
+          <p>La plupart des appareils absents de la vitrine arrivent en 48 heures. Dites le modèle, on donne le prix et la date.</p>
+          <a class="btn btn--volt" href="tel:0661798782">Demander un modèle</a>
+        </div>
+      </div>
+      <footer class="site"><span>Ch Team Phones · 06 61 79 87 82</span><span class="mono">BOUTIQUE</span></footer>
+    </section>
+  </div>
+</section>
+
+<!-- ═════════ RÉPARATION ═════════ -->
+<section data-view="reparation">
+  <div class="wrap">
+    <header class="sec" style="padding-bottom:28px">
+      <span class="eyebrow">L'atelier</span>
+      <h2 style="font-size:clamp(30px,6vw,66px);line-height:.98;margin-bottom:16px;max-width:15ch">Déposé le matin, repris le soir</h2>
+      <p style="max-width:56ch;color:var(--ink2);font-size:16.5px;line-height:1.72;margin:0">Le diagnostic est gratuit et sans engagement. Le devis est annoncé avant l'intervention et ne bouge plus. La garantie couvre la pièce et la main-d'œuvre pendant six mois.</p>
+    </header>
+
+    <section class="sec" style="padding-top:0">
+      <div class="sec-h"><span class="eyebrow">Déroulé</span><h2 style="font-size:clamp(23px,3.6vw,36px)">Quatre étapes, aucune surprise</h2></div>
+      <div class="steps">
+        <div class="step"><span class="t">2 min</span><span class="num">ÉTAPE 01</span><h3>Vous décrivez la panne</h3><p>Par WhatsApp avec une photo, ou directement au comptoir du Parc Plaza.</p></div>
+        <div class="step"><span class="t">10 min</span><span class="num">ÉTAPE 02</span><h3>Diagnostic et devis</h3><p>L'appareil est ouvert devant vous si besoin. Le prix est annoncé avant toute intervention.</p></div>
+        <div class="step"><span class="t">30–45 min</span><span class="num">ÉTAPE 03</span><h3>Intervention</h3><p>La pièce est posée dans la foulée quand elle est en stock. Vous pouvez attendre sur place.</p></div>
+        <div class="step"><span class="t">5 min</span><span class="num">ÉTAPE 04</span><h3>Tests et garantie</h3><p>Tactile, audio, caméras, charge et capteurs testés devant vous. Garantie six mois par écrit.</p></div>
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top:0">
+      <div class="sec-h"><span class="eyebrow">Grille</span><h2 style="font-size:clamp(23px,3.6vw,36px)">Tarifs et délais</h2>
+      <p>Prix de départ selon le modèle et la pièce disponible. Le montant exact est confirmé au diagnostic.</p></div>
+      <div class="tbl"><div class="tscroll"><table>
+        <thead><tr><th scope="col">Intervention</th><th scope="col">Appareils</th><th scope="col">Durée</th><th scope="col">À partir de</th><th scope="col">Pièce</th></tr></thead>
+        <tbody>
+          <tr><td>Remplacement d'écran</td><td>iPhone 11 → 15</td><td class="n">45 min</td><td class="n">690 DH</td><td><span class="stat stat--ok">en stock</span></td></tr>
+          <tr><td>Remplacement d'écran</td><td>Samsung Galaxy S / A</td><td class="n">1 h</td><td class="n">750 DH</td><td><span class="stat stat--ok">en stock</span></td></tr>
+          <tr><td>Batterie</td><td>iPhone · Samsung · Xiaomi</td><td class="n">30 min</td><td class="n">280 DH</td><td><span class="stat stat--ok">en stock</span></td></tr>
+          <tr><td>Connecteur de charge</td><td>Toutes marques</td><td class="n">40 min</td><td class="n">220 DH</td><td><span class="stat stat--ok">en stock</span></td></tr>
+          <tr><td>Vitre arrière</td><td>iPhone 12 → 15</td><td class="n">2 h</td><td class="n">450 DH</td><td><span class="stat stat--wait">sur commande</span></td></tr>
+          <tr><td>Caméra arrière</td><td>iPhone · Samsung</td><td class="n">1 h</td><td class="n">390 DH</td><td><span class="stat stat--wait">sur commande</span></td></tr>
+          <tr><td>Désoxydation après contact avec l'eau</td><td>Toutes marques</td><td class="n">24 h</td><td class="n">350 DH</td><td><span class="stat stat--ok">diagnostic inclus</span></td></tr>
+          <tr><td>Diagnostic complet</td><td>Toutes marques</td><td class="n">10 min</td><td class="n"><span class="free">offert</span></td><td><span class="stat stat--ok">sans engagement</span></td></tr>
+        </tbody>
+      </table></div></div>
+      <p class="note">// Grille de démonstration — à remplacer par les tarifs réels de l'atelier avant mise en ligne.</p>
+    </section>
+
+    <section class="sec" style="padding-top:0">
+      <div class="sec-h"><span class="eyebrow">Devis</span><h2 style="font-size:clamp(23px,3.6vw,36px)">Demander un prix en deux minutes</h2></div>
+      <form class="form" novalidate>
+        <div class="fgrid">
+          <div class="field"><label for="r-nom">Votre nom</label><input id="r-nom" type="text" placeholder="Nom et prénom" autocomplete="name"></div>
+          <div class="field"><label for="r-tel">Téléphone</label><input id="r-tel" type="tel" placeholder="06 __ __ __ __" autocomplete="tel"></div>
+          <div class="field"><label for="r-modele">Modèle de l'appareil</label><input id="r-modele" type="text" placeholder="iPhone 13, Galaxy S23…"></div>
+          <div class="field"><label for="r-panne">Type de panne</label>
+            <select id="r-panne"><option>Écran cassé</option><option>Batterie qui ne tient plus</option><option>Ne charge plus</option><option>Tombé dans l'eau</option><option>Caméra</option><option>Autre / je ne sais pas</option></select>
+          </div>
+          <div class="field full"><label for="r-msg">Détails</label><textarea id="r-msg" placeholder="Depuis quand ? L'appareil s'allume-t-il ?"></textarea></div>
+          <div class="field full">
+            <button class="btn btn--volt" type="submit" style="width:fit-content">Envoyer la demande</button>
+            <p class="help">Réponse pendant les heures d'ouverture, du lundi au samedi de 10h00 à 22h30. Formulaire de démonstration : aucune donnée n'est envoyée.</p>
+          </div>
+        </div>
+      </form>
+      <footer class="site"><span>Atelier ouvert 6 jours sur 7 · 06 61 79 87 82</span><span class="mono">RÉPARATION</span></footer>
+    </section>
+  </div>
+</section>
+<!-- ═════════ OCCASION ═════════ -->
+<section data-view="occasion">
+  <div class="wrap">
+    <header class="sec" style="padding-bottom:28px">
+      <span class="eyebrow">L'occasion</span>
+      <h2 style="font-size:clamp(30px,6vw,66px);line-height:.98;margin-bottom:16px;max-width:16ch">Mesuré, noté, vérifiable</h2>
+      <p style="max-width:56ch;color:var(--ink2);font-size:16.5px;line-height:1.72;margin:0">Un téléphone d'occasion se vend sur la confiance. Alors tout est mesuré, inscrit sur l'étiquette, et vérifiable devant vous avant de payer.</p>
+    </header>
+
+    <section class="sec" style="padding-top:0">
+      <div class="sec-h"><span class="eyebrow">Protocole</span><h2 style="font-size:clamp(23px,3.6vw,36px)">Les 18 points de contrôle</h2>
+      <p>Passés sur chaque appareil d'occasion avant sa mise en vitrine.</p></div>
+      <div class="checks">
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> IMEI vérifié</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Blocage opérateur</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Compte iCloud / Google supprimé</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Santé de la batterie</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Cycles de charge</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Écran : pixels morts</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Écran : marquage</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Tactile sur toute la surface</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Face ID / capteur d'empreinte</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Caméras avant et arrière</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Micros et haut-parleurs</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Écouteur interne</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Charge filaire et sans fil</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Wi-Fi, Bluetooth, réseau</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Boutons et vibreur</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Capteurs de proximité</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Châssis et vitre arrière</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Traces d'humidité</span>
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top:0">
+      <div class="sec-h"><span class="eyebrow">Reprise</span><h2 style="font-size:clamp(23px,3.6vw,36px)">Votre ancien appareil vaut quelque chose</h2>
+      <p>Reprise en déduction immédiate sur l'achat, ou rachat comptant. L'estimation se fait sur place en dix minutes.</p></div>
+      <div class="tbl"><div class="tscroll"><table>
+        <thead><tr><th scope="col">Appareil repris</th><th scope="col">Bon état</th><th scope="col">État moyen</th><th scope="col">Écran cassé</th></tr></thead>
+        <tbody>
+          <tr><td>iPhone 15 Pro</td><td class="n">7 200 DH</td><td class="n">6 100 DH</td><td class="n">4 400 DH</td></tr>
+          <tr><td>iPhone 13</td><td class="n">3 300 DH</td><td class="n">2 700 DH</td><td class="n">1 800 DH</td></tr>
+          <tr><td>Galaxy S23 Ultra</td><td class="n">4 500 DH</td><td class="n">3 800 DH</td><td class="n">2 400 DH</td></tr>
+          <tr><td>Xiaomi 14</td><td class="n">2 600 DH</td><td class="n">2 100 DH</td><td class="n">1 300 DH</td></tr>
+        </tbody>
+      </table></div></div>
+      <p class="note">// Barème de démonstration. Les valeurs de reprise réelles dépendent du marché et sont fixées en boutique.</p>
+    </section>
+
+    <section class="sec" style="padding-top:0">
+      <div class="sec-h"><span class="eyebrow">Estimation</span><h2 style="font-size:clamp(23px,3.6vw,36px)">Faire estimer un appareil</h2></div>
+      <form class="form" novalidate>
+        <div class="fgrid">
+          <div class="field"><label for="o-modele">Modèle</label><input id="o-modele" type="text" placeholder="iPhone 13, Galaxy S23…"></div>
+          <div class="field"><label for="o-cap">Capacité</label><select id="o-cap"><option>64 Go</option><option>128 Go</option><option>256 Go</option><option>512 Go</option><option>1 To</option></select></div>
+          <div class="field"><label for="o-etat">État général</label><select id="o-etat"><option>Comme neuf</option><option>Bon état, micro-rayures</option><option>État moyen</option><option>Écran cassé</option><option>Ne s'allume plus</option></select></div>
+          <div class="field"><label for="o-tel">Téléphone</label><input id="o-tel" type="tel" placeholder="06 __ __ __ __" autocomplete="tel"></div>
+          <div class="field full">
+            <button class="btn btn--ink" type="submit" style="width:fit-content">Recevoir une estimation</button>
+            <p class="help">Estimation confirmée après vérification en boutique. Formulaire de démonstration : aucune donnée n'est envoyée.</p>
+          </div>
+        </div>
+      </form>
+      <footer class="site"><span>Reprise et rachat comptant · Parc Plaza, Mohammédia</span><span class="mono">OCCASION</span></footer>
+    </section>
+  </div>
+</section>
+
+<!-- ═════════ CONTACT ═════════ -->
+<section data-view="contact">
+  <div class="wrap">
+    <header class="sec" style="padding-bottom:28px">
+      <span class="eyebrow">Nous trouver</span>
+      <h2 style="font-size:clamp(30px,6vw,66px);line-height:.98;margin-bottom:16px;max-width:14ch">Parc Plaza, immeuble C</h2>
+      <p style="max-width:56ch;color:var(--ink2);font-size:16.5px;line-height:1.72;margin:0">Sur la N7, dans l'arcade du Parc Plaza. La devanture noire avec les enseignes Apple, Samsung, Huawei et Xiaomi — impossible de la manquer le soir.</p>
+    </header>
+
+    <section class="sec" style="padding-top:0">
+      <div class="duo">
+        <div class="pane">
+          <h3>Coordonnées</h3>
+          <dl class="dl">
+            <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><use href="#i-pin"/></svg>
+              <dd style="margin:0"><b>Parc Plaza, Immeuble C, N7</b><small>Mohammédia 28810, Maroc</small></dd></div>
+            <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><use href="#i-wa"/></svg>
+              <dd style="margin:0"><b>06 61 79 87 82</b><small>Appel et WhatsApp</small></dd></div>
+            <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><use href="#i-insta"/></svg>
+              <dd style="margin:0"><b>@ch_team_phone</b><small>17,8K abonnés · arrivages en story</small></dd></div>
+            <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><use href="#i-truck"/></svg>
+              <dd style="margin:0"><b>Livraison Glovo</b><small>Mohammédia · paiement carte et sans contact</small></dd></div>
+          </dl>
+          <h3 style="margin:28px 0 16px;font-size:17px">Horaires</h3>
+          <div class="hours">
+            <div><span>Lundi – vendredi</span><b>10h00 – 22h30</b></div>
+            <div><span>Samedi</span><b>10h00 – 22h30</b></div>
+            <div><span>Dimanche</span><b class="shut">Fermé</b></div>
+          </div>
+        </div>
+        <div class="mapbox" aria-hidden="true">
+          <svg class="roads" viewBox="0 0 400 330" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="330" fill="#eceff3"/>
+            <path d="M-20 232 H420" stroke="#dbe0e7" stroke-width="26" fill="none"/>
+            <path d="M262 -20 V350" stroke="#dbe0e7" stroke-width="17" fill="none"/>
+            <path d="M-20 112 H420M96 -20 V350M348 -20 V350" stroke="#e3e7ec" stroke-width="7" fill="none"/>
+            <g fill="#e5e9ee" stroke="#d6dbe3">
+              <rect x="120" y="140" width="106" height="66" rx="4"/>
+              <rect x="292" y="146" width="80" height="58" rx="4"/>
+              <rect x="122" y="256" width="92" height="52" rx="4"/>
+            </g>
+          </svg>
+          <div class="marker"><span class="d"></span><b>Ch Team Phones</b><small>PARC PLAZA · IMM. C · N7</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top:0">
+      <div class="sec-h"><span class="eyebrow">Message</span><h2 style="font-size:clamp(23px,3.6vw,36px)">Nous écrire</h2></div>
+      <form class="form" novalidate>
+        <div class="fgrid">
+          <div class="field"><label for="c-nom">Nom</label><input id="c-nom" type="text" placeholder="Nom et prénom" autocomplete="name"></div>
+          <div class="field"><label for="c-tel">Téléphone</label><input id="c-tel" type="tel" placeholder="06 __ __ __ __" autocomplete="tel"></div>
+          <div class="field full"><label for="c-obj">Objet</label><select id="c-obj"><option>Question sur un produit</option><option>Réparation</option><option>Reprise / rachat</option><option>Commande d'un modèle</option><option>Autre</option></select></div>
+          <div class="field full"><label for="c-msg">Message</label><textarea id="c-msg" placeholder="Votre message"></textarea></div>
+          <div class="field full">
+            <button class="btn btn--volt" type="submit" style="width:fit-content">Envoyer</button>
+            <p class="help">Formulaire de démonstration : aucune donnée n'est envoyée. Le plus rapide reste WhatsApp au 06 61 79 87 82.</p>
+          </div>
+        </div>
+      </form>
+      <p class="disclaim">// MAQUETTE — Adresse, téléphone, horaires, note Google et compte Instagram sont réels. Prix, délais, barèmes de reprise et avis sont des repères de mise en page.</p>
+      <footer class="site"><span>Ch Team Phones · Parc Plaza, Imm. C, N7 · Mohammédia 28810</span><span class="mono">CONTACT</span></footer>
+    </section>
+  </div>
+</section>
+
+</div>
+
+<script>
+(function(){
+  var views = Array.prototype.slice.call(document.querySelectorAll('[data-view]'));
+  var links = Array.prototype.slice.call(document.querySelectorAll('.topnav button'));
+  function show(name, push){
+    var found=false;
+    views.forEach(function(v){var on=v.getAttribute('data-view')===name;v.classList.toggle('on',on);if(on)found=true;});
+    if(!found) return show('accueil', push);
+    links.forEach(function(l){
+      if(l.getAttribute('data-go')===name) l.setAttribute('aria-current','page'); else l.removeAttribute('aria-current');
+    });
+    window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+    if(push && location.hash!=='#'+name) history.pushState(null,'','#'+name);
+  }
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('[data-go]'); if(!t) return; e.preventDefault();
+    show(t.getAttribute('data-go'),true);
+  });
+  addEventListener('popstate',function(){show(location.hash.slice(1)||'accueil',false);});
+  if(location.hash) show(location.hash.slice(1),false);
+
+  var chips=Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){
+      chips.forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false');});
+      var f=c.getAttribute('data-f');
+      document.querySelectorAll('#shopgrid .card').forEach(function(card){
+        card.style.display=(f==='all'||card.getAttribute('data-cat')===f)?'':'none';
+      });
+    });
+  });
+
+  document.querySelectorAll('form').forEach(function(f){
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var b=f.querySelector('button[type="submit"]'); if(!b||b.dataset.busy) return;
+      var txt=b.textContent; b.dataset.busy='1'; b.textContent='Maquette — non envoyé';
+      setTimeout(function(){b.textContent=txt;delete b.dataset.busy;},2600);
+    });
+  });
+
+  /* la vue éclatée suit légèrement le curseur */
+  var rig=document.querySelector('.rigged');
+  if(rig && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var tiltX=0,tiltY=0,cx=0,cy=0;
+    addEventListener('pointermove',function(e){
+      tiltY=(e.clientX/innerWidth-.5)*14;
+      tiltX=(e.clientY/innerHeight-.5)*-10;
+    },{passive:true});
+    (function loop(){
+      cx+=(tiltX-cx)*.05; cy+=(tiltY-cy)*.05;
+      rig.style.setProperty('--tx',cx.toFixed(2)+'deg');
+      rig.parentElement.style.perspectiveOrigin=(50+cy*.6).toFixed(1)+'% '+(44+cx*.5).toFixed(1)+'%';
+      requestAnimationFrame(loop);
+    })();
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Quatre Sites Ch Team — Ch Team Phones</title>
+<style>*{box-sizing:border-box}img{max-width:100%}[hidden]{display:none!important}body{margin:0;font:14px system-ui,sans-serif}</style>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#f0f1f4; --card:#ffffff; --ink:#0d1117; --ink2:#576172; --ink3:#8a94a4;
+  --line:#dde1e8; --line2:#c7cdd7; --accent:#2f26ff;
+}
+:root:not([data-theme="light"]){color-scheme:light}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0b0e14; --card:#141a23; --ink:#eef2f8; --ink2:#98a3b4; --ink3:#6c7787;
+    --line:#232c39; --line2:#33404f; --accent:#8b84ff;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0b0e14; --card:#141a23; --ink:#eef2f8; --ink2:#98a3b4; --ink3:#6c7787;
+  --line:#232c39; --line2:#33404f; --accent:#8b84ff;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:'Manrope',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2.5px solid var(--accent);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:'Archivo',system-ui,sans-serif;font-weight:800;letter-spacing:-.04em;margin:0;text-wrap:balance}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
+.wrap{max-width:1000px;margin:0 auto;padding:0 clamp(18px,4vw,40px)}
+
+header.top{padding:clamp(48px,7vw,86px) 0 clamp(26px,4vw,42px)}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);margin:0 0 18px}
+header.top h1{font-size:clamp(30px,5.4vw,54px);line-height:1;margin-bottom:18px;max-width:17ch}
+header.top p{margin:0 0 26px;max-width:62ch;font-size:16px;line-height:1.72;color:var(--ink2)}
+header.top p strong{color:var(--ink);font-weight:600}
+.facts{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.facts li{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;
+  border:1px solid var(--line);background:var(--card);border-radius:999px;padding:7px 13px;color:var(--ink2);
+}
+.facts li b{color:var(--ink);font-weight:500}
+
+.list{display:grid;gap:14px;padding-bottom:clamp(30px,5vw,54px)}
+.site{
+  display:grid;grid-template-columns:132px 1fr auto;gap:clamp(16px,3vw,30px);align-items:center;
+  border:1px solid var(--line);border-radius:20px;padding:20px clamp(18px,3vw,26px);background:var(--card);
+  transition:transform .22s cubic-bezier(.22,.9,.3,1),border-color .22s ease,box-shadow .22s ease;
+}
+.site:hover{transform:translateY(-4px);border-color:var(--line2);box-shadow:0 26px 50px -36px rgba(9,14,24,.6)}
+.swatch{
+  height:96px;border-radius:14px;border:1px solid var(--line);position:relative;overflow:hidden;
+}
+.sw1{background:radial-gradient(circle at 40% 34%,#3d8bff 0%,#25f39a 34%,#ff2d55 62%,#04050a 100%)}
+.sw1::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,45,85,.4) 0 2px,rgba(37,243,154,.4) 2px 4px,rgba(61,139,255,.4) 4px 6px);opacity:.45}
+.sw2{background:linear-gradient(180deg,#0a1734 0%,#12305e 46%,#ff8a5c 62%,#ffd08a 78%,#050b1c 100%)}
+.sw3{background:conic-gradient(from 22.5deg,#d5a94e 0 12.5%,#0a3a31 0 25%,#d5a94e 0 37.5%,#0a3a31 0 50%,#c2542f 0 62.5%,#0a3a31 0 75%,#d5a94e 0 87.5%,#04231f 0)}
+.sw4{background:linear-gradient(155deg,#ffffff 0%,#e2e6ec 46%,#2f26ff 78%,#ff8a00 100%)}
+.site .meta h2{font-size:clamp(19px,2.6vw,25px);margin-bottom:7px}
+.site .meta .idx{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:8px}
+.site .meta p{margin:0 0 10px;font-size:14.5px;line-height:1.64;color:var(--ink2);max-width:58ch}
+.site .meta .tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:0}
+.site .meta .tags li{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);border:1px solid var(--line);border-radius:5px;padding:4px 8px}
+.open{
+  display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:var(--bg);
+  border-radius:11px;padding:12px 19px;font-size:14px;font-weight:700;white-space:nowrap;
+}
+.open:hover{background:var(--accent);color:#fff}
+@media (max-width:800px){
+  .site{grid-template-columns:1fr;gap:14px}
+  .swatch{height:74px}
+  .open{justify-self:start}
+}
+
+.pages{
+  border:1px solid var(--line);border-radius:20px;padding:clamp(22px,3.4vw,32px);background:var(--card);
+  margin-bottom:14px;
+}
+.pages h2{font-size:19px;margin-bottom:8px}
+.pages > p{margin:0 0 20px;color:var(--ink2);font-size:14.5px;line-height:1.68;max-width:62ch}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:12px}
+.pg{border:1px solid var(--line);border-radius:13px;padding:15px 16px}
+.pg b{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:14.5px;letter-spacing:-.02em;margin-bottom:5px}
+.pg span{font-size:12.5px;line-height:1.55;color:var(--ink2)}
+
+.todo{
+  border:1px dashed var(--line2);border-radius:20px;padding:clamp(22px,3.4vw,32px);
+  background:var(--card);margin-bottom:clamp(40px,6vw,72px);
+}
+.todo h2{font-size:19px;margin-bottom:14px}
+.todo ul{margin:0;padding-left:19px;color:var(--ink2);font-size:14.5px;line-height:1.72}
+.todo li{margin-bottom:9px}
+.todo li b{color:var(--ink);font-weight:600}
+footer{padding:0 0 50px;font-size:12.5px;color:var(--ink3);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{transition-duration:.01ms!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <p class="eyebrow">Ch Team Phones · Mohammédia · 8 septembre 2026</p>
+    <h1>Quatre sites complets, quatre partis pris</h1>
+    <p>Chaque lien ouvre un <strong>site entier de cinq pages</strong> — accueil, boutique avec filtres, réparation avec grille de tarifs, occasion et reprise, contact — pas un extrait. Les quatre partagent les mêmes informations réelles de la boutique et se distinguent par leur univers visuel. <strong>Trois d'entre eux tournent sur un fond animé en WebGL</strong>, le quatrième sur une vue éclatée en 3D.</p>
+    <ul class="facts">
+      <li>Parc Plaza, Imm. C, N7 — <b>Mohammédia 28810</b></li>
+      <li><b>06 61 79 87 82</b></li>
+      <li>Lun–Sam <b>10h00 – 22h30</b></li>
+      <li><b>4,9 ★</b> · 206 avis Google</li>
+      <li><b>@ch_team_phone</b> · 17,8K</li>
+      <li>Carte &amp; NFC · <b>Glovo</b></li>
+    </ul>
+  </header>
+
+  <div class="list">
+    <article class="site">
+      <span class="swatch sw1" aria-hidden="true"></span>
+      <div class="meta">
+        <span class="idx">Site 01</span>
+        <h2>Chambre Noire</h2>
+        <p>On navigue à l'intérieur d'une dalle OLED : le fond est une trame de sous-pixels rouge, verte et bleue qui respire et suit le curseur. Le magasin est présenté comme les quatre couches d'un téléphone — verre, dalle, batterie, châssis.</p>
+        <ul class="tags"><li>Shader WebGL</li><li>Sombre</li><li>Technique</li><li>Rail vertical</li></ul>
+      </div>
+      <a class="open" href="01-chambre-noire.html">Ouvrir le site</a>
+    </article>
+
+    <article class="site">
+      <span class="swatch sw2" aria-hidden="true"></span>
+      <div class="meta">
+        <span class="idx">Site 02</span>
+        <h2>Marée de Verre</h2>
+        <p>Mohammédia est une ville côtière : le site pose la boutique sur un océan de verre en fusion au coucher du soleil, rendu en shader, avec les appareils en îles de verre qui flottent au-dessus des vagues.</p>
+        <ul class="tags"><li>Shader WebGL</li><li>Crépuscule</li><li>Éditorial</li><li>Verre</li></ul>
+      </div>
+      <a class="open" href="02-maree-de-verre.html">Ouvrir le site</a>
+    </article>
+
+    <article class="site">
+      <span class="swatch sw3" aria-hidden="true"></span>
+      <div class="meta">
+        <span class="idx">Site 03</span>
+        <h2>Zellige Infini</h2>
+        <p>Un zellige génératif qui se recompose sans fin : trois strates d'étoiles à huit branches en laiton, vert de Fès et terracotta, qui tournent et zooment. Titres bilingues français / arabe, sections en arches.</p>
+        <ul class="tags"><li>Shader WebGL</li><li>Marocain</li><li>FR / AR</li><li>Laiton</li></ul>
+      </div>
+      <a class="open" href="03-zellige-infini.html">Ouvrir le site</a>
+    </article>
+
+    <article class="site">
+      <span class="swatch sw4" aria-hidden="true"></span>
+      <div class="meta">
+        <span class="idx">Site 04</span>
+        <h2>Atelier Suspendu</h2>
+        <p>Le seul site clair. Un smartphone en vue éclatée lévite et tourne en 3D, ses cinq couches séparées et légendées avec les durées de chaque intervention. Blanc d'atelier, bleu électrique, précision.</p>
+        <ul class="tags"><li>3D CSS</li><li>Clair</li><li>Vue éclatée</li><li>Électrique</li></ul>
+      </div>
+      <a class="open" href="04-atelier-suspendu.html">Ouvrir le site</a>
+    </article>
+  </div>
+
+  <section class="pages">
+    <h2>Les cinq pages, identiques dans les quatre sites</h2>
+    <p>La navigation est réelle : chaque page a son adresse et le bouton retour du navigateur fonctionne.</p>
+    <div class="pgrid">
+      <div class="pg"><b>Accueil</b><span>Hero, preuves, les quatre métiers, sélection produits, avis, appel à contact</span></div>
+      <div class="pg"><b>Boutique</b><span>12 produits, filtres neuf / occasion / accessoires / ordinateurs</span></div>
+      <div class="pg"><b>Réparation</b><span>Déroulé en 4 étapes, grille de 8 tarifs avec délais, formulaire de devis</span></div>
+      <div class="pg"><b>Occasion</b><span>18 points de contrôle, barème de reprise, formulaire d'estimation</span></div>
+      <div class="pg"><b>Contact</b><span>Coordonnées, horaires, plan, formulaire de message</span></div>
+    </div>
+  </section>
+
+  <section class="todo">
+    <h2>À valider avec le responsable avant mise en ligne</h2>
+    <ul>
+      <li><b>La grille de tarifs de réparation.</b> Les prix affichés (690 DH un écran, 280 DH une batterie…) sont des repères de mise en page, pas les vrais tarifs.</li>
+      <li><b>Les prix et le stock des produits.</b> Même chose : à remplacer par la liste réelle de la boutique.</li>
+      <li><b>La durée de garantie</b> annoncée sur les réparations (six mois dans les maquettes) et sur l'occasion (trois mois).</li>
+      <li><b>Les marques réparées</b> et les interventions réellement proposées.</li>
+      <li><b>Les avis clients</b> : les citations sont des exemples. Les vrais avis Google devront être repris tels quels.</li>
+      <li><b>L'orthographe exacte de l'enseigne</b> : Ch Team Phones ou CH TEAM PHONE.</li>
+      <li><b>Les photos.</b> Aucun appareil n'est photographié — tout est dessiné en code. Le site final utilisera les photos de la boutique et des produits.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <span>Ch Team Phones · Parc Plaza, Imm. C, N7 · Mohammédia 28810 · 06 61 79 87 82</span>
+    <span class="mono">4 DIRECTIONS</span>
+  </footer>
+</div>
+</body>
+</html>
