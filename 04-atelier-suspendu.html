@@ -307,6 +307,22 @@ textarea{resize:vertical;min-height:98px}
 .mapbox .marker b{display:block;font-family:'Archivo',sans-serif;font-weight:800;font-size:15px;letter-spacing:-.03em}
 .mapbox .marker small{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ink3);letter-spacing:.1em}
 
+
+.rating{
+  display:grid;grid-template-columns:auto 1fr auto;gap:clamp(20px,4vw,48px);align-items:center;
+  border:1px solid var(--line);border-radius:20px;padding:clamp(22px,3.4vw,34px);background:var(--white);
+}
+.rating-big{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:150px}
+.rating-n{font-family:'Archivo',sans-serif;font-size:72px;font-weight:900;letter-spacing:-.06em;line-height:.9;font-variant-numeric:tabular-nums}
+.rating-big .stars{margin:4px 0 0}
+.rating-sub{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
+.rating-bars{display:grid;gap:9px;min-width:220px}
+.rb{display:grid;grid-template-columns:34px 1fr 32px;gap:12px;align-items:center;font-size:12.5px;color:var(--ink2)}
+.rb .track{height:8px;border-radius:99px;background:#e8ebf0;overflow:hidden}
+.rb .fill{display:block;height:100%;border-radius:99px;background:var(--amber);min-width:0}
+.rb b{text-align:right;font-variant-numeric:tabular-nums;color:var(--ink)}
+.rating-cta{display:flex;flex-direction:column;gap:12px;max-width:240px}
+@media (max-width:820px){.rating{grid-template-columns:1fr}.rating-cta{max-width:none}}
 .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:14px}
 .quote{border:1px solid var(--line);border-radius:18px;padding:22px;background:var(--white)}
 .quote p{margin:0 0 12px;font-size:15px;line-height:1.65}
@@ -359,6 +375,7 @@ footer.site{
     <button data-go="boutique">Boutique</button>
     <button data-go="reparation">Réparation</button>
     <button data-go="occasion">Occasion</button>
+    <button data-go="avis">Avis</button>
     <button data-go="contact">Contact</button>
   </nav>
   <a class="top-call" href="tel:0661798782">
@@ -388,7 +405,7 @@ footer.site{
           </button>
         </div>
         <div class="kpis">
-          <div><b>4,9</b><span>206 avis</span></div>
+          <div><b>4,9</b><span>208 avis</span></div>
           <div><b>17,8K</b><span>abonnés</span></div>
           <div><b>6 mois</b><span>garantie</span></div>
           <div><b>48 h</b><span>commande</span></div>
@@ -448,24 +465,27 @@ footer.site{
     </section>
 
     <section class="sec" style="padding-top:0">
-      <div class="sec-h"><span class="eyebrow">206 avis</span><h2>Ce que les clients écrivent</h2></div>
+      <div class="sec-h"><span class="eyebrow">4,9 sur Google · 208 avis</span><h2>Ce que les clients écrivent</h2>
+      <p>Avis publiés sur la fiche Google de la boutique, repris tels quels.</p></div>
       <div class="quotes">
         <blockquote class="quote">
           <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
-          <p>« Écran changé en moins d'une heure, et le prix annoncé était le prix payé. »</p>
-          <small>Avis Google · exemple de mise en page</small>
+          <p>Je suis très satisfaite de la rapidité et du professionnalisme de votre équipe. En presque 40min j’ai pu récupérer mon téléphone réparé avec soin. Merci ☺️</p>
+          <small>Hind E. · Local Guide · nov. 2025</small>
         </blockquote>
         <blockquote class="quote">
           <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
-          <p>« Ils expliquent ce qui ne va pas avant de toucher au téléphone. »</p>
-          <small>Avis Google · exemple de mise en page</small>
+          <p>Un service impeccable et une équipe professionnelle ! J’ai trouvé exactement ce que je cherchais grâce à leurs conseils personnalisés. Produits de qualité, prix compétitifs, et surtout, une assistance après-vente réactive et efficace. Je recommande vivement ce revendeur pour tous vos besoins en téléphonie !</p>
+          <small>Mouhsine M. · Local Guide · 2025</small>
         </blockquote>
         <blockquote class="quote">
           <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
-          <p>« Ouvert tard : le seul endroit où je peux passer après le travail. »</p>
-          <small>Avis Google · exemple de mise en page</small>
+          <p>Des telephones de qualité et un service client au Top. Je recommande si vous voulez acheter ou faire une reprise de votre telephone</p>
+          <small>Oumaima T. · juil. 2026</small>
         </blockquote>
       </div>
+      <div style="margin-top:18px"><button class="btn btn--wire" data-go="avis">Lire les 208 avis
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
     </section>
 
     <section class="sec" style="padding-top:0">
@@ -477,7 +497,7 @@ footer.site{
           Écrire sur WhatsApp
         </a>
       </div>
-      <p class="disclaim">// MAQUETTE — Adresse, téléphone, horaires, note Google et compte Instagram sont réels. Les prix, délais et avis sont des repères de mise en page à remplacer par les données de la boutique.</p>
+      <p class="disclaim">// MAQUETTE — Adresse, téléphone, horaires, note Google et compte Instagram sont réels. Les avis sont les vrais avis Google de la boutique. Les prix et délais sont des repères de mise en page à remplacer par les données de la boutique.</p>
       <footer class="site"><span>Ch Team Phones · Parc Plaza, Imm. C, N7 · Mohammédia 28810</span><span class="mono">DIRECTION 04 — ATELIER SUSPENDU</span></footer>
     </section>
   </div>
@@ -652,6 +672,124 @@ footer.site{
   </div>
 </section>
 
+<!-- ═════════ AVIS ═════════ -->
+<section data-view="avis">
+  <div class="wrap">
+    <header class="sec" style="padding-bottom:28px">
+      <span class="eyebrow">Avis Google</span>
+      <h2 style="font-size:clamp(30px,6vw,66px);line-height:.98;margin-bottom:16px;max-width:15ch">4,9 sur 5, 208 avis</h2>
+      <p style="max-width:56ch;color:var(--ink2);font-size:16.5px;line-height:1.72;margin:0">Tout ce qui suit est écrit par des clients sur la fiche Google de Ch Team Phones, et repris ici sans retouche. Relevé le 15 septembre 2026.</p>
+    </header>
+
+    <section class="sec" style="padding-top:0">
+      <div class="rating">
+        <div class="rating-big">
+          <span class="rating-n">4,9</span>
+          <span class="stars" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <span class="rating-sub">208 avis Google</span>
+        </div>
+        <div class="rating-bars">
+          <div class="rb"><span>5 ★</span><span class="track"><span class="fill" style="width:98.6%"></span></span><b>205</b></div>
+          <div class="rb"><span>4 ★</span><span class="track"><span class="fill" style="width:0%"></span></span><b>0</b></div>
+          <div class="rb"><span>3 ★</span><span class="track"><span class="fill" style="width:0%"></span></span><b>0</b></div>
+          <div class="rb"><span>2 ★</span><span class="track"><span class="fill" style="width:0%"></span></span><b>0</b></div>
+          <div class="rb"><span>1 ★</span><span class="track"><span class="fill" style="width:1.4%"></span></span><b>3</b></div>
+        </div>
+        <div class="rating-cta">
+          <a class="btn btn--ink" href="https://maps.google.com/?cid=2125195035454559714" rel="noopener" target="_blank">Voir sur Google</a>
+          <p class="help">Les avis sont vérifiés et hébergés par Google. Ils ne peuvent pas être modifiés par la boutique.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top:0">
+      <div class="sec-h"><span class="eyebrow">Sélection</span><h2 style="font-size:clamp(23px,3.6vw,36px)">Ce qui revient le plus souvent</h2>
+      <p>La rapidité des réparations, les conseils avant l'achat, la reprise de l'ancien appareil, et Amine.</p></div>
+      <div class="quotes">
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Je suis très satisfaite de la rapidité et du professionnalisme de votre équipe. En presque 40min j’ai pu récupérer mon téléphone réparé avec soin. Merci ☺️</p>
+          <small>Hind E. · Local Guide · nov. 2025</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Un service impeccable et une équipe professionnelle ! J’ai trouvé exactement ce que je cherchais grâce à leurs conseils personnalisés. Produits de qualité, prix compétitifs, et surtout, une assistance après-vente réactive et efficace. Je recommande vivement ce revendeur pour tous vos besoins en téléphonie !</p>
+          <small>Mouhsine M. · Local Guide · 2025</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Des telephones de qualité et un service client au Top. Je recommande si vous voulez acheter ou faire une reprise de votre telephone</p>
+          <small>Oumaima T. · juil. 2026</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Très bonne expérience ! Un service de qualité, une équipe professionnelle et surtout très engagée et à l’écoute du client. Travail sérieux, rapide et efficace, aussi bien pour l’achat de téléphones que pour la réparation.</p>
+          <small>Amine N. · sept. 2026</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Mon téléphone casser il me la réparer en 1h et nickel.</p>
+          <small>Sohan M. · août 2026</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Très bonne boutique de téléphonie à Mohammedia. J'y ai acheté un smartphone ainsi que des accessoires (coque, verre trempé et chargeur). Produits de qualité et excellent accueil. Je recommande.</p>
+          <small>Yassine · juin 2026</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Mon Iphone 16 pro max bonne occasion de chez Ch team</p>
+          <small>Abdessamad K. · déc. 2025</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Excellent service ! L’équipe est accueillante, professionnelle et de bon conseil. J’ai trouvé exactement ce que je cherchais, et à un bon prix. Je recommande sans hésiter ce magasin pour l’achat ou la réparation de téléphone. Merci Amine !</p>
+          <small>Wissal C. · 2025</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Excellent magasin de téléphones ! Le personnel est accueillant, professionnel et de bon conseil. Large choix de smartphones et d'accessoires à des prix compétitifs. Je recommande vivement !</p>
+          <small>Anas M. · août 2026</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Je cherchais des écouteurs et une coque pour mon iPhone, et j'ai trouvé exactement ce qu'il me fallait. Prix corrects, service rapide et personnel sympathique. Très satisfait de mon expérience.</p>
+          <small>Ayoub A. · juin 2026</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>J’ai acheté un iPhone et un chargeur chez lui, tout est en parfait état. Service rapide et de confiance. Très satisfaite de mon achat</p>
+          <small>Oumaima E. · janv. 2026</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Accueil professionnel et agréable, on sent que le vendeur connaît bien ses produits. Transaction rapide, sans prise de tête. Je recommande sans hésiter.</p>
+          <small>Yahya M. · 2025</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Excellent service, professionnel, hyper réactif recommandé à 200/100</p>
+          <small>Philippe L. · Local Guide · juil. 2026</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Je recommande vivement CH Team Phone à toute personne cherchant un vendeur fiable et de confiance. Service professionnel, sérieux et à l’écoute. Merci encore pour votre professionnalisme 🙏🏻</p>
+          <small>Rime · avr. 2026</small>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top:0">
+      <div class="cta-final">
+        <h2>Vous êtes passé à la boutique ?</h2>
+        <p>Un avis prend une minute et aide le prochain client à se décider.</p>
+        <a class="btn btn--volt" href="https://maps.google.com/?cid=2125195035454559714" rel="noopener" target="_blank">Laisser un avis Google</a>
+      </div>
+      <footer class="site"><span>Ch Team Phones · Parc Plaza, Imm. C, N7 · Mohammédia 28810</span><span class="mono">AVIS</span></footer>
+    </section>
+  </div>
+</section>
+
 <!-- ═════════ CONTACT ═════════ -->
 <section data-view="contact">
   <div class="wrap">
@@ -713,7 +851,7 @@ footer.site{
           </div>
         </div>
       </form>
-      <p class="disclaim">// MAQUETTE — Adresse, téléphone, horaires, note Google et compte Instagram sont réels. Prix, délais, barèmes de reprise et avis sont des repères de mise en page.</p>
+      <p class="disclaim">// MAQUETTE — Adresse, téléphone, horaires, note Google et compte Instagram sont réels. Les avis sont les vrais avis Google. Prix, délais et barèmes de reprise sont des repères de mise en page.</p>
       <footer class="site"><span>Ch Team Phones · Parc Plaza, Imm. C, N7 · Mohammédia 28810</span><span class="mono">CONTACT</span></footer>
     </section>
   </div>
