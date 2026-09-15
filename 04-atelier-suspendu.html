@@ -959,21 +959,38 @@ footer.site{
   function drawScreen(x,img){
     x.clearRect(0,0,720,1500);
     x.fillStyle='#050302'; x.fillRect(0,0,720,1500);
-    if(img){ x.imageSmoothingEnabled=true; x.imageSmoothingQuality='high'; x.drawImage(img,0,0,720,1500); }
+    if(img){ x.imageSmoothingEnabled=true; x.imageSmoothingQuality='high';
+      x.filter='contrast(1.08) saturate(1.05)'; x.drawImage(img,0,0,720,1500); x.filter='none'; }
     x.lineJoin='round'; x.lineCap='round';
-    /* barre d'état */
-    x.fillStyle='#fff'; x.font='600 30px "Familjen Grotesk", system-ui'; x.textAlign='left'; x.fillText('22:30',56,58);
-    x.textAlign='right'; x.font='500 26px system-ui'; x.fillText('●●●●  ᯤ',600,58);
-    x.fillStyle='rgba(255,255,255,.9)'; rr(x,616,34,50,26,6); x.fill(); x.fillStyle='#22d36b'; rr(x,620,38,38,18,4); x.fill();
+    /* barre d'état : signal, wifi, batterie 96 */
+    x.textAlign='right'; x.fillStyle='rgba(255,255,255,.95)';
+    for(var i=0;i<4;i++){ rr(x,470+i*11,64-i*4,7,10+i*4,2); x.globalAlpha=i<3?.95:.4; x.fill(); x.globalAlpha=1; }
+    x.font='600 24px system-ui'; x.fillText('ᯤ',560,72);
+    rr(x,586,44,64,30,8); x.fillStyle='rgba(255,255,255,.95)'; x.fill(); rr(x,652,53,5,12,2); x.fillStyle='rgba(255,255,255,.5)'; x.fill();
+    x.fillStyle='#000'; x.font='700 22px system-ui'; x.textAlign='center'; x.fillText('96',618,67);
     /* île dynamique */
-    x.fillStyle='#000'; rr(x,248,44,224,68,34); x.fill(); x.fillStyle='#14171f'; x.beginPath(); x.arc(428,78,14,0,7); x.fill();
-    /* écran verrouillé */
-    x.textAlign='center'; x.shadowColor='rgba(0,0,0,.55)'; x.shadowBlur=20;
-    x.fillStyle='rgba(255,255,255,.92)'; x.font='500 36px "Familjen Grotesk", system-ui'; x.fillText('lundi 15 septembre',360,215);
-    x.font='600 190px Archivo, system-ui'; x.fillStyle='rgba(255,255,255,.96)'; x.fillText('22:30',360,395); x.shadowBlur=0;
-    x.fillStyle='rgba(255,255,255,.22)'; x.beginPath(); x.arc(110,1385,44,0,7); x.fill(); x.beginPath(); x.arc(610,1385,44,0,7); x.fill();
-    x.fillStyle='rgba(255,255,255,.9)'; rr(x,98,1366,24,38,5); x.fill(); rr(x,592,1372,36,26,7); x.fill(); x.fillStyle='rgba(0,0,0,.6)'; x.beginPath(); x.arc(610,1385,7,0,7); x.fill();
-    x.fillStyle='rgba(255,255,255,.9)'; rr(x,240,1440,240,12,6); x.fill();
+    x.fillStyle='#000'; rr(x,236,40,248,70,35); x.fill(); x.fillStyle='#161a24'; x.beginPath(); x.arc(440,75,15,0,7); x.fill();
+    x.fillStyle='rgba(40,70,120,.9)'; x.beginPath(); x.arc(440,75,7,0,7); x.fill();
+    /* date */
+    x.textAlign='center'; x.fillStyle='rgba(235,235,240,.9)'; x.font='500 42px -apple-system, "SF Pro", "Familjen Grotesk", system-ui';
+    x.shadowColor='rgba(0,0,0,.45)'; x.shadowBlur=14; x.fillText('lun. 15 sept.',360,208);
+    /* heure : chiffres gris translucides, effet verre (iOS 26) */
+    x.font='600 226px -apple-system, "SF Pro Rounded", "SF Pro Display", "Familjen Grotesk", system-ui';
+    x.shadowBlur=0;
+    x.save(); x.globalCompositeOperation='lighter'; x.fillStyle='rgba(120,120,130,.22)'; x.fillText('22:30',360,398); x.restore();
+    x.fillStyle='rgba(205,205,212,.42)'; x.fillText('22:30',360,398);
+    x.strokeStyle='rgba(255,255,255,.55)'; x.lineWidth=2.2; x.strokeText('22:30',360,398);
+    var hg=x.createLinearGradient(0,220,0,400); hg.addColorStop(0,'rgba(255,255,255,.28)'); hg.addColorStop(.5,'rgba(255,255,255,.04)'); hg.addColorStop(1,'rgba(255,255,255,.18)');
+    x.fillStyle=hg; x.fillText('22:30',360,398);
+    /* boutons lampe et appareil photo */
+    [[150,1372],[570,1372]].forEach(function(c){ x.fillStyle='rgba(255,255,255,.17)'; x.beginPath(); x.arc(c[0],c[1],50,0,7); x.fill();
+      x.strokeStyle='rgba(255,255,255,.28)'; x.lineWidth=1.5; x.beginPath(); x.arc(c[0],c[1],50,0,7); x.stroke(); });
+    x.fillStyle='rgba(255,255,255,.95)';
+    rr(x,138,1346,24,20,4); x.fill(); rr(x,142,1366,16,32,4); x.fill(); x.fillStyle='rgba(0,0,0,.35)'; x.fillRect(146,1370,8,3);
+    x.fillStyle='rgba(255,255,255,.95)'; rr(x,548,1360,44,32,7); x.fill(); x.fillStyle='rgba(0,0,0,.55)'; x.beginPath(); x.arc(570,1376,9,0,7); x.fill();
+    x.fillStyle='rgba(255,255,255,.95)'; rr(x,556,1352,14,8,2); x.fill();
+    /* indicateur d'accueil */
+    x.fillStyle='rgba(255,255,255,.92)'; rr(x,240,1446,240,11,6); x.fill();
   }
   function screenTexture(){
     var c=document.createElement('canvas'); c.width=720; c.height=1500; var x=c.getContext('2d');
