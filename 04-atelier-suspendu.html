@@ -868,7 +868,7 @@ footer.site{
 
   var scene=new THREE.Scene();
   var camera=new THREE.PerspectiveCamera(26,1,0.1,200);
-  camera.position.set(15,24,21); camera.lookAt(0,3.6,0);
+  camera.position.set(21,33,29); camera.lookAt(0,4.2,0);
 
   /* lumières : ciel doux + clé + contre */
   scene.add(new THREE.HemisphereLight(0xffffff,0xd9dde4,0.85));
@@ -1005,7 +1005,7 @@ footer.site{
   function size(){
     var w=cv.clientWidth||600,h=cv.clientHeight||480;
     renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix();
-    var f=Math.max(1,1.15/camera.aspect); camera.position.set(15*f,24*f,21*f); camera.lookAt(0,3.6,0);
+    var f=Math.max(1,1.25/camera.aspect); camera.position.set(21*f,33*f,29*f); camera.lookAt(0,4.2,0);
   }
   size(); addEventListener('resize',size);
 
