@@ -957,31 +957,41 @@ footer.site{
   /* ---------- textures de faces ---------- */
   function screenTexture(){
     var c=document.createElement('canvas'); c.width=720; c.height=1500; var x=c.getContext('2d');
-    /* fond nuit profonde */
-    var g=x.createLinearGradient(0,0,0,1500); g.addColorStop(0,'#05070f'); g.addColorStop(.55,'#0b1226'); g.addColorStop(1,'#1a0d08'); x.fillStyle=g; x.fillRect(0,0,720,1500);
-    /* rubans de lumière (style Cosmic Orange) : courbes larges, floutées, superposées */
-    function ribbon(pts,w,col,blur,alpha){ x.save(); x.filter='blur('+blur+'px)'; x.globalAlpha=alpha; x.strokeStyle=col; x.lineWidth=w; x.lineCap='round'; x.beginPath();
-      x.moveTo(pts[0][0],pts[0][1]); for(var i=1;i<pts.length-1;i++){ var xc=(pts[i][0]+pts[i+1][0])/2, yc=(pts[i][1]+pts[i+1][1])/2; x.quadraticCurveTo(pts[i][0],pts[i][1],xc,yc); }
-      x.lineTo(pts[pts.length-1][0],pts[pts.length-1][1]); x.stroke(); x.restore(); }
-    ribbon([[-100,1500],[120,1180],[420,1020],[820,780]],260,'#ff6a00',70,.75);
-    ribbon([[-120,1350],[160,1080],[480,880],[900,640]],150,'#ffb347',40,.85);
-    ribbon([[-80,1240],[220,980],[560,760],[960,520]],46,'#fff1d6',14,.9);
-    ribbon([[820,1500],[560,1220],[300,1060],[-100,900]],220,'#c2410c',80,.55);
-    ribbon([[-60,600],[260,480],[520,300],[820,80]],180,'#ff8a3d',90,.35);
-    ribbon([[900,260],[620,380],[380,540],[80,760]],120,'#3b30ff',90,.28);
-    /* grain léger et vignette */
-    x.save(); x.globalAlpha=.06; for(var i=0;i<9000;i++){ x.fillStyle=Math.random()<.5?'#fff':'#000'; x.fillRect(Math.random()*720,Math.random()*1500,1.5,1.5); } x.restore();
-    var vg=x.createRadialGradient(360,700,300,360,700,1000); vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1,'rgba(0,0,0,.45)'); x.fillStyle=vg; x.fillRect(0,0,720,1500);
+    x.fillStyle='#050302'; x.fillRect(0,0,720,1500);
+    /* serpentin : un tube plié en boucles, façon fond d'écran bronze */
+    var P=[[-160,150],[560,150],[560,380],[130,380],[130,600],[600,600],[600,830],[140,830],[140,1050],[610,1050],[610,1290],[120,1290],[120,1700]];
+    function path(){ x.beginPath(); x.moveTo(P[0][0],P[0][1]); for(var i=1;i<P.length;i++) x.lineTo(P[i][0],P[i][1]); }
+    x.lineJoin='round'; x.lineCap='round';
+    var TW=196;
+    /* halo extérieur */
+    x.save(); x.filter='blur(26px)'; x.strokeStyle='rgba(255,140,40,.55)'; x.lineWidth=TW+40; path(); x.stroke(); x.restore();
+    /* liseré lumineux */
+    var lg=x.createLinearGradient(0,0,0,1500); lg.addColorStop(0,'#ffd9a8'); lg.addColorStop(.5,'#ff9a3c'); lg.addColorStop(1,'#ffc77a');
+    x.strokeStyle=lg; x.lineWidth=TW+14; path(); x.stroke();
+    /* corps du tube, sombre */
+    x.strokeStyle='#120906'; x.lineWidth=TW; path(); x.stroke();
+    /* éclairage : chaque boucle est lumineuse en bas, sombre en haut (source-atop = seulement sur le tube) */
+    x.save(); x.globalCompositeOperation='source-atop';
+    for(var y=-120;y<1700;y+=230){
+      var g=x.createLinearGradient(0,y,0,y+230); g.addColorStop(0,'rgba(0,0,0,0)'); g.addColorStop(.55,'rgba(120,50,15,.35)'); g.addColorStop(.85,'rgba(255,120,40,.85)'); g.addColorStop(1,'rgba(255,220,170,1)');
+      x.fillStyle=g; x.fillRect(0,y,720,230);
+    }
+    /* reflet central le long du tube */
+    x.strokeStyle='rgba(90,40,18,.55)'; x.lineWidth=TW*.55; path(); x.stroke();
+    x.strokeStyle='rgba(255,170,90,.18)'; x.lineWidth=TW*.18; path(); x.stroke();
+    x.restore();
+    /* grain + vignette */
+    x.save(); x.globalAlpha=.05; for(var i=0;i<8000;i++){ x.fillStyle=Math.random()<.5?'#fff':'#000'; x.fillRect(Math.random()*720,Math.random()*1500,1.5,1.5); } x.restore();
+    var vg=x.createRadialGradient(360,750,350,360,750,1050); vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1,'rgba(0,0,0,.5)'); x.fillStyle=vg; x.fillRect(0,0,720,1500);
     /* barre d'état */
     x.fillStyle='#fff'; x.font='600 30px "Familjen Grotesk", system-ui'; x.textAlign='left'; x.fillText('22:30',56,58);
     x.textAlign='right'; x.font='500 26px system-ui'; x.fillText('●●●●  ᯤ',600,58);
     x.fillStyle='rgba(255,255,255,.9)'; rr(x,616,34,50,26,6); x.fill(); x.fillStyle='#22d36b'; rr(x,620,38,38,18,4); x.fill();
     /* île dynamique */
     x.fillStyle='#000'; rr(x,248,44,224,68,34); x.fill(); x.fillStyle='#14171f'; x.beginPath(); x.arc(428,78,14,0,7); x.fill();
-    /* écran verrouillé : date + heure, typo fine façon iOS */
+    /* écran verrouillé */
     x.textAlign='center'; x.fillStyle='rgba(255,255,255,.92)'; x.font='500 36px "Familjen Grotesk", system-ui'; x.fillText('lundi 15 septembre',360,215);
-    x.font='600 190px Archivo, system-ui'; x.fillStyle='rgba(255,255,255,.96)'; x.fillText('22:30',360,395);
-    /* raccourcis lampe / appareil photo */
+    x.font='600 190px Archivo, system-ui'; x.fillStyle='rgba(255,255,255,.96)'; x.shadowColor='rgba(0,0,0,.5)'; x.shadowBlur=24; x.fillText('22:30',360,395); x.shadowBlur=0;
     x.fillStyle='rgba(255,255,255,.22)'; x.beginPath(); x.arc(110,1385,44,0,7); x.fill(); x.beginPath(); x.arc(610,1385,44,0,7); x.fill();
     x.fillStyle='rgba(255,255,255,.9)'; rr(x,98,1366,24,38,5); x.fill(); rr(x,592,1372,36,26,7); x.fill(); x.fillStyle='rgba(0,0,0,.6)'; x.beginPath(); x.arc(610,1385,7,0,7); x.fill();
     x.fillStyle='rgba(255,255,255,.9)'; rr(x,240,1440,240,12,6); x.fill();
