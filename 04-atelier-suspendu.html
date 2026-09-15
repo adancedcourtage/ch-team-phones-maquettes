@@ -115,31 +115,8 @@ section[data-view].on{display:block}
 .kpis span{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
 
 /* la scène 3D */
-.scene{
-  position:relative;min-height:470px;display:grid;place-items:center;
-  perspective:1400px;perspective-origin:50% 44%;
-}
-.rigged{
-  position:relative;width:210px;height:410px;
-  transform-style:preserve-3d;
-  transform:rotateX(58deg) rotateZ(-32deg);
-  animation:turn 26s linear infinite;
-}
-@keyframes turn{
-  from{transform:rotateX(58deg) rotateZ(-32deg)}
-  to{transform:rotateX(58deg) rotateZ(328deg)}
-}
-.plate{
-  position:absolute;inset:0;border-radius:36px;
-  display:block;
-  filter:drop-shadow(0 26px 30px rgba(11,14,20,.22));
-}
-.plate .ph{width:100%;height:100%;display:block;overflow:visible}
-.p1{transform:translateZ(120px)}
-.p2{transform:translateZ(64px)}
-.p3{transform:translateZ(14px)}
-.p4{transform:translateZ(-34px)}
-.p5{transform:translateZ(-84px);filter:drop-shadow(0 40px 50px rgba(11,14,20,.35))}
+.scene{position:relative;min-height:480px;height:min(560px,62vh);display:block}
+#phone3d{position:absolute;inset:0;width:100%;height:100%;display:block}
 .callout{
   position:absolute;z-index:5;background:var(--white);border:1px solid var(--line2);
   border-radius:10px;padding:9px 12px;box-shadow:0 14px 30px -18px rgba(11,14,20,.5);
@@ -157,8 +134,7 @@ section[data-view].on{display:block}
 .c4::after{left:-26px;top:50%}
 @media (max-width:900px){
   .hero{grid-template-columns:1fr}
-  .scene{order:-1;min-height:400px}
-  .rigged{width:170px;height:330px}
+  .scene{order:-1;min-height:380px;height:52vh}
   .callout{display:none}
 }
 
@@ -328,7 +304,6 @@ footer.site{
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   html{scroll-behavior:auto}
-  .rigged{transform:rotateX(56deg) rotateZ(-30deg)}
 }
 </style>
 <div class="bg-grid" aria-hidden="true"></div>
@@ -394,88 +369,7 @@ footer.site{
         </div>
       </div>
       <div class="scene">
-        <div class="rigged" aria-hidden="true">
-          <!-- 01 écran : vitre + dalle OLED allumée -->
-          <div class="plate p1"><svg viewBox="0 0 210 410" class="ph">
-            <defs>
-              <linearGradient id="scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1c1f5e"/><stop offset=".5" stop-color="#3b30ff"/><stop offset="1" stop-color="#ff8a00"/></linearGradient>
-              <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".45" stop-color="#fff" stop-opacity=".05"/><stop offset="1" stop-color="#fff" stop-opacity=".25"/></linearGradient>
-            </defs>
-            <rect x="1" y="1" width="208" height="408" rx="36" fill="#0b0e14"/>
-            <rect x="7" y="7" width="196" height="396" rx="31" fill="url(#scr)"/>
-            <rect x="72" y="18" width="66" height="20" rx="10" fill="#0b0e14"/>
-            <circle cx="126" cy="28" r="4" fill="#161a24"/>
-            <text x="105" y="118" text-anchor="middle" font-family="Archivo,system-ui" font-weight="800" font-size="46" fill="#fff" letter-spacing="-2">22:30</text>
-            <text x="105" y="140" text-anchor="middle" font-family="Familjen Grotesk,system-ui" font-size="11" fill="#fff" fill-opacity=".8">lundi 15 septembre</text>
-            <g fill="#fff" fill-opacity=".14">
-              <rect x="22" y="290" width="78" height="78" rx="18"/><rect x="110" y="290" width="78" height="78" rx="18"/>
-            </g>
-            <rect x="70" y="392" width="70" height="4" rx="2" fill="#fff" fill-opacity=".85"/>
-            <rect x="1" y="1" width="208" height="408" rx="36" fill="url(#glass)"/>
-            <text x="18" y="404" font-family="IBM Plex Mono,monospace" font-size="7" fill="#fff" fill-opacity=".7" letter-spacing="1.5">01 ÉCRAN OLED 6,3″</text>
-          </svg></div>
-
-          <!-- 02 cadre + nappes -->
-          <div class="plate p2"><svg viewBox="0 0 210 410" class="ph">
-            <rect x="1" y="1" width="208" height="408" rx="36" fill="none" stroke="#9aa3b1" stroke-width="7"/>
-            <rect x="12" y="12" width="186" height="386" rx="28" fill="#e9ecf1" fill-opacity=".55"/>
-            <g fill="#d38a3a"><rect x="60" y="14" width="10" height="70" rx="3"/><rect x="140" y="14" width="10" height="70" rx="3"/><rect x="96" y="330" width="18" height="66" rx="3"/></g>
-            <g fill="#b46a25"><rect x="60" y="76" width="10" height="8"/><rect x="140" y="76" width="10" height="8"/><rect x="96" y="330" width="18" height="8"/></g>
-            <rect x="24" y="24" width="162" height="4" rx="2" fill="#c9d0da"/><rect x="24" y="382" width="162" height="4" rx="2" fill="#c9d0da"/>
-            <text x="18" y="404" font-family="IBM Plex Mono,monospace" font-size="7" fill="#525c6b" letter-spacing="1.5">02 NAPPES &amp; CADRE</text>
-          </svg></div>
-
-          <!-- 03 batterie -->
-          <div class="plate p3"><svg viewBox="0 0 210 410" class="ph">
-            <defs><linearGradient id="bat" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c7ccd4"/><stop offset=".5" stop-color="#eef0f3"/><stop offset="1" stop-color="#b9bfc9"/></linearGradient></defs>
-            <rect x="26" y="96" width="158" height="268" rx="14" fill="url(#bat)" stroke="#9aa3b1" stroke-width="1.5"/>
-            <rect x="40" y="150" width="130" height="150" rx="6" fill="#0b0e14"/>
-            <text x="105" y="196" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#fff" letter-spacing="2">Li-ion</text>
-            <text x="105" y="216" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8" fill="#fff" fill-opacity=".75">3,87 V ⎓ · iPhone 17 Pro</text>
-            <rect x="60" y="244" width="90" height="22" rx="4" fill="none" stroke="#fff" stroke-opacity=".5"/>
-            <g stroke="#fff" stroke-opacity=".5"><path d="M66 255 h6 v6 h-6z"/><path d="M78 255 h6 v6 h-6z"/><path d="M90 255 h6 v6 h-6z"/></g>
-            <rect x="96" y="88" width="18" height="12" rx="2" fill="#d38a3a"/>
-            <text x="18" y="404" font-family="IBM Plex Mono,monospace" font-size="7" fill="#525c6b" letter-spacing="1.5">03 BATTERIE</text>
-          </svg></div>
-
-          <!-- 04 carte mère -->
-          <div class="plate p4"><svg viewBox="0 0 210 410" class="ph">
-            <rect x="20" y="22" width="170" height="66" rx="8" fill="#0e2a24" stroke="#2f5d51" stroke-width="1.5"/>
-            <rect x="34" y="36" width="34" height="34" rx="4" fill="#111" stroke="#5a6472"/>
-            <text x="51" y="52" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="6.5" fill="#fff" letter-spacing=".5">A19</text>
-            <text x="51" y="61" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="6.5" fill="#fff" letter-spacing=".5">PRO</text>
-            <g fill="#2f26ff"><rect x="80" y="36" width="24" height="14" rx="2"/><rect x="112" y="36" width="24" height="14" rx="2"/><rect x="144" y="36" width="34" height="14" rx="2"/></g>
-            <g fill="#d38a3a"><rect x="80" y="58" width="98" height="6" rx="2"/><rect x="80" y="68" width="60" height="6" rx="2"/></g>
-            <g fill="#2f5d51"><circle cx="30" cy="30" r="2"/><circle cx="180" cy="30" r="2"/><circle cx="30" cy="80" r="2"/><circle cx="180" cy="80" r="2"/></g>
-            <rect x="20" y="96" width="14" height="270" rx="6" fill="#0e2a24" stroke="#2f5d51"/>
-            <rect x="60" y="356" width="90" height="36" rx="6" fill="#0e2a24" stroke="#2f5d51" stroke-width="1.5"/>
-            <rect x="92" y="384" width="26" height="8" rx="3" fill="#8b95a3"/>
-            <text x="105" y="372" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="6.5" fill="#9fd4c3" letter-spacing="1">USB-C</text>
-            <text x="18" y="404" font-family="IBM Plex Mono,monospace" font-size="7" fill="#525c6b" letter-spacing="1.5">04 CARTE MÈRE</text>
-          </svg></div>
-
-          <!-- 05 châssis arrière aluminium, Cosmic Orange, plateau caméra -->
-          <div class="plate p5"><svg viewBox="0 0 210 410" class="ph">
-            <defs>
-              <linearGradient id="alu" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffa14a"/><stop offset=".5" stop-color="#f27a12"/><stop offset="1" stop-color="#c85e08"/></linearGradient>
-              <linearGradient id="plateau" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e46f0e"/><stop offset="1" stop-color="#b5540a"/></linearGradient>
-              <radialGradient id="lens" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#3c4a66"/><stop offset=".6" stop-color="#0b0e14"/><stop offset="1" stop-color="#000"/></radialGradient>
-            </defs>
-            <rect x="1" y="1" width="208" height="408" rx="36" fill="url(#alu)"/>
-            <rect x="1" y="1" width="208" height="408" rx="36" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1.5"/>
-            <rect x="14" y="20" width="182" height="78" rx="26" fill="url(#plateau)"/>
-            <g>
-              <circle cx="46" cy="59" r="19" fill="#0b0e14"/><circle cx="46" cy="59" r="13" fill="url(#lens)"/><circle cx="41" cy="53" r="3" fill="#fff" fill-opacity=".45"/>
-              <circle cx="96" cy="59" r="19" fill="#0b0e14"/><circle cx="96" cy="59" r="13" fill="url(#lens)"/><circle cx="91" cy="53" r="3" fill="#fff" fill-opacity=".45"/>
-              <circle cx="146" cy="59" r="19" fill="#0b0e14"/><circle cx="146" cy="59" r="13" fill="url(#lens)"/><circle cx="141" cy="53" r="3" fill="#fff" fill-opacity=".45"/>
-            </g>
-            <circle cx="178" cy="44" r="6" fill="#fff6e4"/><circle cx="178" cy="74" r="5" fill="#0b0e14"/><rect x="172" y="57" width="12" height="4" rx="2" fill="#0b0e14"/>
-            <rect x="0" y="118" width="4" height="22" rx="2" fill="#c85e08"/><rect x="0" y="160" width="4" height="36" rx="2" fill="#c85e08"/><rect x="0" y="204" width="4" height="36" rx="2" fill="#c85e08"/>
-            <rect x="206" y="150" width="4" height="52" rx="2" fill="#c85e08"/><rect x="206" y="260" width="4" height="34" rx="2" fill="#c85e08"/>
-            <text x="105" y="264" text-anchor="middle" font-family="Archivo,system-ui" font-weight="800" font-size="11" fill="#fff" fill-opacity=".85" letter-spacing="2">iPhone 17 Pro</text>
-            <text x="18" y="404" font-family="IBM Plex Mono,monospace" font-size="7" fill="#fff" fill-opacity=".8" letter-spacing="1.5">05 CHÂSSIS ALUMINIUM</text>
-          </svg></div>
-        </div>
+        <canvas id="phone3d" aria-label="iPhone 17 Pro en vue éclatée, animation 3D"></canvas>
         <span class="callout c1">Écran OLED 6,3″ — <b>45 min</b></span>
         <span class="callout c2">Plateau caméra <b>3 × 48 Mpx</b></span>
         <span class="callout c3">Batterie — <b>30 min</b></span>
@@ -957,21 +851,168 @@ footer.site{
     });
   });
 
-  /* la vue éclatée suit légèrement le curseur */
-  var rig=document.querySelector('.rigged');
-  if(rig && !matchMedia('(prefers-reduced-motion: reduce)').matches){
-    var tiltX=0,tiltY=0,cx=0,cy=0;
-    addEventListener('pointermove',function(e){
-      tiltY=(e.clientX/innerWidth-.5)*14;
-      tiltX=(e.clientY/innerHeight-.5)*-10;
-    },{passive:true});
-    (function loop(){
-      cx+=(tiltX-cx)*.05; cy+=(tiltY-cy)*.05;
-      rig.style.setProperty('--tx',cx.toFixed(2)+'deg');
-      rig.parentElement.style.perspectiveOrigin=(50+cy*.6).toFixed(1)+'% '+(44+cx*.5).toFixed(1)+'%';
-      requestAnimationFrame(loop);
-    })();
+})();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+  var cv=document.getElementById('phone3d');
+  if(!cv || !window.THREE){ return; }
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var renderer;
+  try{ renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true}); }catch(e){ return; }
+  renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));
+  renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+  renderer.outputEncoding=THREE.sRGBEncoding; renderer.toneMapping=THREE.ACESFilmicToneMapping; renderer.toneMappingExposure=1.05;
+
+  var scene=new THREE.Scene();
+  var camera=new THREE.PerspectiveCamera(26,1,0.1,200);
+  camera.position.set(17,17,24); camera.lookAt(0,2.2,0);
+
+  /* lumières : ciel doux + clé + contre */
+  scene.add(new THREE.HemisphereLight(0xffffff,0xd9dde4,0.85));
+  var key=new THREE.DirectionalLight(0xffffff,1.15); key.position.set(10,20,12); key.castShadow=true;
+  key.shadow.mapSize.set(2048,2048); key.shadow.camera.left=-14; key.shadow.camera.right=14; key.shadow.camera.top=14; key.shadow.camera.bottom=-14; key.shadow.camera.far=60; key.shadow.radius=6;
+  scene.add(key);
+  var rim=new THREE.DirectionalLight(0xdfe6ff,0.55); rim.position.set(-8,6,-6); scene.add(rim);
+  var warm=new THREE.PointLight(0xffb070,0.5,30); warm.position.set(-4,4,6); scene.add(warm);
+
+  /* sol pour l'ombre */
+  var floor=new THREE.Mesh(new THREE.PlaneGeometry(40,40),new THREE.ShadowMaterial({opacity:0.14}));
+  floor.rotation.x=-Math.PI/2; floor.position.y=-0.9; floor.receiveShadow=true; scene.add(floor);
+
+  /* rectangle arrondi extrudé = une couche avec épaisseur */
+  function rrect(w,h,r){ var sh=new THREE.Shape(); var x=-w/2,y=-h/2;
+    sh.moveTo(x+r,y); sh.lineTo(x+w-r,y); sh.quadraticCurveTo(x+w,y,x+w,y+r);
+    sh.lineTo(x+w,y+h-r); sh.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+    sh.lineTo(x+r,y+h); sh.quadraticCurveTo(x,y+h,x,y+h-r);
+    sh.lineTo(x,y+r); sh.quadraticCurveTo(x,y,x+r,y); return sh; }
+  function slab(w,h,t,r,mat,hole){
+    var sh=rrect(w,h,r);
+    if(hole){ var hp=rrect(hole[0],hole[1],hole[2]); sh.holes.push(new THREE.Path(hp.getPoints(24))); }
+    var g=new THREE.ExtrudeGeometry(sh,{depth:t,bevelEnabled:true,bevelThickness:Math.min(0.03,t*0.3),bevelSize:Math.min(0.03,t*0.3),bevelSegments:3,curveSegments:24});
+    g.rotateX(-Math.PI/2); /* épaisseur sur Y */
+    var m=new THREE.Mesh(g,mat); m.castShadow=true; m.receiveShadow=true; return m;
   }
+  var W=7.2,H=15.0,R=1.05;
+  var alu=new THREE.MeshStandardMaterial({color:0xf27a12,metalness:0.55,roughness:0.34});
+  var aluDark=new THREE.MeshStandardMaterial({color:0xc85e08,metalness:0.6,roughness:0.38});
+  var black=new THREE.MeshStandardMaterial({color:0x0b0e14,metalness:0.2,roughness:0.5});
+  var steel=new THREE.MeshStandardMaterial({color:0xb8c0cc,metalness:0.8,roughness:0.3});
+  var silver=new THREE.MeshStandardMaterial({color:0xd8dde5,metalness:0.7,roughness:0.28});
+  var pcb=new THREE.MeshStandardMaterial({color:0x0e2a24,metalness:0.15,roughness:0.65});
+  var copper=new THREE.MeshStandardMaterial({color:0xd38a3a,metalness:0.7,roughness:0.35});
+  var volt=new THREE.MeshStandardMaterial({color:0x2f26ff,metalness:0.2,roughness:0.5});
+  [alu,aluDark,black,steel,silver,pcb,copper,volt].forEach(function(m){ m.color.convertSRGBToLinear(); });
+  var lensGlass=new THREE.MeshPhysicalMaterial({color:0x101a33,metalness:0.1,roughness:0.08,clearcoat:1,clearcoatRoughness:0.05});
+
+  /* texture de l'écran : dessinée sur un canvas */
+  function screenTexture(){
+    var c=document.createElement('canvas'); c.width=720; c.height=1500; var x=c.getContext('2d');
+    var g=x.createLinearGradient(0,0,720,1500); g.addColorStop(0,'#1c1f5e'); g.addColorStop(0.5,'#3b30ff'); g.addColorStop(1,'#ff8a00');
+    x.fillStyle=g; x.fillRect(0,0,720,1500);
+    x.fillStyle='rgba(255,255,255,.14)'; roundRect(x,70,1050,270,270,64); roundRect(x,380,1050,270,270,64);
+    x.fillStyle='#0b0e14'; roundRect(x,248,52,224,68,34);
+    x.fillStyle='#fff'; x.font='800 170px Archivo, system-ui, sans-serif'; x.textAlign='center'; x.fillText('22:30',360,470);
+    x.font='500 40px "Familjen Grotesk", system-ui, sans-serif'; x.globalAlpha=.85; x.fillText('lundi 15 septembre',360,540); x.globalAlpha=1;
+    x.fillStyle='rgba(255,255,255,.9)'; roundRect(x,240,1440,240,12,6);
+    var t=new THREE.CanvasTexture(c); t.encoding=THREE.sRGBEncoding; t.anisotropy=8; return t;
+  }
+  function roundRect(x,px,py,w,h,r){ x.beginPath(); x.moveTo(px+r,py); x.arcTo(px+w,py,px+w,py+h,r); x.arcTo(px+w,py+h,px,py+h,r); x.arcTo(px,py+h,px,py,r); x.arcTo(px,py,px+w,py,r); x.closePath(); x.fill(); }
+
+  var layers=[]; /* {group, rest} rest = hauteur au repos (assemblé) */
+  function addLayer(group,rest){ scene.add(group); layers.push({g:group,rest:rest}); }
+
+  /* 05 châssis arrière + plateau caméra (en bas) */
+  var chassis=new THREE.Group();
+  chassis.add(slab(W,H,0.42,R,alu,[W-0.5,H-0.5,R-0.2]));
+  var back=slab(W,H,0.1,R,alu); back.position.y=-0.05; chassis.add(back);
+  var plateau=slab(6.3,2.7,0.22,0.9,black); plateau.position.set(0,0.2,-5.4); chassis.add(plateau);
+  [-2.05,-0.25,1.55].forEach(function(px){
+    var ring=new THREE.Mesh(new THREE.CylinderGeometry(0.78,0.78,0.22,48),black); ring.position.set(px,0.5,-5.4); ring.castShadow=true; chassis.add(ring);
+    var lens=new THREE.Mesh(new THREE.CylinderGeometry(0.52,0.52,0.08,48),lensGlass); lens.position.set(px,0.62,-5.4); chassis.add(lens);
+  });
+  var flash=new THREE.Mesh(new THREE.CylinderGeometry(0.22,0.22,0.06,32),new THREE.MeshStandardMaterial({color:0xfff2d6,emissive:0xffe0b0,emissiveIntensity:.35})); flash.position.set(2.65,0.46,-6.05); chassis.add(flash);
+  var lidar=new THREE.Mesh(new THREE.CylinderGeometry(0.2,0.2,0.06,32),black); lidar.position.set(2.65,0.46,-4.8); chassis.add(lidar);
+  /* boutons latéraux */
+  [[ -W/2-0.02, -3.2, 1.2 ],[ -W/2-0.02, -1.5, 1.6 ],[ -W/2-0.02, 0.4, 1.6 ],[ W/2+0.02, -1.4, 2.2 ],[ W/2+0.02, 2.6, 1.3 ]].forEach(function(b){
+    var m=new THREE.Mesh(new THREE.BoxGeometry(0.1,0.18,b[2]),aluDark); m.position.set(b[0],0.1,b[1]); chassis.add(m);
+  });
+  addLayer(chassis,0);
+
+  /* 04 carte mère (petite, en haut) + bande latérale + port USB-C */
+  var board=new THREE.Group();
+  var pcbMain=slab(6.2,2.6,0.08,0.25,pcb); pcbMain.position.set(0,0,-3.2); board.add(pcbMain);
+  var chip=new THREE.Mesh(new THREE.BoxGeometry(1.2,0.12,1.2),black); chip.position.set(-2.0,0.12,-3.2); chip.castShadow=true; board.add(chip);
+  [[-0.5,0.9],[0.8,0.9],[2.2,1.3]].forEach(function(c){ var m=new THREE.Mesh(new THREE.BoxGeometry(c[1],0.1,0.5),volt); m.position.set(c[0],0.1,-3.6); board.add(m); });
+  var strip=new THREE.Mesh(new THREE.BoxGeometry(3.4,0.06,0.22),copper); strip.position.set(0.6,0.1,-2.7); board.add(strip);
+  var side=slab(0.55,9.6,0.06,0.15,pcb); side.position.set(-3.05,0,1.4); board.add(side);
+  var bottom=slab(3.2,1.2,0.08,0.2,pcb); bottom.position.set(0,0,6.4); board.add(bottom);
+  var usb=new THREE.Mesh(new THREE.BoxGeometry(0.95,0.28,0.5),steel); usb.position.set(0,0.06,7.05); board.add(usb);
+  addLayer(board,0.18);
+
+  /* 03 batterie */
+  var batt=new THREE.Group();
+  var cell=slab(5.4,8.2,0.42,0.35,silver); cell.position.set(0.25,0,1.6); batt.add(cell);
+  var label=slab(4.4,5.2,0.02,0.15,black); label.position.set(0.25,0.44,1.6); batt.add(label);
+  var tab=new THREE.Mesh(new THREE.BoxGeometry(0.7,0.05,0.5),copper); tab.position.set(0.25,0.3,-2.7); batt.add(tab);
+  addLayer(batt,0.34);
+
+  /* 02 cadre médian + nappes */
+  var midframe=new THREE.Group();
+  midframe.add(slab(W-0.3,H-0.3,0.14,R-0.1,steel,[W-1.3,H-1.3,R-0.5]));
+  [[-1.6,-6.4,0.35,2.4],[1.6,-6.4,0.35,2.4],[0,5.6,0.7,2.2]].forEach(function(n){ var m=new THREE.Mesh(new THREE.BoxGeometry(n[2],0.04,n[3]),copper); m.position.set(n[0],0.16,n[1]); midframe.add(m); });
+  addLayer(midframe,0.82);
+
+  /* 01 écran : verre + dalle allumée */
+  var screen=new THREE.Group();
+  var bezel=slab(W,H,0.18,R,black); screen.add(bezel);
+  var face=new THREE.Mesh(new THREE.PlaneGeometry(W-0.44,H-0.44),new THREE.MeshBasicMaterial({map:screenTexture()}));
+  face.rotation.x=-Math.PI/2; face.position.y=0.225; screen.add(face);
+  var glass=slab(W,H,0.04,R,new THREE.MeshPhysicalMaterial({color:0xffffff,metalness:0,roughness:0.04,transparent:true,opacity:0.16,clearcoat:1,clearcoatRoughness:0.03,depthWrite:false}));
+  glass.position.y=0.23; screen.add(glass);
+  addLayer(screen,1.0);
+
+  /* groupe racine : on pivote tout ensemble */
+  var root=new THREE.Group(); layers.forEach(function(l){ root.add(l.g); }); scene.add(root);
+  root.rotation.y=-0.6;
+
+  var spacing=[0,1.05,1.55,1.15,1.35]; /* écart cumulé entre couches quand éclaté */
+  function place(k){ /* k = 0 assemblé … 1 éclaté */
+    var y=-0.6;
+    for(var i=0;i<layers.length;i++){
+      y+= (i===0?0:layers[i].rest*(1-k)) + spacing[i]*k;
+      layers[i].g.position.y=y;
+    }
+  }
+
+  var tx=0,ty=0,cx=0,cy=0;
+  addEventListener('pointermove',function(e){ tx=(e.clientX/innerWidth-.5); ty=(e.clientY/innerHeight-.5); },{passive:true});
+  function size(){
+    var w=cv.clientWidth||600,h=cv.clientHeight||480;
+    renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix();
+    var f=Math.max(1,1.15/camera.aspect); camera.position.set(17*f,17*f,24*f); camera.lookAt(0,2.2,0);
+  }
+  size(); addEventListener('resize',size);
+
+  var t0=performance.now(), raf;
+  function ease(x){ return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2; }
+  function frame(now){
+    var t=(now-t0)/1000;
+    /* cycle : assemblé 1,5 s → s'ouvre 2 s → ouvert 4 s → se referme 2 s */
+    var c=t%9.5, k;
+    if(c<1.5) k=0; else if(c<3.5) k=ease((c-1.5)/2); else if(c<7.5) k=1; else k=1-ease((c-7.5)/2);
+    if(reduce) k=1;
+    place(k);
+    cx+=(tx-cx)*.05; cy+=(ty-cy)*.05;
+    root.rotation.y=-0.6+(reduce?0:t*0.12)+cx*0.6;
+    root.rotation.x=cy*0.18; root.rotation.z=cx*0.05;
+    renderer.render(scene,camera);
+    raf=requestAnimationFrame(frame);
+  }
+  frame(t0);
+  document.addEventListener('visibilitychange',function(){ if(document.hidden)cancelAnimationFrame(raf); else raf=requestAnimationFrame(frame); });
 })();
 </script>
 </body>
