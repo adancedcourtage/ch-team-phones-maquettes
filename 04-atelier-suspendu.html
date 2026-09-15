@@ -868,7 +868,7 @@ footer.site{
 
   var scene=new THREE.Scene();
   var camera=new THREE.PerspectiveCamera(26,1,0.1,200);
-  camera.position.set(17,17,24); camera.lookAt(0,2.2,0);
+  camera.position.set(15,24,21); camera.lookAt(0,3.6,0);
 
   /* lumières : ciel doux + clé + contre */
   scene.add(new THREE.HemisphereLight(0xffffff,0xd9dde4,0.85));
@@ -880,7 +880,7 @@ footer.site{
 
   /* sol pour l'ombre */
   var floor=new THREE.Mesh(new THREE.PlaneGeometry(40,40),new THREE.ShadowMaterial({opacity:0.14}));
-  floor.rotation.x=-Math.PI/2; floor.position.y=-0.9; floor.receiveShadow=true; scene.add(floor);
+  floor.rotation.x=-Math.PI/2; floor.position.y=-1.0; floor.receiveShadow=true; scene.add(floor);
 
   /* rectangle arrondi extrudé = une couche avec épaisseur */
   function rrect(w,h,r){ var sh=new THREE.Shape(); var x=-w/2,y=-h/2;
@@ -991,7 +991,7 @@ footer.site{
   var root=new THREE.Group(); layers.forEach(function(l){ root.add(l.g); }); scene.add(root);
   root.rotation.y=-0.6;
 
-  var spacing=[0,1.05,1.55,1.15,1.35]; /* écart cumulé entre couches quand éclaté */
+  var spacing=[0,1.9,2.7,2.1,2.4]; /* écart cumulé entre couches quand éclaté */
   function place(k){ /* k = 0 assemblé … 1 éclaté */
     var y=-0.6;
     for(var i=0;i<layers.length;i++){
@@ -1005,7 +1005,7 @@ footer.site{
   function size(){
     var w=cv.clientWidth||600,h=cv.clientHeight||480;
     renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix();
-    var f=Math.max(1,1.15/camera.aspect); camera.position.set(17*f,17*f,24*f); camera.lookAt(0,2.2,0);
+    var f=Math.max(1,1.15/camera.aspect); camera.position.set(15*f,24*f,21*f); camera.lookAt(0,3.6,0);
   }
   size(); addEventListener('resize',size);
 
