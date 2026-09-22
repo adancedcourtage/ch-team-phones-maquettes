@@ -4,198 +4,1156 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Quatre Sites Ch Team — Ch Team Phones</title>
+<title>Atelier Suspendu — Ch Team Phones</title>
 <style>*{box-sizing:border-box}img{max-width:100%}[hidden]{display:none!important}body{margin:0;font:14px system-ui,sans-serif}</style>
 </head>
 <body>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
 :root{
-  --bg:#f0f1f4; --card:#ffffff; --ink:#0d1117; --ink2:#576172; --ink3:#8a94a4;
-  --line:#dde1e8; --line2:#c7cdd7; --accent:#2f26ff;
-}
-:root:not([data-theme="light"]){color-scheme:light}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    color-scheme:dark;
-    --bg:#0b0e14; --card:#141a23; --ink:#eef2f8; --ink2:#98a3b4; --ink3:#6c7787;
-    --line:#232c39; --line2:#33404f; --accent:#8b84ff;
-  }
-}
-:root[data-theme="dark"]{
-  color-scheme:dark;
-  --bg:#0b0e14; --card:#141a23; --ink:#eef2f8; --ink2:#98a3b4; --ink3:#6c7787;
-  --line:#232c39; --line2:#33404f; --accent:#8b84ff;
+  --paper:#f2f3f5; --white:#ffffff; --ink:#0b0e14; --ink2:#525c6b; --ink3:#8b95a3;
+  --line:#e0e4ea; --line2:#c9d0da;
+  --volt:#2f26ff; --volt2:#5a52ff; --amber:#ff8a00; --mint:#00a878; --rose:#e11d48;
 }
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-  margin:0;background:var(--bg);color:var(--ink);
-  font-family:'Manrope',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:'Familjen Grotesk',system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
 }
 a{color:inherit;text-decoration:none}
-:focus-visible{outline:2.5px solid var(--accent);outline-offset:3px;border-radius:6px}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:none}
+:focus-visible{outline:2.5px solid var(--volt);outline-offset:3px;border-radius:4px}
 h1,h2,h3{font-family:'Archivo',system-ui,sans-serif;font-weight:800;letter-spacing:-.04em;margin:0;text-wrap:balance}
 .mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
-.wrap{max-width:1000px;margin:0 auto;padding:0 clamp(18px,4vw,40px)}
+img{max-width:100%}
 
-header.top{padding:clamp(48px,7vw,86px) 0 clamp(26px,4vw,42px)}
-.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);margin:0 0 18px}
-header.top h1{font-size:clamp(30px,5.4vw,54px);line-height:1;margin-bottom:18px;max-width:17ch}
-header.top p{margin:0 0 26px;max-width:62ch;font-size:16px;line-height:1.72;color:var(--ink2)}
-header.top p strong{color:var(--ink);font-weight:600}
-.facts{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
-.facts li{
-  font-family:'IBM Plex Mono',monospace;font-size:11px;
-  border:1px solid var(--line);background:var(--card);border-radius:999px;padding:7px 13px;color:var(--ink2);
+.bg-grid{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:56px 56px;
+  -webkit-mask-image:radial-gradient(ellipse at 50% 24%,#000 12%,transparent 66%);
+  mask-image:radial-gradient(ellipse at 50% 24%,#000 12%,transparent 66%);
+  opacity:.9;
 }
-.facts li b{color:var(--ink);font-weight:500}
+.shell{position:relative;z-index:2}
 
-.list{display:grid;gap:14px;padding-bottom:clamp(30px,5vw,54px)}
-.site{
-  display:grid;grid-template-columns:132px 1fr auto;gap:clamp(16px,3vw,30px);align-items:center;
-  border:1px solid var(--line);border-radius:20px;padding:20px clamp(18px,3vw,26px);background:var(--card);
-  transition:transform .22s cubic-bezier(.22,.9,.3,1),border-color .22s ease,box-shadow .22s ease;
+/* ---------- nav ---------- */
+.topbar{
+  position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:clamp(10px,2vw,22px);
+  padding:13px clamp(16px,4vw,40px);
+  background:rgba(242,243,245,.86);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
 }
-.site:hover{transform:translateY(-4px);border-color:var(--line2);box-shadow:0 26px 50px -36px rgba(9,14,24,.6)}
-.swatch{
-  height:96px;border-radius:14px;border:1px solid var(--line);position:relative;overflow:hidden;
+.brand{display:flex;align-items:center;gap:11px;flex:0 0 auto}
+.brand .cube{
+  width:32px;height:32px;border-radius:9px;flex:0 0 auto;display:grid;place-items:center;
+  background:var(--ink);color:#fff;font-family:'Archivo',sans-serif;font-weight:900;font-size:12.5px;letter-spacing:-.05em;
 }
-.sw1{background:radial-gradient(circle at 40% 34%,#3d8bff 0%,#25f39a 34%,#ff2d55 62%,#04050a 100%)}
-.sw1::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,45,85,.4) 0 2px,rgba(37,243,154,.4) 2px 4px,rgba(61,139,255,.4) 4px 6px);opacity:.45}
-.sw2{background:linear-gradient(180deg,#0a1734 0%,#12305e 46%,#ff8a5c 62%,#ffd08a 78%,#050b1c 100%)}
-.sw3{background:conic-gradient(from 22.5deg,#d5a94e 0 12.5%,#0a3a31 0 25%,#d5a94e 0 37.5%,#0a3a31 0 50%,#c2542f 0 62.5%,#0a3a31 0 75%,#d5a94e 0 87.5%,#04231f 0)}
-.sw4{background:linear-gradient(155deg,#ffffff 0%,#e2e6ec 46%,#2f26ff 78%,#ff8a00 100%)}
-.site .meta h2{font-size:clamp(19px,2.6vw,25px);margin-bottom:7px}
-.site .meta .idx{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:8px}
-.site .meta p{margin:0 0 10px;font-size:14.5px;line-height:1.64;color:var(--ink2);max-width:58ch}
-.site .meta .tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:0}
-.site .meta .tags li{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);border:1px solid var(--line);border-radius:5px;padding:4px 8px}
-.open{
-  display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:var(--bg);
-  border-radius:11px;padding:12px 19px;font-size:14px;font-weight:700;white-space:nowrap;
+.brand b{font-family:'Archivo',sans-serif;font-weight:800;font-size:16px;letter-spacing:-.035em;display:block;line-height:1.1}
+.brand small{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.15em;color:var(--ink3);text-transform:uppercase}
+.topnav{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.topnav::-webkit-scrollbar{display:none}
+.topnav button{
+  padding:9px 15px;border-radius:9px;font-size:13.5px;font-weight:600;color:var(--ink2);white-space:nowrap;
+  transition:color .18s ease,background .18s ease;
 }
-.open:hover{background:var(--accent);color:#fff}
-@media (max-width:800px){
-  .site{grid-template-columns:1fr;gap:14px}
-  .swatch{height:74px}
-  .open{justify-self:start}
+.topnav button:hover{color:var(--ink);background:var(--white)}
+.topnav button[aria-current="page"]{background:var(--ink);color:#fff}
+.top-call{
+  flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;border-radius:9px;
+  background:var(--volt);color:#fff;font-weight:700;font-size:13.5px;padding:10px 16px;
+  box-shadow:0 10px 28px -12px var(--volt);
+}
+.top-call:hover{background:var(--volt2)}
+@media (max-width:920px){.brand small{display:none}.top-call span{display:none}}
+
+.wrap{max-width:1140px;margin:0 auto;padding:0 clamp(18px,4vw,44px)}
+section[data-view]{display:none;animation:lift .5s cubic-bezier(.22,.9,.3,1)}
+section[data-view].on{display:block}
+@keyframes lift{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.sec{padding:clamp(50px,7.5vw,102px) 0}
+.eyebrow{
+  display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--volt);margin-bottom:15px;
+}
+.sec-h{max-width:64ch;margin-bottom:36px}
+.sec-h h2{font-size:clamp(27px,4.6vw,50px);line-height:1.02;margin-bottom:13px}
+.sec-h p{margin:0;color:var(--ink2);font-size:16px;line-height:1.72}
+
+/* ---------- hero + vue éclatée ---------- */
+.hero{
+  display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(22px,4vw,54px);align-items:center;
+  padding:clamp(38px,6vw,80px) 0 clamp(30px,5vw,60px);
+}
+.hero h1{font-size:clamp(38px,6.6vw,86px);line-height:.94;margin-bottom:20px;max-width:13ch}
+.hero h1 span{
+  background:linear-gradient(96deg,var(--volt),var(--amber) 88%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p{max-width:48ch;font-size:clamp(15px,1.7vw,18px);line-height:1.7;color:var(--ink2);margin:0 0 28px}
+.acts{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;border-radius:11px;padding:13px 21px;
+  font-size:14px;font-weight:700;letter-spacing:-.01em;
+  transition:transform .16s ease,box-shadow .2s ease,background .18s ease,border-color .18s ease;
+}
+.btn:active{transform:translateY(1px)}
+.btn--volt{background:var(--volt);color:#fff;box-shadow:0 14px 34px -14px var(--volt)}
+.btn--volt:hover{background:var(--volt2);box-shadow:0 18px 44px -14px var(--volt)}
+.btn--ink{background:var(--ink);color:#fff}
+.btn--ink:hover{background:#1d2430}
+.btn--wire{border:1px solid var(--line2);color:var(--ink);background:var(--white)}
+.btn--wire:hover{border-color:var(--ink)}
+
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(122px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.kpis div{background:var(--white);padding:16px 18px}
+.kpis b{display:block;font-family:'Archivo',sans-serif;font-size:24px;font-weight:900;letter-spacing:-.045em;font-variant-numeric:tabular-nums;margin-bottom:2px}
+.kpis span{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+
+/* la scène 3D */
+.scene{position:relative;min-height:480px;height:min(560px,62vh);display:block}
+#phone3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.callout{
+  position:absolute;z-index:5;background:var(--white);border:1px solid var(--line2);
+  border-radius:10px;padding:9px 12px;box-shadow:0 14px 30px -18px rgba(11,14,20,.5);
+  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.02em;white-space:nowrap;
+}
+.callout b{color:var(--volt);font-weight:600}
+.callout::after{content:"";position:absolute;width:26px;height:1px;background:var(--line2)}
+.c1{top:8%;left:2%}
+.c1::after{right:-26px;top:50%}
+.c2{top:34%;right:0%}
+.c2::after{left:-26px;top:50%}
+.c3{bottom:26%;left:0%}
+.c3::after{right:-26px;top:50%}
+.c4{bottom:6%;right:4%}
+.c4::after{left:-26px;top:50%}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .scene{order:-1;min-height:380px;height:52vh}
+  .callout{display:none}
 }
 
-.pages{
-  border:1px solid var(--line);border-radius:20px;padding:clamp(22px,3.4vw,32px);background:var(--card);
-  margin-bottom:14px;
+/* ---------- cartes ---------- */
+.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:14px}
+.tile{
+  border:1px solid var(--line);border-radius:18px;padding:24px;background:var(--white);
+  text-align:left;display:flex;flex-direction:column;gap:11px;
+  transition:transform .24s cubic-bezier(.22,.9,.3,1),border-color .24s ease,box-shadow .24s ease;
 }
-.pages h2{font-size:19px;margin-bottom:8px}
-.pages > p{margin:0 0 20px;color:var(--ink2);font-size:14.5px;line-height:1.68;max-width:62ch}
-.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:12px}
-.pg{border:1px solid var(--line);border-radius:13px;padding:15px 16px}
-.pg b{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:14.5px;letter-spacing:-.02em;margin-bottom:5px}
-.pg span{font-size:12.5px;line-height:1.55;color:var(--ink2)}
+button.tile{cursor:pointer}
+.tile:hover{transform:translateY(-5px);border-color:var(--ink);box-shadow:0 26px 50px -34px rgba(11,14,20,.55)}
+.tile .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:#eef0f4;color:var(--ink)}
+.tile h3{font-size:18px}
+.tile p{margin:0;font-size:14px;line-height:1.62;color:var(--ink2)}
+.tile .foot{margin-top:auto;padding-top:13px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--volt)}
 
-.todo{
-  border:1px dashed var(--line2);border-radius:20px;padding:clamp(22px,3.4vw,32px);
-  background:var(--card);margin-bottom:clamp(40px,6vw,72px);
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chip{border:1px solid var(--line2);border-radius:999px;padding:9px 16px;font-size:13px;color:var(--ink2);background:var(--white);transition:all .18s ease}
+.chip:hover{color:var(--ink);border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:14px}
+.card{
+  border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--white);
+  display:flex;flex-direction:column;transition:transform .24s cubic-bezier(.22,.9,.3,1),border-color .24s ease,box-shadow .24s ease;
 }
-.todo h2{font-size:19px;margin-bottom:14px}
-.todo ul{margin:0;padding-left:19px;color:var(--ink2);font-size:14.5px;line-height:1.72}
-.todo li{margin-bottom:9px}
-.todo li b{color:var(--ink);font-weight:600}
-footer{padding:0 0 50px;font-size:12.5px;color:var(--ink3);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
-@media (prefers-reduced-motion: reduce){*,*::before,*::after{transition-duration:.01ms!important}}
+.card:hover{transform:translateY(-6px);border-color:var(--ink);box-shadow:0 26px 50px -34px rgba(11,14,20,.5)}
+.shot{
+  position:relative;height:188px;display:grid;place-items:center;background:#f7f8fa;
+  border-bottom:1px solid var(--line);overflow:hidden;
+}
+.shot .halo{position:absolute;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(47,38,255,.13),transparent 68%)}
+.obj{
+  position:relative;z-index:2;border-radius:13px;border:1px solid var(--line2);
+  background:linear-gradient(158deg,#ffffff,#dfe4ea);
+  box-shadow:0 20px 32px -22px rgba(11,14,20,.55);
+}
+.obj.ph{width:62px;height:124px}
+.obj.lap{width:132px;height:84px;border-radius:9px}
+.obj.wt{width:66px;height:74px;border-radius:21px}
+.obj.bd{width:70px;height:70px;border-radius:25px}
+.tag{
+  position:absolute;z-index:3;top:12px;left:12px;font-family:'IBM Plex Mono',monospace;
+  font-size:9px;letter-spacing:.13em;text-transform:uppercase;border-radius:6px;padding:5px 10px;
+  background:var(--ink);color:#fff;font-weight:500;
+}
+.tag--used{background:var(--mint)}
+.tag--order{background:var(--amber);color:#2a1500}
+.card .body{padding:17px 18px 19px;display:flex;flex-direction:column;gap:5px;flex:1}
+.card h3{font-family:'Familjen Grotesk',sans-serif;font-weight:700;font-size:15.5px;letter-spacing:-.02em}
+.card .spec{font-size:12.5px;color:var(--ink3);line-height:1.55}
+.card .price{margin-top:auto;padding-top:13px;border-top:1px solid var(--line);display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.card .price b{font-family:'Archivo',sans-serif;font-size:17px;font-weight:800;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.card .price span{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mint)}
+
+/* ---------- tableau ---------- */
+.tbl{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--white)}
+.tscroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:600px}
+th{
+  text-align:left;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:9.5px;
+  letter-spacing:.17em;text-transform:uppercase;color:var(--ink3);padding:15px 20px;
+  background:#f7f8fa;border-bottom:1px solid var(--line);
+}
+td{padding:16px 20px;border-bottom:1px solid var(--line);font-size:14.5px}
+tr:last-child td{border-bottom:none}
+tbody tr{transition:background .16s ease}
+tbody tr:hover{background:#f9fafb}
+td.n{font-family:'IBM Plex Mono',monospace;font-size:13px;font-variant-numeric:tabular-nums;font-weight:500}
+.free{color:var(--mint);font-weight:600}
+.stat{display:inline-block;border-radius:6px;padding:4px 10px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase}
+.stat--ok{background:#e4f6ef;color:#046c4e}
+.stat--wait{background:#fff1e3;color:#9a4b06}
+.note{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ink3);margin-top:13px;line-height:1.7}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(208px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.step{background:var(--white);padding:24px;position:relative}
+.step .num{
+  display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;
+  color:#fff;background:var(--ink);border-radius:5px;padding:4px 8px;margin-bottom:14px;
+}
+.step h3{font-family:'Familjen Grotesk',sans-serif;font-weight:700;font-size:16px;letter-spacing:-.02em;margin-bottom:7px}
+.step p{margin:0;font-size:13.5px;line-height:1.6;color:var(--ink2)}
+.step .t{position:absolute;top:24px;right:24px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--volt)}
+
+.checks{display:grid;grid-template-columns:repeat(auto-fill,minmax(192px,1fr));gap:8px}
+.check{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:11px;padding:12px 14px;font-size:13.5px;background:var(--white)}
+.check svg{flex:0 0 auto;color:var(--mint)}
+
+.form{border:1px solid var(--line);border-radius:20px;padding:clamp(22px,3.4vw,36px);background:var(--white)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+label{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2)}
+input,select,textarea{
+  font:inherit;font-size:14.5px;color:var(--ink);background:#f7f8fa;
+  border:1px solid var(--line2);border-radius:10px;padding:13px 15px;width:100%;
+  transition:border-color .16s ease,background .16s ease;
+}
+input::placeholder,textarea::placeholder{color:var(--ink3)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--volt);background:var(--white)}
+textarea{resize:vertical;min-height:98px}
+.help{font-size:12px;color:var(--ink3);line-height:1.55;margin:0}
+@media (max-width:700px){.fgrid{grid-template-columns:1fr}}
+
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:860px){.duo{grid-template-columns:1fr}}
+.pane{border:1px solid var(--line);border-radius:20px;padding:clamp(22px,3.4vw,34px);background:var(--white)}
+.pane h3{font-size:20px;margin-bottom:18px}
+.dl{display:grid;gap:15px;margin:0}
+.dl div{display:grid;grid-template-columns:22px 1fr;gap:13px;align-items:start}
+.dl svg{color:var(--volt);margin-top:2px}
+.dl b{display:block;font-size:15px;font-weight:700}
+.dl small{color:var(--ink3);font-size:12.5px}
+.hours{display:grid;gap:10px;font-size:14.5px}
+.hours div{display:flex;justify-content:space-between;gap:14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.hours div:last-child{border-bottom:none}
+.hours span{color:var(--ink3)}
+.hours b{font-variant-numeric:tabular-nums}
+.hours .shut{color:var(--rose)}
+.mapbox{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);min-height:330px;display:grid;place-items:center;background:#eceff3}
+.mapbox svg.roads{position:absolute;inset:0;width:100%;height:100%}
+.mapbox .marker{position:relative;z-index:2;text-align:center}
+.mapbox .marker .d{
+  width:15px;height:15px;border-radius:50%;background:var(--volt);margin:0 auto 11px;
+  box-shadow:0 0 0 7px rgba(47,38,255,.15),0 0 0 15px rgba(47,38,255,.07);
+}
+.mapbox .marker b{display:block;font-family:'Archivo',sans-serif;font-weight:800;font-size:15px;letter-spacing:-.03em}
+.mapbox .marker small{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ink3);letter-spacing:.1em}
+
+
+.rating{
+  display:grid;grid-template-columns:auto 1fr auto;gap:clamp(20px,4vw,48px);align-items:center;
+  border:1px solid var(--line);border-radius:20px;padding:clamp(22px,3.4vw,34px);background:var(--white);
+}
+.rating-big{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:150px}
+.rating-n{font-family:'Archivo',sans-serif;font-size:72px;font-weight:900;letter-spacing:-.06em;line-height:.9;font-variant-numeric:tabular-nums}
+.rating-big .stars{margin:4px 0 0}
+.rating-sub{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
+.rating-bars{display:grid;gap:9px;min-width:220px}
+.rb{display:grid;grid-template-columns:34px 1fr 32px;gap:12px;align-items:center;font-size:12.5px;color:var(--ink2)}
+.rb .track{height:8px;border-radius:99px;background:#e8ebf0;overflow:hidden}
+.rb .fill{display:block;height:100%;border-radius:99px;background:var(--amber);min-width:0}
+.rb b{text-align:right;font-variant-numeric:tabular-nums;color:var(--ink)}
+.rating-cta{display:flex;flex-direction:column;gap:12px;max-width:240px}
+@media (max-width:820px){.rating{grid-template-columns:1fr}.rating-cta{max-width:none}}
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:14px}
+.quote{border:1px solid var(--line);border-radius:18px;padding:22px;background:var(--white)}
+.quote p{margin:0 0 12px;font-size:15px;line-height:1.65}
+.quote small{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3)}
+.stars{display:flex;gap:3px;color:var(--amber);margin-bottom:12px}
+
+.cta-final{
+  border:1px solid var(--ink);border-radius:24px;padding:clamp(30px,5vw,60px);text-align:center;
+  background:var(--ink);color:#fff;
+}
+.cta-final h2{font-size:clamp(25px,4.4vw,44px);margin-bottom:13px;color:#fff}
+.cta-final p{max-width:50ch;margin:0 auto 24px;color:#aeb7c4;font-size:16px;line-height:1.7}
+footer.site{
+  border-top:1px solid var(--line2);margin-top:clamp(38px,6vw,76px);padding:28px 0 46px;
+  display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;font-size:12.5px;color:var(--ink3);
+}
+.disclaim{
+  border:1px dashed var(--line2);border-radius:12px;padding:14px 18px;background:var(--white);
+  font-family:'IBM Plex Mono',monospace;font-size:10px;line-height:1.75;color:var(--ink2);margin-top:26px;
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
 </style>
+<div class="bg-grid" aria-hidden="true"></div>
 
-<div class="wrap">
-  <header class="top">
-    <p class="eyebrow">Ch Team Phones · Mohammédia · 8 septembre 2026</p>
-    <h1>Quatre sites complets, quatre partis pris</h1>
-    <p>Chaque lien ouvre un <strong>site entier de cinq pages</strong> — accueil, boutique avec filtres, réparation avec grille de tarifs, occasion et reprise, contact — pas un extrait. Les quatre partagent les mêmes informations réelles de la boutique et se distinguent par leur univers visuel. <strong>Trois d'entre eux tournent sur un fond animé en WebGL</strong>, le quatrième sur une vue éclatée en 3D.</p>
-    <ul class="facts">
-      <li>Parc Plaza, Imm. C, N7 — <b>Mohammédia 28810</b></li>
-      <li><b>06 61 79 87 82</b></li>
-      <li>Lun–Sam <b>10h00 – 22h30</b></li>
-      <li><b>4,9 ★</b> · 206 avis Google</li>
-      <li><b>@ch_team_phone</b> · 17,8K</li>
-      <li>Carte &amp; NFC · <b>Glovo</b></li>
-    </ul>
-  </header>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <g id="i-wa"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1.1-4A8 8 0 1 1 20 12z"/><path d="M9 9.6c.3-.6.6-.6.9-.6h.5c.2 0 .5 0 .7.6l.7 1.6c.1.3 0 .5-.1.7l-.4.5c-.1.2-.2.3 0 .6.5.8 1.2 1.4 2 1.8.3.1.4.1.6-.1l.5-.6c.2-.2.4-.2.6-.1l1.5.8c.3.1.4.3.4.5-.1.6-.6 1.3-1.3 1.4-.6.1-1.4.2-3.2-.6-2.2-1-3.6-3.3-3.7-3.5-.1-.2-.9-1.2-.9-2.3 0-1.1.6-1.6.8-1.8z"/></g>
+  <g id="i-pin"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></g>
+  <g id="i-insta"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17" cy="7" r="1.1"/></g>
+  <g id="i-star"><path d="M12 3.6l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L3.5 9.8l5.9-.9z"/></g>
+  <g id="i-check"><path d="M4.5 12.5l5 5 10-11"/></g>
+  <g id="i-arrow"><path d="M5 12h14M13 6l6 6-6 6"/></g>
+  <g id="i-truck"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></g>
+  <g id="i-wrench"><path d="M14.7 6.3a4 4 0 0 1-5.2 5.2L4 17v3h3l5.5-5.5a4 4 0 0 0 5.2-5.2l-2.3 2.3-2.1-.6-.6-2.1 2.3-2.3z"/></g>
+  <g id="i-phone"><rect x="6.5" y="2.5" width="11" height="19" rx="3"/><path d="M10.5 5.5h3"/></g>
+  <g id="i-shield"><path d="M12 3l7 3v5c0 4.4-3 8.3-7 10-4-1.7-7-5.6-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></g>
+  <g id="i-buds"><path d="M8 4a3.5 3.5 0 0 1 3.5 3.5V16a3 3 0 1 1-6 0V9"/><path d="M16 4a3.5 3.5 0 0 0-3.5 3.5"/></g>
+</defs></svg>
 
-  <div class="list">
-    <article class="site">
-      <span class="swatch sw1" aria-hidden="true"></span>
-      <div class="meta">
-        <span class="idx">Site 01</span>
-        <h2>Chambre Noire</h2>
-        <p>On navigue à l'intérieur d'une dalle OLED : le fond est une trame de sous-pixels rouge, verte et bleue qui respire et suit le curseur. Le magasin est présenté comme les quatre couches d'un téléphone — verre, dalle, batterie, châssis.</p>
-        <ul class="tags"><li>Shader WebGL</li><li>Sombre</li><li>Technique</li><li>Rail vertical</li></ul>
+<header class="topbar">
+  <span class="brand">
+    <span class="cube" aria-hidden="true">CT</span>
+    <span><b>Ch Team Phones</b><small>Parc Plaza · Mohammédia</small></span>
+  </span>
+  <nav class="topnav" aria-label="Navigation principale">
+    <button data-go="accueil" aria-current="page">Accueil</button>
+    <button data-go="boutique">Boutique</button>
+    <button data-go="reparation">Réparation</button>
+    <button data-go="occasion">Occasion</button>
+    <button data-go="avis">Avis</button>
+    <button data-go="contact">Contact</button>
+  </nav>
+  <a class="top-call" href="tel:0661798782">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><use href="#i-wa"/></svg>
+    <span>06 61 79 87 82</span>
+  </a>
+</header>
+
+<div class="shell">
+
+<!-- ═════════ ACCUEIL ═════════ -->
+<section data-view="accueil" class="on">
+  <div class="wrap">
+    <header class="hero">
+      <div>
+        <span class="eyebrow">Ouvert lun–sam · 10h00 → 22h30</span>
+        <h1>Un téléphone, <span>couche par couche</span></h1>
+        <p>Chez Ch Team Phones, on ouvre les appareils devant vous. Vente de neuf et d'occasion, réparation en atelier, accessoires — Parc Plaza, sur la N7, à Mohammédia.</p>
+        <div class="acts">
+          <a class="btn btn--volt" href="tel:0661798782">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><use href="#i-wa"/></svg>
+            06 61 79 87 82
+          </a>
+          <button class="btn btn--wire" data-go="reparation">
+            Faire réparer
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </button>
+        </div>
+        <div class="kpis">
+          <div><b>4,9</b><span>208 avis</span></div>
+          <div><b>17,8K</b><span>abonnés</span></div>
+          <div><b>6 mois</b><span>garantie</span></div>
+          <div><b>48 h</b><span>commande</span></div>
+        </div>
       </div>
-      <a class="open" href="01-chambre-noire.html">Ouvrir le site</a>
-    </article>
+      <div class="scene">
+        <canvas id="phone3d" aria-label="iPhone 17 Pro en vue éclatée, animation 3D"></canvas>
 
-    <article class="site">
-      <span class="swatch sw2" aria-hidden="true"></span>
-      <div class="meta">
-        <span class="idx">Site 02</span>
-        <h2>Marée de Verre</h2>
-        <p>Mohammédia est une ville côtière : le site pose la boutique sur un océan de verre en fusion au coucher du soleil, rendu en shader, avec les appareils en îles de verre qui flottent au-dessus des vagues.</p>
-        <ul class="tags"><li>Shader WebGL</li><li>Crépuscule</li><li>Éditorial</li><li>Verre</li></ul>
-      </div>
-      <a class="open" href="02-maree-de-verre.html">Ouvrir le site</a>
-    </article>
 
-    <article class="site">
-      <span class="swatch sw3" aria-hidden="true"></span>
-      <div class="meta">
-        <span class="idx">Site 03</span>
-        <h2>Zellige Infini</h2>
-        <p>Un zellige génératif qui se recompose sans fin : trois strates d'étoiles à huit branches en laiton, vert de Fès et terracotta, qui tournent et zooment. Titres bilingues français / arabe, sections en arches.</p>
-        <ul class="tags"><li>Shader WebGL</li><li>Marocain</li><li>FR / AR</li><li>Laiton</li></ul>
-      </div>
-      <a class="open" href="03-zellige-infini.html">Ouvrir le site</a>
-    </article>
 
-    <article class="site">
-      <span class="swatch sw4" aria-hidden="true"></span>
-      <div class="meta">
-        <span class="idx">Site 04</span>
-        <h2>Atelier Suspendu</h2>
-        <p>Le seul site clair. Un smartphone en vue éclatée lévite et tourne en 3D, ses cinq couches séparées et légendées avec les durées de chaque intervention. Blanc d'atelier, bleu électrique, précision.</p>
-        <ul class="tags"><li>3D CSS</li><li>Clair</li><li>Vue éclatée</li><li>Électrique</li></ul>
       </div>
-      <a class="open" href="04-atelier-suspendu.html">Ouvrir le site</a>
-    </article>
+    </header>
+
+    <section class="sec">
+      <div class="sec-h">
+        <span class="eyebrow">Le magasin</span>
+        <h2>Quatre métiers au même comptoir</h2>
+        <p>Chacun ouvre sa propre page. Tout se passe au Parc Plaza, immeuble C.</p>
+      </div>
+      <div class="trio">
+        <button class="tile" data-go="boutique">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><use href="#i-phone"/></svg></span>
+          <h3>Vendre</h3>
+          <p>iPhone, Samsung, Xiaomi, Huawei neufs et scellés. Montres, ordinateurs, accessoires. Facture remise à chaque achat.</p>
+          <span class="foot">La boutique →</span>
+        </button>
+        <button class="tile" data-go="reparation">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><use href="#i-wrench"/></svg></span>
+          <h3>Réparer</h3>
+          <p>Écran, batterie, connecteur de charge, désoxydation. Diagnostic gratuit, devis avant intervention, garantie six mois.</p>
+          <span class="foot">Les tarifs →</span>
+        </button>
+        <button class="tile" data-go="occasion">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><use href="#i-shield"/></svg></span>
+          <h3>Reprendre</h3>
+          <p>18 points de contrôle sur chaque occasion. Reprise de votre ancien appareil en déduction ou rachat comptant.</p>
+          <span class="foot">Le protocole →</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top:0">
+      <div class="sec-h"><span class="eyebrow">Sélection</span><h2>En vitrine cette semaine</h2></div>
+      <div class="grid">
+        <article class="card"><div class="shot"><span class="halo"></span><span class="tag">Neuf scellé</span><span class="obj ph"></span></div><div class="body"><h3>iPhone 17 Air</h3><span class="spec">256 Go · garantie boutique · facture</span><span class="price"><b>12 900 DH</b><span>disponible</span></span></div></article>
+        <article class="card"><div class="shot"><span class="halo"></span><span class="tag tag--used">Occasion</span><span class="obj ph"></span></div><div class="body"><h3>Galaxy S24 Ultra</h3><span class="spec">512 Go · batterie 92% · 18 points</span><span class="price"><b>7 400 DH</b><span>1 pièce</span></span></div></article>
+        <article class="card"><div class="shot"><span class="halo"></span><span class="tag">Neuf scellé</span><span class="obj wt"></span></div><div class="body"><h3>Apple Watch Ultra 3</h3><span class="spec">Titane 49 mm · bracelet au choix</span><span class="price"><b>9 200 DH</b><span>disponible</span></span></div></article>
+        <article class="card"><div class="shot"><span class="halo"></span><span class="tag tag--order">48 h</span><span class="obj lap"></span></div><div class="body"><h3>MacBook Pro 16″ M5 Max</h3><span class="spec">Scellé · commande sous 48 h</span><span class="price"><b>38 500 DH</b><span>sur commande</span></span></div></article>
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top:0">
+      <div class="sec-h"><span class="eyebrow">4,9 sur Google · 208 avis</span><h2>Ce que les clients écrivent</h2>
+      <p>Avis publiés sur la fiche Google de la boutique, repris tels quels.</p></div>
+      <div class="quotes">
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Je suis très satisfaite de la rapidité et du professionnalisme de votre équipe. En presque 40min j’ai pu récupérer mon téléphone réparé avec soin. Merci ☺️</p>
+          <small>Hind E. · Local Guide · nov. 2025</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Un service impeccable et une équipe professionnelle ! J’ai trouvé exactement ce que je cherchais grâce à leurs conseils personnalisés. Produits de qualité, prix compétitifs, et surtout, une assistance après-vente réactive et efficace. Je recommande vivement ce revendeur pour tous vos besoins en téléphonie !</p>
+          <small>Mouhsine M. · Local Guide · 2025</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Des telephones de qualité et un service client au Top. Je recommande si vous voulez acheter ou faire une reprise de votre telephone</p>
+          <small>Oumaima T. · juil. 2026</small>
+        </blockquote>
+      </div>
+      <div style="margin-top:18px"><button class="btn btn--wire" data-go="avis">Lire les 208 avis
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+    </section>
+
+    <section class="sec" style="padding-top:0">
+      <div class="cta-final">
+        <h2>Envoyez une photo, recevez le prix</h2>
+        <p>Le modèle, une photo de l'appareil, et vous avez le tarif et le délai avant de vous déplacer.</p>
+        <a class="btn btn--volt" href="tel:0661798782">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><use href="#i-wa"/></svg>
+          Écrire sur WhatsApp
+        </a>
+      </div>
+      <p class="disclaim">// MAQUETTE — Adresse, téléphone, horaires, note Google et compte Instagram sont réels. Les avis sont les vrais avis Google de la boutique. Les prix et délais sont des repères de mise en page à remplacer par les données de la boutique.</p>
+      <footer class="site"><span>Ch Team Phones · Parc Plaza, Imm. C, N7 · Mohammédia 28810</span><span class="mono">DIRECTION 04 — ATELIER SUSPENDU</span></footer>
+    </section>
   </div>
+</section>
+<!-- ═════════ BOUTIQUE ═════════ -->
+<section data-view="boutique">
+  <div class="wrap">
+    <header class="sec" style="padding-bottom:28px">
+      <span class="eyebrow">La boutique</span>
+      <h2 style="font-size:clamp(30px,6vw,66px);line-height:.98;margin-bottom:16px;max-width:15ch">Tout ce qui est en vitrine</h2>
+      <p style="max-width:56ch;color:var(--ink2);font-size:16.5px;line-height:1.72;margin:0">Neuf scellé, occasion contrôlée, accessoires, et ce qui se commande en 48 heures. Le stock bouge tous les jours — la disponibilité se confirme par téléphone ou en story.</p>
+    </header>
+    <section class="sec" style="padding-top:0">
+      <div class="filters" role="group" aria-label="Filtrer les produits">
+        <button class="chip" data-f="all" aria-pressed="true">Tout</button>
+        <button class="chip" data-f="neuf" aria-pressed="false">Neuf</button>
+        <button class="chip" data-f="occasion" aria-pressed="false">Occasion</button>
+        <button class="chip" data-f="accessoire" aria-pressed="false">Accessoires</button>
+        <button class="chip" data-f="ordi" aria-pressed="false">Ordinateurs &amp; montres</button>
+      </div>
+      <div class="grid" id="shopgrid">
+        <article class="card" data-cat="neuf"><div class="shot"><span class="halo"></span><span class="tag">Neuf scellé</span><span class="obj ph"></span></div><div class="body"><h3>iPhone 17 Air</h3><span class="spec">256 Go · titane · garantie boutique</span><span class="price"><b>12 900 DH</b><span>disponible</span></span></div></article>
+        <article class="card" data-cat="neuf"><div class="shot"><span class="halo"></span><span class="tag">Neuf scellé</span><span class="obj ph"></span></div><div class="body"><h3>iPhone 16 Pro</h3><span class="spec">128 Go · facture remise</span><span class="price"><b>10 400 DH</b><span>disponible</span></span></div></article>
+        <article class="card" data-cat="neuf"><div class="shot"><span class="halo"></span><span class="tag">Neuf scellé</span><span class="obj ph"></span></div><div class="body"><h3>Xiaomi 15 Ultra</h3><span class="spec">512 Go · garantie boutique</span><span class="price"><b>8 700 DH</b><span>disponible</span></span></div></article>
+        <article class="card" data-cat="occasion"><div class="shot"><span class="halo"></span><span class="tag tag--used">Occasion</span><span class="obj ph"></span></div><div class="body"><h3>Galaxy S24 Ultra</h3><span class="spec">512 Go · batterie 92% · 18 points</span><span class="price"><b>7 400 DH</b><span>1 pièce</span></span></div></article>
+        <article class="card" data-cat="occasion"><div class="shot"><span class="halo"></span><span class="tag tag--used">Occasion</span><span class="obj ph"></span></div><div class="body"><h3>iPhone 13</h3><span class="spec">128 Go · batterie 88% · écran d'origine</span><span class="price"><b>4 300 DH</b><span>2 pièces</span></span></div></article>
+        <article class="card" data-cat="ordi"><div class="shot"><span class="halo"></span><span class="tag">Neuf scellé</span><span class="obj wt"></span></div><div class="body"><h3>Apple Watch Ultra 3</h3><span class="spec">Titane 49 mm · bracelet au choix</span><span class="price"><b>9 200 DH</b><span>disponible</span></span></div></article>
+        <article class="card" data-cat="ordi"><div class="shot"><span class="halo"></span><span class="tag">Neuf scellé</span><span class="obj wt"></span></div><div class="body"><h3>Apple Watch Series 11</h3><span class="spec">45 mm · GPS</span><span class="price"><b>5 600 DH</b><span>disponible</span></span></div></article>
+        <article class="card" data-cat="ordi"><div class="shot"><span class="halo"></span><span class="tag tag--order">48 h</span><span class="obj lap"></span></div><div class="body"><h3>MacBook Pro 16″ M5 Max</h3><span class="spec">Scellé · configuration au choix</span><span class="price"><b>38 500 DH</b><span>sur commande</span></span></div></article>
+        <article class="card" data-cat="ordi"><div class="shot"><span class="halo"></span><span class="tag tag--order">48 h</span><span class="obj lap"></span></div><div class="body"><h3>MacBook Air 15″ M4</h3><span class="spec">Scellé · 16 Go / 512 Go</span><span class="price"><b>16 900 DH</b><span>sur commande</span></span></div></article>
+        <article class="card" data-cat="accessoire"><div class="shot"><span class="halo"></span><span class="tag">Accessoire</span><span class="obj bd"></span></div><div class="body"><h3>AirPods Pro 3</h3><span class="spec">Réduction de bruit · boîtier USB-C</span><span class="price"><b>2 950 DH</b><span>disponible</span></span></div></article>
+        <article class="card" data-cat="accessoire"><div class="shot"><span class="halo"></span><span class="tag">Pose offerte</span><span class="obj bd"></span></div><div class="body"><h3>Protection d'écran verre trempé</h3><span class="spec">Posée sans bulle en boutique</span><span class="price"><b>120 DH</b><span>pose incluse</span></span></div></article>
+        <article class="card" data-cat="accessoire"><div class="shot"><span class="halo"></span><span class="tag">Accessoire</span><span class="obj bd"></span></div><div class="body"><h3>Chargeur rapide 45 W</h3><span class="spec">USB-C · câble tressé fourni</span><span class="price"><b>260 DH</b><span>disponible</span></span></div></article>
+      </div>
+      <p class="note">// Prix et disponibilités de démonstration. Le catalogue réel sera repris de la liste de la boutique.</p>
+      <div class="sec" style="padding-bottom:0">
+        <div class="cta-final">
+          <h2>Un modèle que vous ne voyez pas ?</h2>
+          <p>La plupart des appareils absents de la vitrine arrivent en 48 heures. Dites le modèle, on donne le prix et la date.</p>
+          <a class="btn btn--volt" href="tel:0661798782">Demander un modèle</a>
+        </div>
+      </div>
+      <footer class="site"><span>Ch Team Phones · 06 61 79 87 82</span><span class="mono">BOUTIQUE</span></footer>
+    </section>
+  </div>
+</section>
 
-  <section class="pages">
-    <h2>Les cinq pages, identiques dans les quatre sites</h2>
-    <p>La navigation est réelle : chaque page a son adresse et le bouton retour du navigateur fonctionne.</p>
-    <div class="pgrid">
-      <div class="pg"><b>Accueil</b><span>Hero, preuves, les quatre métiers, sélection produits, avis, appel à contact</span></div>
-      <div class="pg"><b>Boutique</b><span>12 produits, filtres neuf / occasion / accessoires / ordinateurs</span></div>
-      <div class="pg"><b>Réparation</b><span>Déroulé en 4 étapes, grille de 8 tarifs avec délais, formulaire de devis</span></div>
-      <div class="pg"><b>Occasion</b><span>18 points de contrôle, barème de reprise, formulaire d'estimation</span></div>
-      <div class="pg"><b>Contact</b><span>Coordonnées, horaires, plan, formulaire de message</span></div>
-    </div>
-  </section>
+<!-- ═════════ RÉPARATION ═════════ -->
+<section data-view="reparation">
+  <div class="wrap">
+    <header class="sec" style="padding-bottom:28px">
+      <span class="eyebrow">L'atelier</span>
+      <h2 style="font-size:clamp(30px,6vw,66px);line-height:.98;margin-bottom:16px;max-width:15ch">Déposé le matin, repris le soir</h2>
+      <p style="max-width:56ch;color:var(--ink2);font-size:16.5px;line-height:1.72;margin:0">Le diagnostic est gratuit et sans engagement. Le devis est annoncé avant l'intervention et ne bouge plus. La garantie couvre la pièce et la main-d'œuvre pendant six mois.</p>
+    </header>
 
-  <section class="todo">
-    <h2>À valider avec le responsable avant mise en ligne</h2>
-    <ul>
-      <li><b>La grille de tarifs de réparation.</b> Les prix affichés (690 DH un écran, 280 DH une batterie…) sont des repères de mise en page, pas les vrais tarifs.</li>
-      <li><b>Les prix et le stock des produits.</b> Même chose : à remplacer par la liste réelle de la boutique.</li>
-      <li><b>La durée de garantie</b> annoncée sur les réparations (six mois dans les maquettes) et sur l'occasion (trois mois).</li>
-      <li><b>Les marques réparées</b> et les interventions réellement proposées.</li>
-      <li><b>Les avis clients</b> : les citations sont des exemples. Les vrais avis Google devront être repris tels quels.</li>
-      <li><b>L'orthographe exacte de l'enseigne</b> : Ch Team Phones ou CH TEAM PHONE.</li>
-      <li><b>Les photos.</b> Aucun appareil n'est photographié — tout est dessiné en code. Le site final utilisera les photos de la boutique et des produits.</li>
-    </ul>
-  </section>
+    <section class="sec" style="padding-top:0">
+      <div class="sec-h"><span class="eyebrow">Déroulé</span><h2 style="font-size:clamp(23px,3.6vw,36px)">Quatre étapes, aucune surprise</h2></div>
+      <div class="steps">
+        <div class="step"><span class="t">2 min</span><span class="num">ÉTAPE 01</span><h3>Vous décrivez la panne</h3><p>Par WhatsApp avec une photo, ou directement au comptoir du Parc Plaza.</p></div>
+        <div class="step"><span class="t">10 min</span><span class="num">ÉTAPE 02</span><h3>Diagnostic et devis</h3><p>L'appareil est ouvert devant vous si besoin. Le prix est annoncé avant toute intervention.</p></div>
+        <div class="step"><span class="t">30–45 min</span><span class="num">ÉTAPE 03</span><h3>Intervention</h3><p>La pièce est posée dans la foulée quand elle est en stock. Vous pouvez attendre sur place.</p></div>
+        <div class="step"><span class="t">5 min</span><span class="num">ÉTAPE 04</span><h3>Tests et garantie</h3><p>Tactile, audio, caméras, charge et capteurs testés devant vous. Garantie six mois par écrit.</p></div>
+      </div>
+    </section>
 
-  <footer>
-    <span>Ch Team Phones · Parc Plaza, Imm. C, N7 · Mohammédia 28810 · 06 61 79 87 82</span>
-    <span class="mono">4 DIRECTIONS</span>
-  </footer>
+    <section class="sec" style="padding-top:0">
+      <div class="sec-h"><span class="eyebrow">Grille</span><h2 style="font-size:clamp(23px,3.6vw,36px)">Tarifs et délais</h2>
+      <p>Prix de départ selon le modèle et la pièce disponible. Le montant exact est confirmé au diagnostic.</p></div>
+      <div class="tbl"><div class="tscroll"><table>
+        <thead><tr><th scope="col">Intervention</th><th scope="col">Appareils</th><th scope="col">Durée</th><th scope="col">À partir de</th><th scope="col">Pièce</th></tr></thead>
+        <tbody>
+          <tr><td>Remplacement d'écran</td><td>iPhone 11 → 15</td><td class="n">45 min</td><td class="n">690 DH</td><td><span class="stat stat--ok">en stock</span></td></tr>
+          <tr><td>Remplacement d'écran</td><td>Samsung Galaxy S / A</td><td class="n">1 h</td><td class="n">750 DH</td><td><span class="stat stat--ok">en stock</span></td></tr>
+          <tr><td>Batterie</td><td>iPhone · Samsung · Xiaomi</td><td class="n">30 min</td><td class="n">280 DH</td><td><span class="stat stat--ok">en stock</span></td></tr>
+          <tr><td>Connecteur de charge</td><td>Toutes marques</td><td class="n">40 min</td><td class="n">220 DH</td><td><span class="stat stat--ok">en stock</span></td></tr>
+          <tr><td>Vitre arrière</td><td>iPhone 12 → 15</td><td class="n">2 h</td><td class="n">450 DH</td><td><span class="stat stat--wait">sur commande</span></td></tr>
+          <tr><td>Caméra arrière</td><td>iPhone · Samsung</td><td class="n">1 h</td><td class="n">390 DH</td><td><span class="stat stat--wait">sur commande</span></td></tr>
+          <tr><td>Désoxydation après contact avec l'eau</td><td>Toutes marques</td><td class="n">24 h</td><td class="n">350 DH</td><td><span class="stat stat--ok">diagnostic inclus</span></td></tr>
+          <tr><td>Diagnostic complet</td><td>Toutes marques</td><td class="n">10 min</td><td class="n"><span class="free">offert</span></td><td><span class="stat stat--ok">sans engagement</span></td></tr>
+        </tbody>
+      </table></div></div>
+      <p class="note">// Grille de démonstration — à remplacer par les tarifs réels de l'atelier avant mise en ligne.</p>
+    </section>
+
+    <section class="sec" style="padding-top:0">
+      <div class="sec-h"><span class="eyebrow">Devis</span><h2 style="font-size:clamp(23px,3.6vw,36px)">Demander un prix en deux minutes</h2></div>
+      <form class="form" novalidate>
+        <div class="fgrid">
+          <div class="field"><label for="r-nom">Votre nom</label><input id="r-nom" type="text" placeholder="Nom et prénom" autocomplete="name"></div>
+          <div class="field"><label for="r-tel">Téléphone</label><input id="r-tel" type="tel" placeholder="06 __ __ __ __" autocomplete="tel"></div>
+          <div class="field"><label for="r-modele">Modèle de l'appareil</label><input id="r-modele" type="text" placeholder="iPhone 13, Galaxy S23…"></div>
+          <div class="field"><label for="r-panne">Type de panne</label>
+            <select id="r-panne"><option>Écran cassé</option><option>Batterie qui ne tient plus</option><option>Ne charge plus</option><option>Tombé dans l'eau</option><option>Caméra</option><option>Autre / je ne sais pas</option></select>
+          </div>
+          <div class="field full"><label for="r-msg">Détails</label><textarea id="r-msg" placeholder="Depuis quand ? L'appareil s'allume-t-il ?"></textarea></div>
+          <div class="field full">
+            <button class="btn btn--volt" type="submit" style="width:fit-content">Envoyer la demande</button>
+            <p class="help">Réponse pendant les heures d'ouverture, du lundi au samedi de 10h00 à 22h30. Formulaire de démonstration : aucune donnée n'est envoyée.</p>
+          </div>
+        </div>
+      </form>
+      <footer class="site"><span>Atelier ouvert 6 jours sur 7 · 06 61 79 87 82</span><span class="mono">RÉPARATION</span></footer>
+    </section>
+  </div>
+</section>
+<!-- ═════════ OCCASION ═════════ -->
+<section data-view="occasion">
+  <div class="wrap">
+    <header class="sec" style="padding-bottom:28px">
+      <span class="eyebrow">L'occasion</span>
+      <h2 style="font-size:clamp(30px,6vw,66px);line-height:.98;margin-bottom:16px;max-width:16ch">Mesuré, noté, vérifiable</h2>
+      <p style="max-width:56ch;color:var(--ink2);font-size:16.5px;line-height:1.72;margin:0">Un téléphone d'occasion se vend sur la confiance. Alors tout est mesuré, inscrit sur l'étiquette, et vérifiable devant vous avant de payer.</p>
+    </header>
+
+    <section class="sec" style="padding-top:0">
+      <div class="sec-h"><span class="eyebrow">Protocole</span><h2 style="font-size:clamp(23px,3.6vw,36px)">Les 18 points de contrôle</h2>
+      <p>Passés sur chaque appareil d'occasion avant sa mise en vitrine.</p></div>
+      <div class="checks">
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> IMEI vérifié</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Blocage opérateur</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Compte iCloud / Google supprimé</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Santé de la batterie</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Cycles de charge</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Écran : pixels morts</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Écran : marquage</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Tactile sur toute la surface</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Face ID / capteur d'empreinte</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Caméras avant et arrière</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Micros et haut-parleurs</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Écouteur interne</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Charge filaire et sans fil</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Wi-Fi, Bluetooth, réseau</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Boutons et vibreur</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Capteurs de proximité</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Châssis et vitre arrière</span>
+        <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><use href="#i-check"/></svg> Traces d'humidité</span>
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top:0">
+      <div class="sec-h"><span class="eyebrow">Reprise</span><h2 style="font-size:clamp(23px,3.6vw,36px)">Votre ancien appareil vaut quelque chose</h2>
+      <p>Reprise en déduction immédiate sur l'achat, ou rachat comptant. L'estimation se fait sur place en dix minutes.</p></div>
+      <div class="trio">
+        <div class="tile">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><use href="#i-phone"/></svg></span>
+          <h3>Toutes marques</h3>
+          <p>iPhone, Samsung, Xiaomi, Huawei et autres — même avec un écran cassé ou une batterie fatiguée.</p>
+        </div>
+        <div class="tile">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><use href="#i-check"/></svg></span>
+          <h3>Estimation sur place</h3>
+          <p>L'appareil est examiné devant vous, en dix minutes. Le montant proposé est annoncé clairement, sans engagement.</p>
+        </div>
+        <div class="tile">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          <h3>Déduction ou rachat</h3>
+          <p>La valeur de reprise est déduite immédiatement de votre nouvel achat, ou rachetée comptant si vous préférez.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top:0">
+      <div class="sec-h"><span class="eyebrow">Estimation</span><h2 style="font-size:clamp(23px,3.6vw,36px)">Faire estimer un appareil</h2></div>
+      <form class="form" novalidate>
+        <div class="fgrid">
+          <div class="field"><label for="o-modele">Modèle</label><input id="o-modele" type="text" placeholder="iPhone 13, Galaxy S23…"></div>
+          <div class="field"><label for="o-cap">Capacité</label><select id="o-cap"><option>64 Go</option><option>128 Go</option><option>256 Go</option><option>512 Go</option><option>1 To</option></select></div>
+          <div class="field"><label for="o-etat">État général</label><select id="o-etat"><option>Comme neuf</option><option>Bon état, micro-rayures</option><option>État moyen</option><option>Écran cassé</option><option>Ne s'allume plus</option></select></div>
+          <div class="field"><label for="o-tel">Téléphone</label><input id="o-tel" type="tel" placeholder="06 __ __ __ __" autocomplete="tel"></div>
+          <div class="field full">
+            <button class="btn btn--ink" type="submit" style="width:fit-content">Recevoir une estimation</button>
+            <p class="help">Estimation confirmée après vérification en boutique. Formulaire de démonstration : aucune donnée n'est envoyée.</p>
+          </div>
+        </div>
+      </form>
+      <footer class="site"><span>Reprise et rachat comptant · Parc Plaza, Mohammédia</span><span class="mono">OCCASION</span></footer>
+    </section>
+  </div>
+</section>
+
+<!-- ═════════ AVIS ═════════ -->
+<section data-view="avis">
+  <div class="wrap">
+    <header class="sec" style="padding-bottom:28px">
+      <span class="eyebrow">Avis Google</span>
+      <h2 style="font-size:clamp(30px,6vw,66px);line-height:.98;margin-bottom:16px;max-width:15ch">4,9 sur 5, 208 avis</h2>
+      <p style="max-width:56ch;color:var(--ink2);font-size:16.5px;line-height:1.72;margin:0">Tout ce qui suit est écrit par des clients sur la fiche Google de Ch Team Phones, et repris ici sans retouche. Relevé le 15 septembre 2026.</p>
+    </header>
+
+    <section class="sec" style="padding-top:0">
+      <div class="rating">
+        <div class="rating-big">
+          <span class="rating-n">4,9</span>
+          <span class="stars" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <span class="rating-sub">208 avis Google</span>
+        </div>
+        <div class="rating-bars">
+          <div class="rb"><span>5 ★</span><span class="track"><span class="fill" style="width:98.6%"></span></span><b>205</b></div>
+          <div class="rb"><span>4 ★</span><span class="track"><span class="fill" style="width:0%"></span></span><b>0</b></div>
+          <div class="rb"><span>3 ★</span><span class="track"><span class="fill" style="width:0%"></span></span><b>0</b></div>
+          <div class="rb"><span>2 ★</span><span class="track"><span class="fill" style="width:0%"></span></span><b>0</b></div>
+          <div class="rb"><span>1 ★</span><span class="track"><span class="fill" style="width:1.4%"></span></span><b>3</b></div>
+        </div>
+        <div class="rating-cta">
+          <a class="btn btn--ink" href="https://maps.google.com/?cid=2125195035454559714" rel="noopener" target="_blank">Voir sur Google</a>
+          <p class="help">Les avis sont vérifiés et hébergés par Google. Ils ne peuvent pas être modifiés par la boutique.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top:0">
+      <div class="sec-h"><span class="eyebrow">Sélection</span><h2 style="font-size:clamp(23px,3.6vw,36px)">Ce qui revient le plus souvent</h2>
+      <p>La rapidité des réparations, les conseils avant l'achat, la reprise de l'ancien appareil, et Amine.</p></div>
+      <div class="quotes">
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Je suis très satisfaite de la rapidité et du professionnalisme de votre équipe. En presque 40min j’ai pu récupérer mon téléphone réparé avec soin. Merci ☺️</p>
+          <small>Hind E. · Local Guide · nov. 2025</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Un service impeccable et une équipe professionnelle ! J’ai trouvé exactement ce que je cherchais grâce à leurs conseils personnalisés. Produits de qualité, prix compétitifs, et surtout, une assistance après-vente réactive et efficace. Je recommande vivement ce revendeur pour tous vos besoins en téléphonie !</p>
+          <small>Mouhsine M. · Local Guide · 2025</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Des telephones de qualité et un service client au Top. Je recommande si vous voulez acheter ou faire une reprise de votre telephone</p>
+          <small>Oumaima T. · juil. 2026</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Très bonne expérience ! Un service de qualité, une équipe professionnelle et surtout très engagée et à l’écoute du client. Travail sérieux, rapide et efficace, aussi bien pour l’achat de téléphones que pour la réparation.</p>
+          <small>Amine N. · sept. 2026</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Mon téléphone casser il me la réparer en 1h et nickel.</p>
+          <small>Sohan M. · août 2026</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Très bonne boutique de téléphonie à Mohammedia. J'y ai acheté un smartphone ainsi que des accessoires (coque, verre trempé et chargeur). Produits de qualité et excellent accueil. Je recommande.</p>
+          <small>Yassine · juin 2026</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Mon Iphone 16 pro max bonne occasion de chez Ch team</p>
+          <small>Abdessamad K. · déc. 2025</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Excellent service ! L’équipe est accueillante, professionnelle et de bon conseil. J’ai trouvé exactement ce que je cherchais, et à un bon prix. Je recommande sans hésiter ce magasin pour l’achat ou la réparation de téléphone. Merci Amine !</p>
+          <small>Wissal C. · 2025</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Excellent magasin de téléphones ! Le personnel est accueillant, professionnel et de bon conseil. Large choix de smartphones et d'accessoires à des prix compétitifs. Je recommande vivement !</p>
+          <small>Anas M. · août 2026</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Je cherchais des écouteurs et une coque pour mon iPhone, et j'ai trouvé exactement ce qu'il me fallait. Prix corrects, service rapide et personnel sympathique. Très satisfait de mon expérience.</p>
+          <small>Ayoub A. · juin 2026</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>J’ai acheté un iPhone et un chargeur chez lui, tout est en parfait état. Service rapide et de confiance. Très satisfaite de mon achat</p>
+          <small>Oumaima E. · janv. 2026</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Accueil professionnel et agréable, on sent que le vendeur connaît bien ses produits. Transaction rapide, sans prise de tête. Je recommande sans hésiter.</p>
+          <small>Yahya M. · 2025</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Excellent service, professionnel, hyper réactif recommandé à 200/100</p>
+          <small>Philippe L. · Local Guide · juil. 2026</small>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#i-star"/></svg></span>
+          <p>Je recommande vivement CH Team Phone à toute personne cherchant un vendeur fiable et de confiance. Service professionnel, sérieux et à l’écoute. Merci encore pour votre professionnalisme 🙏🏻</p>
+          <small>Rime · avr. 2026</small>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top:0">
+      <div class="cta-final">
+        <h2>Vous êtes passé à la boutique ?</h2>
+        <p>Un avis prend une minute et aide le prochain client à se décider.</p>
+        <a class="btn btn--volt" href="https://maps.google.com/?cid=2125195035454559714" rel="noopener" target="_blank">Laisser un avis Google</a>
+      </div>
+      <footer class="site"><span>Ch Team Phones · Parc Plaza, Imm. C, N7 · Mohammédia 28810</span><span class="mono">AVIS</span></footer>
+    </section>
+  </div>
+</section>
+
+<!-- ═════════ CONTACT ═════════ -->
+<section data-view="contact">
+  <div class="wrap">
+    <header class="sec" style="padding-bottom:28px">
+      <span class="eyebrow">Nous trouver</span>
+      <h2 style="font-size:clamp(30px,6vw,66px);line-height:.98;margin-bottom:16px;max-width:14ch">Parc Plaza, immeuble C</h2>
+      <p style="max-width:56ch;color:var(--ink2);font-size:16.5px;line-height:1.72;margin:0">Sur la N7, dans l'arcade du Parc Plaza. La devanture noire avec les enseignes Apple, Samsung, Huawei et Xiaomi — impossible de la manquer le soir.</p>
+    </header>
+
+    <section class="sec" style="padding-top:0">
+      <div class="duo">
+        <div class="pane">
+          <h3>Coordonnées</h3>
+          <dl class="dl">
+            <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><use href="#i-pin"/></svg>
+              <dd style="margin:0"><b>Parc Plaza, Immeuble C, N7</b><small>Mohammédia 28810, Maroc</small></dd></div>
+            <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><use href="#i-wa"/></svg>
+              <dd style="margin:0"><b>06 61 79 87 82</b><small>Appel et WhatsApp</small></dd></div>
+            <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><use href="#i-insta"/></svg>
+              <dd style="margin:0"><b>@ch_team_phone</b><small>17,8K abonnés · arrivages en story</small></dd></div>
+            <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><use href="#i-truck"/></svg>
+              <dd style="margin:0"><b>Livraison Glovo</b><small>Mohammédia · paiement carte et sans contact</small></dd></div>
+          </dl>
+          <h3 style="margin:28px 0 16px;font-size:17px">Horaires</h3>
+          <div class="hours">
+            <div><span>Lundi – vendredi</span><b>10h00 – 22h30</b></div>
+            <div><span>Samedi</span><b>10h00 – 22h30</b></div>
+            <div><span>Dimanche</span><b class="shut">Fermé</b></div>
+          </div>
+        </div>
+        <div class="mapbox" aria-hidden="true">
+          <svg class="roads" viewBox="0 0 400 330" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="330" fill="#eceff3"/>
+            <path d="M-20 232 H420" stroke="#dbe0e7" stroke-width="26" fill="none"/>
+            <path d="M262 -20 V350" stroke="#dbe0e7" stroke-width="17" fill="none"/>
+            <path d="M-20 112 H420M96 -20 V350M348 -20 V350" stroke="#e3e7ec" stroke-width="7" fill="none"/>
+            <g fill="#e5e9ee" stroke="#d6dbe3">
+              <rect x="120" y="140" width="106" height="66" rx="4"/>
+              <rect x="292" y="146" width="80" height="58" rx="4"/>
+              <rect x="122" y="256" width="92" height="52" rx="4"/>
+            </g>
+          </svg>
+          <div class="marker"><span class="d"></span><b>Ch Team Phones</b><small>PARC PLAZA · IMM. C · N7</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top:0">
+      <div class="sec-h"><span class="eyebrow">Message</span><h2 style="font-size:clamp(23px,3.6vw,36px)">Nous écrire</h2></div>
+      <form class="form" novalidate>
+        <div class="fgrid">
+          <div class="field"><label for="c-nom">Nom</label><input id="c-nom" type="text" placeholder="Nom et prénom" autocomplete="name"></div>
+          <div class="field"><label for="c-tel">Téléphone</label><input id="c-tel" type="tel" placeholder="06 __ __ __ __" autocomplete="tel"></div>
+          <div class="field full"><label for="c-obj">Objet</label><select id="c-obj"><option>Question sur un produit</option><option>Réparation</option><option>Reprise / rachat</option><option>Commande d'un modèle</option><option>Autre</option></select></div>
+          <div class="field full"><label for="c-msg">Message</label><textarea id="c-msg" placeholder="Votre message"></textarea></div>
+          <div class="field full">
+            <button class="btn btn--volt" type="submit" style="width:fit-content">Envoyer</button>
+            <p class="help">Formulaire de démonstration : aucune donnée n'est envoyée. Le plus rapide reste WhatsApp au 06 61 79 87 82.</p>
+          </div>
+        </div>
+      </form>
+      <p class="disclaim">// MAQUETTE — Adresse, téléphone, horaires, note Google et compte Instagram sont réels. Les avis sont les vrais avis Google. Prix et délais sont des repères de mise en page.</p>
+      <footer class="site"><span>Ch Team Phones · Parc Plaza, Imm. C, N7 · Mohammédia 28810</span><span class="mono">CONTACT</span></footer>
+    </section>
+  </div>
+</section>
+
 </div>
+
+<script>
+(function(){
+  var views = Array.prototype.slice.call(document.querySelectorAll('[data-view]'));
+  var links = Array.prototype.slice.call(document.querySelectorAll('.topnav button'));
+  function show(name, push){
+    var found=false;
+    views.forEach(function(v){var on=v.getAttribute('data-view')===name;v.classList.toggle('on',on);if(on)found=true;});
+    if(!found) return show('accueil', push);
+    links.forEach(function(l){
+      if(l.getAttribute('data-go')===name) l.setAttribute('aria-current','page'); else l.removeAttribute('aria-current');
+    });
+    window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+    if(push && location.hash!=='#'+name) history.pushState(null,'','#'+name);
+  }
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('[data-go]'); if(!t) return; e.preventDefault();
+    show(t.getAttribute('data-go'),true);
+  });
+  addEventListener('popstate',function(){show(location.hash.slice(1)||'accueil',false);});
+  if(location.hash) show(location.hash.slice(1),false);
+
+  var chips=Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){
+      chips.forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false');});
+      var f=c.getAttribute('data-f');
+      document.querySelectorAll('#shopgrid .card').forEach(function(card){
+        card.style.display=(f==='all'||card.getAttribute('data-cat')===f)?'':'none';
+      });
+    });
+  });
+
+  document.querySelectorAll('form').forEach(function(f){
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var b=f.querySelector('button[type="submit"]'); if(!b||b.dataset.busy) return;
+      var txt=b.textContent; b.dataset.busy='1'; b.textContent='Maquette — non envoyé';
+      setTimeout(function(){b.textContent=txt;delete b.dataset.busy;},2600);
+    });
+  });
+
+})();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+  var cv=document.getElementById('phone3d');
+  if(!cv || !window.THREE) return;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var renderer;
+  try{ renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true}); }catch(e){ return; }
+  renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));
+  renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+  renderer.outputEncoding=THREE.sRGBEncoding; renderer.toneMapping=THREE.ACESFilmicToneMapping; renderer.toneMappingExposure=1.0;
+  renderer.physicallyCorrectLights=false;
+
+  var scene=new THREE.Scene();
+  var camera=new THREE.PerspectiveCamera(26,1,0.1,200);
+
+  /* ---------- environnement studio (reflets) : panorama dessiné sur canvas ---------- */
+  function studioEnv(){
+    var c=document.createElement('canvas'); c.width=1024; c.height=512; var x=c.getContext('2d');
+    var g=x.createLinearGradient(0,0,0,512); g.addColorStop(0,'#c6ccd5'); g.addColorStop(.46,'#7f8895'); g.addColorStop(.5,'#2f353e'); g.addColorStop(1,'#101317');
+    x.fillStyle=g; x.fillRect(0,0,1024,512);
+    function box(px,py,w,h,col,a){ x.save(); x.globalAlpha=a; x.fillStyle=col; x.shadowColor=col; x.shadowBlur=40; x.fillRect(px,py,w,h); x.restore(); }
+    box(120,50,320,130,'#ffffff',1);     /* softbox clé */
+    box(300,210,500,22,'#ffffff',.55);  /* rampe lumineuse fine */
+    box(620,90,220,80,'#fff4e6',.85);    /* softbox chaude */
+    box(880,40,120,200,'#e6eeff',.7);    /* contre froide */
+    box(0,300,1024,30,'#ffffff',.25);    /* ligne d'horizon */
+    var t=new THREE.CanvasTexture(c); t.mapping=THREE.EquirectangularReflectionMapping; t.encoding=THREE.sRGBEncoding; return t;
+  }
+  var pmrem=new THREE.PMREMGenerator(renderer); pmrem.compileEquirectangularShader();
+  scene.environment=pmrem.fromEquirectangular(studioEnv()).texture;
+
+  /* ---------- lumières ---------- */
+  scene.add(new THREE.HemisphereLight(0xffffff,0xc9ced6,0.55));
+  var key=new THREE.DirectionalLight(0xfff6ec,1.35); key.position.set(10,20,12); key.castShadow=true;
+  key.shadow.mapSize.set(2048,2048); key.shadow.camera.left=-14; key.shadow.camera.right=14; key.shadow.camera.top=14; key.shadow.camera.bottom=-14; key.shadow.camera.far=60; key.shadow.radius=5; key.shadow.bias=-0.0004;
+  scene.add(key);
+  var rim=new THREE.DirectionalLight(0xdfe8ff,0.5); rim.position.set(-9,7,-7); scene.add(rim);
+  var fill=new THREE.PointLight(0xffb070,0.35,40); fill.position.set(-5,5,7); scene.add(fill);
+  var floor=new THREE.Mesh(new THREE.PlaneGeometry(60,60),new THREE.ShadowMaterial({opacity:0.16}));
+  floor.rotation.x=-Math.PI/2; floor.position.y=-1.0; floor.receiveShadow=true; scene.add(floor);
+
+  /* ---------- textures procédurales ---------- */
+  function tex(c,rep,lin){ var t=new THREE.CanvasTexture(c); t.wrapS=t.wrapT=THREE.RepeatWrapping; if(rep){t.repeat.set(rep,rep);} t.anisotropy=8; if(!lin) t.encoding=THREE.sRGBEncoding; return t; }
+  function brushed(base,strength,size){ /* métal brossé : lignes fines horizontales */
+    size=size||512; var c=document.createElement('canvas'); c.width=c.height=size; var x=c.getContext('2d');
+    x.fillStyle=base; x.fillRect(0,0,size,size);
+    for(var i=0;i<size*2.2;i++){ var y=Math.random()*size, l=Math.random()*size*.6+size*.2, a=(Math.random()-.5)*strength;
+      x.strokeStyle=a>0?'rgba(255,255,255,'+a+')':'rgba(0,0,0,'+(-a)+')'; x.lineWidth=Math.random()*1.2+.3;
+      x.beginPath(); x.moveTo(Math.random()*size,y); x.lineTo(Math.random()*size+l,y+(Math.random()-.5)*1.5); x.stroke(); }
+    return c;
+  }
+  function roughFrom(c,lo,hi){ /* carte de rugosité : gris entre lo et hi suivant la luminance */
+    var size=c.width, o=document.createElement('canvas'); o.width=o.height=size; var x=o.getContext('2d'); x.drawImage(c,0,0);
+    var d=x.getImageData(0,0,size,size), p=d.data;
+    for(var i=0;i<p.length;i+=4){ var l=(p[i]+p[i+1]+p[i+2])/765; var v=Math.round(255*(lo+(hi-lo)*(1-l))); p[i]=p[i+1]=p[i+2]=v; }
+    x.putImageData(d,0,0); return o;
+  }
+  var aluC=brushed('#e2651c',.05), aluR=roughFrom(aluC,.18,.34);
+  var aluDarkC=brushed('#b34f18',.06), aluDarkR=roughFrom(aluDarkC,.2,.36);
+  var rawC=brushed('#b9bcc2',.20), rawR=roughFrom(rawC,.45,.8);
+  function grainNormal(size,amt){ /* micro-grain anodisé : carte de normales depuis du bruit */
+    var c=document.createElement('canvas'); c.width=c.height=size; var x=c.getContext('2d'); var d=x.createImageData(size,size), p=d.data;
+    for(var i=0;i<p.length;i+=4){ var n=128+(Math.random()-.5)*amt; p[i]=n; p[i+1]=128+(Math.random()-.5)*amt; p[i+2]=255; p[i+3]=255; }
+    x.putImageData(d,0,0); return c; }
+  var grainN=tex(grainNormal(256,26),1.2,true);
+  var steelC=brushed('#c3cad5',.22), steelR=roughFrom(steelC,.18,.5);
+  var silverC=brushed('#dfe3ea',.12), silverR=roughFrom(silverC,.2,.45);
+
+  function mat(o){ var m=new THREE.MeshStandardMaterial(o); if(o.color!==undefined) m.color.convertSRGBToLinear(); return m; }
+  var alu=new THREE.MeshPhysicalMaterial({map:tex(aluC,.45),roughnessMap:tex(aluR,.45,true),normalMap:grainN,normalScale:new THREE.Vector2(.15,.15),metalness:.55,roughness:1,clearcoat:.55,clearcoatRoughness:.12,envMapIntensity:.95});
+  var rawAlu=mat({map:tex(rawC,.5),roughnessMap:tex(rawR,.5,true),metalness:.85,roughness:1,envMapIntensity:.8});
+  var aluDark=new THREE.MeshPhysicalMaterial({map:tex(aluDarkC,.45),roughnessMap:tex(aluDarkR,.45,true),metalness:.6,roughness:1,clearcoat:.5,clearcoatRoughness:.14,envMapIntensity:.95});
+  var steel=mat({map:tex(steelC,.5),roughnessMap:tex(steelR,.5,true),metalness:.9,roughness:1,envMapIntensity:1.2});
+  var silver=mat({map:tex(silverC,.4),roughnessMap:tex(silverR,.4,true),metalness:.75,roughness:1,envMapIntensity:1.0});
+  var black=mat({color:0x0b0e14,metalness:.25,roughness:.42});
+  var matte=mat({color:0x1a1f27,metalness:.1,roughness:.85});
+  var pcb=mat({color:0x0e2a24,metalness:.15,roughness:.6});
+  var copper=mat({color:0xd38a3a,metalness:.85,roughness:.32,envMapIntensity:1.2});
+  var gold=mat({color:0xe0b45a,metalness:.95,roughness:.25,envMapIntensity:1.3});
+  var volt=mat({color:0x2f26ff,metalness:.3,roughness:.45});
+  var lensGlass=new THREE.MeshPhysicalMaterial({color:0x0b1226,metalness:.1,roughness:.05,clearcoat:1,clearcoatRoughness:.03,envMapIntensity:1.4});
+  var screenGlass=new THREE.MeshPhysicalMaterial({color:0xffffff,metalness:0,roughness:.03,transparent:true,opacity:.07,clearcoat:.9,clearcoatRoughness:.02,depthWrite:false,envMapIntensity:.7});
+
+  /* ---------- géométrie : rectangle arrondi extrudé ---------- */
+  function rrect(w,h,r){ var sh=new THREE.Shape(); var x=-w/2,y=-h/2;
+    sh.moveTo(x+r,y); sh.lineTo(x+w-r,y); sh.quadraticCurveTo(x+w,y,x+w,y+r);
+    sh.lineTo(x+w,y+h-r); sh.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+    sh.lineTo(x+r,y+h); sh.quadraticCurveTo(x,y+h,x,y+h-r);
+    sh.lineTo(x,y+r); sh.quadraticCurveTo(x,y,x+r,y); return sh; }
+  function slab(w,h,t,r,m,hole){
+    var sh=rrect(w,h,r);
+    if(hole){ sh.holes.push(new THREE.Path(rrect(hole[0],hole[1],hole[2]).getPoints(24))); }
+    var g=new THREE.ExtrudeGeometry(sh,{depth:t,bevelEnabled:true,bevelThickness:Math.min(0.06,t*0.3),bevelSize:Math.min(0.06,t*0.3),bevelSegments:5,curveSegments:28});
+    g.rotateX(-Math.PI/2);
+    var mesh=new THREE.Mesh(g,m); mesh.castShadow=true; mesh.receiveShadow=true; return mesh;
+  }
+  function plane(w,h,map,y,z,x,extra){ var mm=new THREE.MeshStandardMaterial(Object.assign({map:map,metalness:.1,roughness:.7},extra||{}));
+    var pl=new THREE.Mesh(new THREE.PlaneGeometry(w,h),mm); pl.rotation.x=-Math.PI/2; pl.position.set(x||0,y,z); pl.receiveShadow=true; return pl; }
+  function cyl(r,h,m,x,y,z,seg){ var c=new THREE.Mesh(new THREE.CylinderGeometry(r,r,h,seg||32),m); c.position.set(x,y,z); c.castShadow=true; c.receiveShadow=true; return c; }
+  function box(w,h,d,m,x,y,z){ var b=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m); b.position.set(x,y,z); b.castShadow=true; b.receiveShadow=true; return b; }
+  function screw(x,y,z,parent){ parent.add(cyl(0.09,0.05,steel,x,y,z,16)); var s=box(0.1,0.02,0.025,black,x,y+0.03,z); parent.add(s); }
+  function rr(x,px,py,w,h,r){ x.beginPath(); x.moveTo(px+r,py); x.arcTo(px+w,py,px+w,py+h,r); x.arcTo(px+w,py+h,px,py+h,r); x.arcTo(px,py+h,px,py,r); x.arcTo(px,py,px+w,py,r); x.closePath(); }
+
+  var W=7.19,H=15.0,R=1.05;
+  var layers=[];
+  function addLayer(g,rest){ layers.push({g:g,rest:rest}); }
+
+  /* ---------- textures de faces ---------- */
+  var WALL='data:image/jpeg;base64,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';
+  function drawScreen(x,img){
+    x.clearRect(0,0,720,1500);
+    x.fillStyle='#050302'; x.fillRect(0,0,720,1500);
+    if(img){ x.imageSmoothingEnabled=true; x.imageSmoothingQuality='high';
+      x.filter='contrast(1.08) saturate(1.05)'; x.drawImage(img,0,0,720,1500); x.filter='none'; }
+    x.lineJoin='round'; x.lineCap='round';
+    /* barre d'état : signal, wifi, batterie 96 */
+    x.textAlign='right'; x.fillStyle='rgba(255,255,255,.95)';
+    for(var i=0;i<4;i++){ rr(x,470+i*11,64-i*4,7,10+i*4,2); x.globalAlpha=i<3?.95:.4; x.fill(); x.globalAlpha=1; }
+    x.font='600 24px system-ui'; x.fillText('ᯤ',560,72);
+    rr(x,586,44,64,30,8); x.fillStyle='rgba(255,255,255,.95)'; x.fill(); rr(x,652,53,5,12,2); x.fillStyle='rgba(255,255,255,.5)'; x.fill();
+    x.fillStyle='#000'; x.font='700 22px system-ui'; x.textAlign='center'; x.fillText('96',618,67);
+    /* île dynamique */
+    x.fillStyle='#000'; rr(x,236,40,248,70,35); x.fill(); x.fillStyle='#161a24'; x.beginPath(); x.arc(440,75,15,0,7); x.fill();
+    x.fillStyle='rgba(40,70,120,.9)'; x.beginPath(); x.arc(440,75,7,0,7); x.fill();
+    /* date */
+    x.textAlign='center'; x.fillStyle='rgba(235,235,240,.9)'; x.font='500 42px -apple-system, "SF Pro", "Familjen Grotesk", system-ui';
+    x.shadowColor='rgba(0,0,0,.45)'; x.shadowBlur=14; x.fillText('lun. 15 sept.',360,208);
+    /* heure : chiffres gris translucides, effet verre (iOS 26) */
+    x.font='600 226px -apple-system, "SF Pro Rounded", "SF Pro Display", "Familjen Grotesk", system-ui';
+    x.shadowBlur=0;
+    x.save(); x.globalCompositeOperation='lighter'; x.fillStyle='rgba(120,120,130,.22)'; x.fillText('22:30',360,398); x.restore();
+    x.fillStyle='rgba(205,205,212,.42)'; x.fillText('22:30',360,398);
+    x.strokeStyle='rgba(255,255,255,.55)'; x.lineWidth=2.2; x.strokeText('22:30',360,398);
+    var hg=x.createLinearGradient(0,220,0,400); hg.addColorStop(0,'rgba(255,255,255,.28)'); hg.addColorStop(.5,'rgba(255,255,255,.04)'); hg.addColorStop(1,'rgba(255,255,255,.18)');
+    x.fillStyle=hg; x.fillText('22:30',360,398);
+    /* boutons lampe et appareil photo */
+    [[150,1372],[570,1372]].forEach(function(c){ x.fillStyle='rgba(255,255,255,.17)'; x.beginPath(); x.arc(c[0],c[1],50,0,7); x.fill();
+      x.strokeStyle='rgba(255,255,255,.28)'; x.lineWidth=1.5; x.beginPath(); x.arc(c[0],c[1],50,0,7); x.stroke(); });
+    x.fillStyle='rgba(255,255,255,.95)';
+    rr(x,138,1346,24,20,4); x.fill(); rr(x,142,1366,16,32,4); x.fill(); x.fillStyle='rgba(0,0,0,.35)'; x.fillRect(146,1370,8,3);
+    x.fillStyle='rgba(255,255,255,.95)'; rr(x,548,1360,44,32,7); x.fill(); x.fillStyle='rgba(0,0,0,.55)'; x.beginPath(); x.arc(570,1376,9,0,7); x.fill();
+    x.fillStyle='rgba(255,255,255,.95)'; rr(x,556,1352,14,8,2); x.fill();
+    /* indicateur d'accueil */
+    x.fillStyle='rgba(255,255,255,.92)'; rr(x,240,1446,240,11,6); x.fill();
+  }
+  function screenTexture(){
+    var c=document.createElement('canvas'); c.width=720; c.height=1500; var x=c.getContext('2d');
+    drawScreen(x,null);
+    var t=new THREE.CanvasTexture(c); t.encoding=THREE.sRGBEncoding; t.anisotropy=8;
+    var img=new Image(); img.onload=function(){ drawScreen(x,img); t.needsUpdate=true; }; img.src=WALL;
+    return t;
+  }
+  function pcbTexture(w,h){ /* carte mère : pistes, vias, sérigraphie */
+    var c=document.createElement('canvas'); c.width=w; c.height=h; var x=c.getContext('2d');
+    x.fillStyle='#0d2b25'; x.fillRect(0,0,w,h);
+    x.strokeStyle='rgba(224,180,90,.55)'; x.lineWidth=2;
+    for(var i=0;i<90;i++){ var px=Math.random()*w, py=Math.random()*h, l=Math.random()*180+30, d=Math.random()<.5;
+      x.beginPath(); x.moveTo(px,py); x.lineTo(d?px+l:px, d?py:py+l); x.stroke(); }
+    x.fillStyle='rgba(224,180,90,.85)'; for(var j=0;j<160;j++){ x.beginPath(); x.arc(Math.random()*w,Math.random()*h,2.2,0,7); x.fill(); }
+    x.fillStyle='rgba(255,255,255,.55)'; x.font='500 11px "IBM Plex Mono", monospace';
+    for(var k=0;k<14;k++){ x.fillText(['C','R','L','U','J'][k%5]+(k*7+3),Math.random()*(w-30),Math.random()*(h-10)+10); }
+    x.strokeStyle='rgba(255,255,255,.35)'; x.lineWidth=1; for(var m=0;m<10;m++){ x.strokeRect(Math.random()*(w-60),Math.random()*(h-30),40,20); }
+    var t=new THREE.CanvasTexture(c); t.encoding=THREE.sRGBEncoding; t.anisotropy=8; return t;
+  }
+  function chassisInnerTexture(){ /* fond de la cavité : alu brut usiné (non anodisé), occlusion sur les bords */
+    var c=document.createElement('canvas'); c.width=720; c.height=1500; var x=c.getContext('2d');
+    x.drawImage(brushed('#b4b8bf',.22,512),0,0,720,1500);
+    /* zones fraisées légèrement plus sombres */
+    x.fillStyle='rgba(0,0,0,.08)'; rr(x,44,118,632,296,26); x.fill(); rr(x,44,462,632,720,26); x.fill(); rr(x,44,1222,632,210,26); x.fill();
+    /* nervures fines */
+    x.strokeStyle='rgba(255,255,255,.22)'; x.lineWidth=2; for(var i=0;i<7;i++){ x.beginPath(); x.moveTo(64,500+i*100); x.lineTo(656,500+i*100); x.stroke(); }
+    x.strokeStyle='rgba(0,0,0,.18)'; for(var j=0;j<7;j++){ x.beginPath(); x.moveTo(64,503+j*100); x.lineTo(656,503+j*100); x.stroke(); }
+    /* adhésifs / graphite noirs */
+    x.fillStyle='rgba(20,22,26,.85)'; rr(x,60,500,600,660,18); x.fill();
+    x.fillStyle='rgba(255,255,255,.06)'; for(var k=0;k<40;k++){ x.fillRect(70+Math.random()*580,510+Math.random()*640,Math.random()*60,1); }
+    /* trous filetés */
+    x.fillStyle='rgba(0,0,0,.55)'; [[72,72],[648,72],[72,1428],[648,1428],[72,750],[648,750],[360,1450]].forEach(function(q){ x.beginPath(); x.arc(q[0],q[1],11,0,7); x.fill(); x.strokeStyle='rgba(255,255,255,.35)'; x.lineWidth=2; x.beginPath(); x.arc(q[0],q[1],13,0,7); x.stroke(); });
+    /* gravure laser */
+    x.fillStyle='rgba(60,64,70,.9)'; x.font='500 15px "IBM Plex Mono", monospace'; x.textAlign='left'; x.fillText('Designed by Apple in California  ·  Assembled in China',60,1476);
+    /* occlusion ambiante sur les bords de la cavité */
+    var e=x.createLinearGradient(0,0,0,1500); var ao=x.createRadialGradient(360,750,500,360,750,1000); ao.addColorStop(0,'rgba(0,0,0,0)'); ao.addColorStop(1,'rgba(0,0,0,.55)'); x.fillStyle=ao; x.fillRect(0,0,720,1500);
+    x.fillStyle='rgba(0,0,0,.35)'; x.fillRect(0,0,720,26); x.fillRect(0,1474,720,26); x.fillRect(0,0,26,1500); x.fillRect(694,0,26,1500);
+    var t=new THREE.CanvasTexture(c); t.encoding=THREE.sRGBEncoding; t.anisotropy=8; return t;
+  }
+  function labelTexture(){
+    var c=document.createElement('canvas'); c.width=440; c.height=520; var x=c.getContext('2d');
+    x.fillStyle='#0b0e14'; x.fillRect(0,0,440,520);
+    x.fillStyle='#fff'; x.textAlign='center';
+    x.font='600 34px "IBM Plex Mono", monospace'; x.fillText('Li-ion',220,110);
+    x.font='700 62px Archivo, system-ui'; x.fillText('4252 mAh',220,205);
+    x.font='400 24px "IBM Plex Mono", monospace'; x.globalAlpha=.8; x.fillText('3,89 V  ·  16,56 Wh',220,258); x.fillText('iPhone 17 Pro',220,300); x.globalAlpha=1;
+    x.strokeStyle='rgba(255,255,255,.55)'; x.lineWidth=3; x.strokeRect(70,360,300,60);
+    x.fillStyle='rgba(255,255,255,.9)'; for(var i=0;i<28;i++){ x.fillRect(80+i*10,368,Math.random()<.5?3:5,44); }
+    x.font='400 18px "IBM Plex Mono", monospace'; x.fillStyle='rgba(255,255,255,.7)'; x.fillText('⚠ Ne pas percer · Ne pas chauffer',220,470);
+    var t=new THREE.CanvasTexture(c); t.encoding=THREE.sRGBEncoding; return t;
+  }
+
+  /* ---------- 05 châssis aluminium unibody ---------- */
+  var chassis=new THREE.Group();
+  chassis.add(slab(W,H,0.46,R,alu,[W-0.56,H-0.56,R-0.22]));
+  var backPlate=slab(W,H,0.1,R,alu); backPlate.position.y=-0.06; chassis.add(backPlate);
+  chassis.add(plane(W-0.6,H-0.6,chassisInnerTexture(),0.095,0,0,{metalness:.7,roughness:.6,envMapIntensity:.7}));
+  var innerLip=slab(W-0.56,H-0.56,0.40,R-0.22,rawAlu,[W-0.72,H-0.72,R-0.28]); innerLip.position.y=0.02; chassis.add(innerLip);
+  var backGlass=slab(W-0.7,H-4.4,0.03,R-0.4,new THREE.MeshPhysicalMaterial({color:0xf9a24a,metalness:0,roughness:.08,clearcoat:1,transparent:true,opacity:.5,depthWrite:false}));
+  backGlass.position.set(0,-0.085,1.95); chassis.add(backGlass);
+  /* module caméra : triangle à gauche du plateau, flash / micro / LiDAR à droite */
+  var camBlock=slab(6.3,2.7,0.26,0.9,matte); camBlock.position.set(0,0.2,-5.4); chassis.add(camBlock);
+  [[-2.15,-6.05],[-2.15,-4.75],[-0.85,-5.4]].forEach(function(c){
+    chassis.add(cyl(0.74,0.24,black,c[0],0.52,c[1],48));
+    chassis.add(cyl(0.62,0.05,gold,c[0],0.63,c[1],48));
+    chassis.add(cyl(0.5,0.08,lensGlass,c[0],0.66,c[1],48));
+    var glint=cyl(0.11,0.01,new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.6}),c[0]-0.17,0.71,c[1]-0.17,20); chassis.add(glint);
+  });
+  chassis.add(cyl(0.24,0.06,new THREE.MeshStandardMaterial({color:0xfff2d6,emissive:0xffe0b0,emissiveIntensity:.4}),2.55,0.48,-6.05,32));
+  chassis.add(cyl(0.08,0.06,black,2.55,0.48,-5.4,16));
+  chassis.add(cyl(0.2,0.06,black,2.55,0.48,-4.78,32));
+  /* boutons : Action + volumes à gauche, Side + Camera Control à droite */
+  [[-W/2-0.02,-4.6,0.8],[-W/2-0.02,-2.9,1.5],[-W/2-0.02,-1.0,1.5],[W/2+0.02,-2.6,2.2],[W/2+0.02,2.4,1.4]].forEach(function(b){ chassis.add(box(0.1,0.2,b[2],aluDark,b[0],0.1,b[1])); });
+  /* haut-parleur, Taptic, vis */
+  chassis.add(box(2.2,0.34,1.1,matte,1.6,0.25,6.2));
+  chassis.add(box(1.5,0.3,0.9,steel,-1.5,0.22,6.3));
+  [[-3.0,-7.0],[3.0,-7.0],[-3.0,7.0],[3.0,7.0],[-3.0,0.4],[3.0,0.4]].forEach(function(p){ screw(p[0],0.1,p[1],chassis); });
+  addLayer(chassis,0);
+
+  /* ---------- 04 carte mère ---------- */
+  var board=new THREE.Group();
+  var pcbMain=slab(6.2,2.6,0.08,0.25,pcb); pcbMain.position.set(0,0,-3.2); board.add(pcbMain);
+  board.add(plane(6.1,2.5,pcbTexture(610,250),0.13,-3.2,0,{metalness:.2,roughness:.55}));
+  var chip=box(1.2,0.14,1.2,black,-2.0,0.16,-3.2); board.add(chip);
+  board.add(box(1.0,0.02,1.0,new THREE.MeshStandardMaterial({color:0x2b2f38,metalness:.6,roughness:.3}),-2.0,0.24,-3.2));
+  [[-0.5,0.9],[0.8,0.9],[2.2,1.3]].forEach(function(c){ board.add(box(c[1],0.1,0.5,volt,c[0],0.14,-3.6)); });
+  board.add(box(3.4,0.05,0.22,copper,0.6,0.13,-2.7));
+  for(var i=0;i<9;i++){ board.add(box(0.14,0.06,0.09,gold,-1.3+i*0.28,0.12,-2.35)); }
+  var side=slab(0.55,9.6,0.06,0.15,pcb); side.position.set(-3.05,0,1.4); board.add(side);
+  var bottomB=slab(3.2,1.2,0.08,0.2,pcb); bottomB.position.set(0,0,6.4); board.add(bottomB);
+  board.add(box(0.95,0.28,0.5,steel,0,0.08,7.05));
+  board.add(box(0.7,0.14,0.08,black,0,0.08,7.3));
+  addLayer(board,0.2);
+
+  /* ---------- 03 batterie ---------- */
+  var batt=new THREE.Group();
+  var cell=slab(5.4,8.2,0.42,0.35,silver); cell.position.set(0.25,0,1.6); batt.add(cell);
+  batt.add(plane(4.2,5.0,labelTexture(),0.53,1.6,0.25,{metalness:.05,roughness:.75}));
+  batt.add(box(0.7,0.05,0.5,copper,0.25,0.3,-2.7));
+  batt.add(box(0.4,0.12,0.25,black,0.25,0.36,-2.55));
+  addLayer(batt,0.34);
+
+  /* ---------- 02 cadre médian + nappes ---------- */
+  var midframe=new THREE.Group();
+  midframe.add(slab(W-0.3,H-0.3,0.14,R-0.1,steel,[W-1.3,H-1.3,R-0.5]));
+  [[-1.6,-6.4,0.35,2.4],[1.6,-6.4,0.35,2.4],[0,5.6,0.7,2.2]].forEach(function(n){
+    midframe.add(box(n[2],0.04,n[3],copper,n[0],0.16,n[1]));
+    midframe.add(box(n[2]+0.1,0.1,0.22,black,n[0],0.2,n[1]+n[3]/2-0.1));
+  });
+  [[-3.2,-7.1],[3.2,-7.1],[-3.2,7.1],[3.2,7.1]].forEach(function(p){ screw(p[0],0.14,p[1],midframe); });
+  addLayer(midframe,0.82);
+
+  /* ---------- 01 écran : dalle allumée + verre + module Face ID sous l'écran ---------- */
+  var screen=new THREE.Group();
+  var bezel=slab(W,H,0.18,R,black); screen.add(bezel);
+  var face=new THREE.Mesh(new THREE.PlaneGeometry(W-0.44,H-0.44),new THREE.MeshBasicMaterial({map:screenTexture()}));
+  face.rotation.x=-Math.PI/2; face.position.y=0.25; screen.add(face);
+  var glass=slab(W,H,0.04,R,screenGlass); glass.position.y=0.27; screen.add(glass);
+  var faceId=box(2.4,0.1,0.7,matte,0,-0.06,-6.7); screen.add(faceId);
+  screen.add(box(3.0,0.04,0.5,copper,0,-0.05,6.6));
+  addLayer(screen,1.0);
+
+  var root=new THREE.Group(); layers.forEach(function(l){ root.add(l.g); }); scene.add(root);
+  root.rotation.y=-0.6;
+
+  var spacing=[0,1.9,2.7,2.1,2.4];
+  function place(k){ var y=-0.6; for(var i=0;i<layers.length;i++){ y+=(i===0?0:layers[i].rest*(1-k))+spacing[i]*k; layers[i].g.position.y=y; } }
+
+  var tx=0,ty=0,cx=0,cy=0;
+  addEventListener('pointermove',function(e){ tx=(e.clientX/innerWidth-.5); ty=(e.clientY/innerHeight-.5); },{passive:true});
+  function size(){ var w=cv.clientWidth||600,h=cv.clientHeight||480; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix();
+    var f=Math.max(1,1.25/camera.aspect); camera.position.set(21*f,33*f,29*f); camera.lookAt(0,4.2,0); }
+  size(); addEventListener('resize',size);
+
+  var t0=performance.now(), raf;
+  function ease(x){ return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2; }
+  function frame(now){
+    var t=(now-t0)/1000, c=t%9.5, k;
+    if(c<1.5) k=0; else if(c<3.5) k=ease((c-1.5)/2); else if(c<7.5) k=1; else k=1-ease((c-7.5)/2);
+    if(reduce || /pose=open/.test(location.search)) k=1;
+    place(k);
+    cx+=(tx-cx)*.05; cy+=(ty-cy)*.05;
+    root.rotation.y=-0.6+(reduce?0:t*0.12)+cx*0.6; root.rotation.x=cy*0.18; root.rotation.z=cx*0.05;
+    renderer.render(scene,camera); raf=requestAnimationFrame(frame);
+  }
+  frame(t0);
+  document.addEventListener('visibilitychange',function(){ if(document.hidden)cancelAnimationFrame(raf); else raf=requestAnimationFrame(frame); });
+})();
+</script>
 </body>
 </html>

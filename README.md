@@ -1,18 +1,13 @@
-# Ch Team Phones — maquettes de site
+# Ch Team Phones — site
 
-Quatre propositions de site complet (5 pages chacune) pour **Ch Team Phones**,
-Parc Plaza, Immeuble C, N7 — Mohammédia 28810.
+Site vitrine de **Ch Team Phones**, Parc Plaza, Immeuble C, N7 — Mohammédia 28810.
 
-Page d'entrée : `index.html`
+En ligne : https://adancedcourtage.github.io/ch-team-phones-maquettes/
 
-| | Direction | Fichier |
-|---|---|---|
-| 01 | Chambre Noire | `01-chambre-noire.html` |
-| 02 | Marée de Verre | `02-maree-de-verre.html` |
-| 03 | Zellige Infini | `03-zellige-infini.html` |
-| 04 | Atelier Suspendu | `04-atelier-suspendu.html` |
+Cinq pages en un seul fichier (`index.html`) : accueil, boutique, réparation,
+occasion, avis, contact. Navigation par ancre, aucune dépendance hors
+Google Fonts et three.js (CDN).
 
-Les coordonnées, horaires, note Google et compte Instagram sont réels.
-**Les prix, délais, barèmes de reprise et avis clients sont des repères de mise
-en page** et doivent être remplacés par les données réelles de la boutique avant
-toute mise en ligne définitive.
+Les coordonnées, horaires et avis Google sont réels.
+**Les prix et délais sont des repères de mise en page** et doivent être
+remplacés par les données réelles de la boutique avant mise en ligne définitive.
