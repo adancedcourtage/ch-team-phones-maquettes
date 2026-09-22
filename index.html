@@ -188,6 +188,59 @@ button.tile{cursor:pointer}
 .chip--sm{padding:7px 13px;font-size:12px}
 .empty{border:1px dashed var(--line2);border-radius:14px;padding:22px;text-align:center;color:var(--ink2);font-size:14.5px;line-height:1.6}
 .obj.pad{width:96px;height:124px;border-radius:12px}
+
+/* ---------- illustrations ---------- */
+.shot img.dev{height:auto;max-height:158px;width:auto;max-width:86%;object-fit:contain;border-radius:8px;filter:drop-shadow(0 12px 18px rgba(11,14,20,.16))}
+.pdp-stage img.dev{max-height:min(380px,48vh);height:auto;width:auto;max-width:92%;object-fit:contain;border-radius:12px}
+.pdp-thumbs img.dev{max-height:64px;height:auto;width:auto;object-fit:contain}
+.credit{margin:10px 2px 0;font-size:11px;line-height:1.5;color:var(--ink3)}
+.shot .dev{width:auto;height:150px;display:block;position:relative;z-index:2;filter:drop-shadow(0 16px 22px rgba(11,14,20,.22))}
+.shot .dev.wide{height:104px}
+/* ---------- fiche produit ---------- */
+.backlink{display:inline-flex;align-items:center;gap:9px;font-size:13.5px;font-weight:600;color:var(--ink2);padding:9px 14px;border:1px solid var(--line2);border-radius:10px;background:var(--white);margin-bottom:24px;transition:border-color .16s ease,color .16s ease}
+.backlink:hover{border-color:var(--ink);color:var(--ink)}
+.pdp{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3.6vw,44px);align-items:start}
+@media (max-width:880px){.pdp{grid-template-columns:1fr}}
+.pdp-visual{position:sticky;top:78px}
+.pdp-stage{border:1px solid var(--line);border-radius:22px;background:var(--white);min-height:400px;display:grid;place-items:center;padding:30px;position:relative;overflow:hidden}
+.pdp-stage .halo{position:absolute;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(47,38,255,.1),transparent 68%)}
+.pdp-stage .dev{position:relative;z-index:2;height:min(340px,46vh);width:auto;filter:drop-shadow(0 30px 40px rgba(11,14,20,.26))}
+.pdp-stage .dev.wide{height:min(220px,32vh)}
+.pdp-thumbs{display:flex;gap:10px;margin-top:10px}
+.pdp-thumbs button{flex:1;border:1px solid var(--line);border-radius:14px;background:var(--white);height:86px;display:grid;place-items:center;transition:border-color .16s ease}
+.pdp-thumbs button[aria-pressed="true"]{border-color:var(--ink)}
+.pdp-thumbs .dev{height:60px;width:auto}
+.pdp-thumbs .dev.wide{height:40px}
+.pdp-info h1{font-size:clamp(26px,4vw,42px);line-height:1.04;margin:6px 0 10px}
+.pdp-brand{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--volt)}
+.pdp-sub{margin:0 0 22px;color:var(--ink2);font-size:15.5px;line-height:1.65}
+.pdp-block{margin-bottom:22px}
+.pdp-lab{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--ink2);margin-bottom:10px}
+.opts{display:flex;flex-wrap:wrap;gap:9px}
+.opt{border:1px solid var(--line2);background:var(--white);border-radius:12px;padding:12px 16px;font-size:14px;font-weight:600;text-align:left;transition:border-color .16s ease,background .16s ease;min-height:44px}
+.opt:hover:not(:disabled){border-color:var(--ink)}
+.opt[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:#fff}
+.opt:disabled{opacity:.42;cursor:not-allowed}
+.opt small{display:block;font-weight:500;font-size:11.5px;color:var(--ink3);margin-top:3px}
+.opt[aria-pressed="true"] small{color:rgba(255,255,255,.65)}
+.opt--col{display:flex;align-items:center;gap:9px;padding:10px 14px}
+.opt--col i{width:18px;height:18px;border-radius:50%;border:1px solid rgba(11,14,20,.18);display:block;flex:0 0 auto}
+.pdp-price{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:22px}
+.pdp-price b{font-family:'Archivo',sans-serif;font-size:clamp(28px,4vw,40px);font-weight:900;letter-spacing:-.045em;font-variant-numeric:tabular-nums}
+.pdp-price .ref{font-size:14px;color:var(--ink3);text-decoration:line-through}
+.pdp-price .st{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mint);margin-left:auto}
+.pdp-cta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.pdp-notes{display:grid;gap:11px;margin-bottom:22px}
+.pdp-notes div{display:grid;grid-template-columns:20px 1fr;gap:11px;font-size:13.5px;line-height:1.55;color:var(--ink2)}
+.pdp-notes svg{color:var(--mint);margin-top:2px}
+.pdp-notes b{color:var(--ink);font-weight:600}
+.pdp-specs{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--white)}
+.pdp-specs div{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:13px 18px;border-bottom:1px solid var(--line);font-size:14px}
+.pdp-specs div:last-child{border-bottom:none}
+.pdp-specs dt{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);padding-top:3px}
+.pdp-specs dd{margin:0}
+.pdp-alt{margin-top:clamp(36px,5vw,64px)}
+.pdp-alt h2{font-size:22px;margin-bottom:18px}
 .card .brand{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
 
 .tag{
@@ -517,6 +570,21 @@ footer.site{
       </div>
       <footer class="site"><span>Ch Team Phones · 06 61 79 87 82</span><span class="mono">BOUTIQUE</span></footer>
     </section>
+  </div>
+</section>
+
+
+<!-- ═════════ FICHE PRODUIT ═════════ -->
+<section data-view="produit">
+  <div class="wrap">
+    <div class="sec" style="padding-bottom:0">
+      <button class="backlink" data-go="boutique">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        Retour à la boutique
+      </button>
+      <div id="pdp"></div>
+      <footer class="site"><span>Ch Team Phones · Parc Plaza, Imm. C, N7 · Mohammédia</span><span class="mono">FICHE PRODUIT</span></footer>
+    </div>
   </div>
 </section>
 
@@ -859,17 +927,151 @@ footer.site{
     var t=e.target.closest('[data-go]'); if(!t) return; e.preventDefault();
     show(t.getAttribute('data-go'),true);
   });
-  addEventListener('popstate',function(){show(location.hash.slice(1)||'accueil',false);});
-  if(location.hash) show(location.hash.slice(1),false);
+  function route(h,push){
+    h=(h||'').replace(/^#/,'');
+    if(h.indexOf('produit/')===0){ if(window.ouvrirProduit && window.ouvrirProduit(h.slice(8),false)) return; }
+    show(h||'accueil',push);
+  }
+  addEventListener('popstate',function(){route(location.hash,false);});
 
   /* ---------- catalogue ---------- */
   var AFFICHER_PRIX = true;   /* passer a false pour masquer tous les prix */
-  var CATALOGUE = [{"n":"iPhone X","s":"64 Go · écran OLED 5,8″","p":1450,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone XR","s":"64 Go · Liquid Retina 6,1″","p":1650,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone XS","s":"64 Go · acier · OLED 5,8″","p":1750,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone XS Max","s":"256 Go · OLED 6,5″","p":2100,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 11","s":"128 Go · double caméra","p":2300,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 11 Pro","s":"64 Go · triple caméra · acier","p":2750,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 11 Pro Max","s":"256 Go · OLED 6,5″","p":3200,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 12 mini","s":"64 Go · 5,4″ · 5G","p":2450,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 12","s":"128 Go · 5G · MagSafe","p":2900,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 12 Pro","s":"128 Go · LiDAR · acier","p":3400,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 12 Pro Max","s":"256 Go · 6,7″ · LiDAR","p":3900,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 13 mini","s":"128 Go · 5,4″ · A15","p":3100,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 13","s":"128 Go · A15 · double caméra","p":3600,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 13 Pro","s":"128 Go · ProMotion 120 Hz","p":4400,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 13 Pro Max","s":"256 Go · 6,7″ · ProMotion","p":5100,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 14","s":"128 Go · A15 · Détection d'accident","p":4300,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 14 Plus","s":"128 Go · 6,7″ · grande autonomie","p":4700,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 14 Pro","s":"128 Go · Dynamic Island · 48 Mpx","p":5600,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 14 Pro Max","s":"256 Go · 6,7″ · Dynamic Island","p":6400,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 15","s":"128 Go · USB-C · A16","p":5400,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 15 Plus","s":"128 Go · 6,7″ · USB-C","p":5900,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 15 Pro","s":"128 Go · titane · A17 Pro","p":6900,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 15 Pro Max","s":"256 Go · téléobjectif 5×","p":7900,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 16e","s":"128 Go · A18 · Face ID","p":5200,"e":"neuf","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 16","s":"128 Go · A18 · Camera Control","p":7200,"e":"neuf","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 16 Plus","s":"128 Go · 6,7″ · A18","p":8100,"e":"neuf","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 16 Pro","s":"128 Go · titane · A18 Pro","p":9600,"e":"neuf","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 16 Pro Max","s":"256 Go · 6,9″ · A18 Pro","p":11200,"e":"neuf","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 17","s":"256 Go · A19 · 6,3″","p":9900,"e":"neuf","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 17 Air","s":"256 Go · 5,6 mm · titane","p":12900,"e":"neuf","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 17 Pro","s":"256 Go · A19 Pro · aluminium","p":14200,"e":"neuf","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 17 Pro Max","s":"256 Go · 6,9″ · A19 Pro","p":15800,"e":"neuf","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 18 Pro","s":"256 Go · A20 Pro · ouverture variable","p":16400,"e":"neuf","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 18 Pro Max","s":"256 Go · A20 Pro · 6,9″","p":17900,"e":"neuf","b":"apple","c":"iphone","k":"ph"},{"n":"MacBook Air 13″ M4","s":"16 Go / 256 Go · 18 h d'autonomie","p":13900,"e":"commande","b":"apple","c":"mac","k":"lap"},{"n":"MacBook Air 15″ M4","s":"16 Go / 512 Go · écran 15,3″","p":16900,"e":"commande","b":"apple","c":"mac","k":"lap"},{"n":"MacBook Pro 14″ M5","s":"16 Go / 512 Go · Liquid Retina XDR","p":22500,"e":"commande","b":"apple","c":"mac","k":"lap"},{"n":"MacBook Pro 14″ M5 Pro","s":"24 Go / 1 To · ProMotion","p":29900,"e":"commande","b":"apple","c":"mac","k":"lap"},{"n":"MacBook Pro 16″ M5 Pro","s":"24 Go / 1 To · écran 16,2″","p":34900,"e":"commande","b":"apple","c":"mac","k":"lap"},{"n":"MacBook Pro 16″ M5 Max","s":"36 Go / 1 To · configuration pro","p":38500,"e":"commande","b":"apple","c":"mac","k":"lap"},{"n":"Mac mini M4","s":"16 Go / 256 Go · compact","p":8900,"e":"commande","b":"apple","c":"mac","k":"bd"},{"n":"iMac 24″ M4","s":"16 Go / 512 Go · 4,5K Retina","p":17900,"e":"commande","b":"apple","c":"mac","k":"lap"},{"n":"iPad 11″ (A16)","s":"128 Go · Wi-Fi","p":4600,"e":"neuf","b":"apple","c":"ipad","k":"pad"},{"n":"iPad mini (A17 Pro)","s":"128 Go · 8,3″ · Apple Pencil Pro","p":6200,"e":"neuf","b":"apple","c":"ipad","k":"pad"},{"n":"iPad Air 11″ M3","s":"128 Go · Wi-Fi · Magic Keyboard compatible","p":7900,"e":"neuf","b":"apple","c":"ipad","k":"pad"},{"n":"iPad Air 13″ M3","s":"256 Go · grand écran","p":10400,"e":"neuf","b":"apple","c":"ipad","k":"pad"},{"n":"iPad Pro 11″ M5","s":"256 Go · Ultra Retina XDR","p":13900,"e":"commande","b":"apple","c":"ipad","k":"pad"},{"n":"iPad Pro 13″ M5","s":"256 Go · Ultra Retina XDR","p":17400,"e":"commande","b":"apple","c":"ipad","k":"pad"},{"n":"Apple Watch SE 3","s":"40 mm · GPS · bracelet sport","p":3200,"e":"neuf","b":"apple","c":"watch","k":"wt"},{"n":"Apple Watch Series 11","s":"45 mm · GPS · always-on","p":5600,"e":"neuf","b":"apple","c":"watch","k":"wt"},{"n":"Apple Watch Series 11 Cellular","s":"45 mm · eSIM","p":6800,"e":"neuf","b":"apple","c":"watch","k":"wt"},{"n":"Apple Watch Ultra 3","s":"49 mm · titane · 4G","p":9200,"e":"neuf","b":"apple","c":"watch","k":"wt"},{"n":"Apple Watch Series 10","s":"42 mm · reconditionnée","p":3900,"e":"occasion","b":"apple","c":"watch","k":"wt"},{"n":"Galaxy S26","s":"256 Go · Snapdragon 8 Elite Gen 5","p":9400,"e":"neuf","b":"samsung","c":"android","k":"ph"},{"n":"Galaxy S26+","s":"256 Go · 6,7″ · charge rapide","p":11200,"e":"neuf","b":"samsung","c":"android","k":"ph"},{"n":"Galaxy S26 Ultra","s":"512 Go · S Pen · capteur 200 Mpx","p":14900,"e":"neuf","b":"samsung","c":"android","k":"ph"},{"n":"Galaxy Z Fold 7","s":"512 Go · écran pliant 8″","p":19900,"e":"commande","b":"samsung","c":"android","k":"ph"},{"n":"Galaxy Z Flip 7","s":"256 Go · format compact","p":11900,"e":"commande","b":"samsung","c":"android","k":"ph"},{"n":"Galaxy S25 Ultra","s":"512 Go · batterie 92% · 18 points","p":7400,"e":"occasion","b":"samsung","c":"android","k":"ph"},{"n":"Galaxy S24 Ultra","s":"256 Go · titane · S Pen","p":6200,"e":"occasion","b":"samsung","c":"android","k":"ph"},{"n":"Galaxy A56 5G","s":"256 Go · milieu de gamme","p":3400,"e":"neuf","b":"samsung","c":"android","k":"ph"},{"n":"Pixel 10","s":"128 Go · Tensor · photo Google","p":6400,"e":"neuf","b":"google","c":"android","k":"ph"},{"n":"Pixel 10 Pro","s":"256 Go · triple caméra · 6,3″","p":9200,"e":"neuf","b":"google","c":"android","k":"ph"},{"n":"Pixel 10 Pro XL","s":"256 Go · 6,8″ · Tensor","p":10800,"e":"neuf","b":"google","c":"android","k":"ph"},{"n":"Pixel 10 Pro Fold","s":"256 Go · écran pliant","p":18500,"e":"commande","b":"google","c":"android","k":"ph"},{"n":"Pixel 9 Pro","s":"128 Go · reconditionné","p":5400,"e":"occasion","b":"google","c":"android","k":"ph"},{"n":"Honor Magic 8 Pro","s":"512 Go · écran 6 000 nits","p":9800,"e":"neuf","b":"honor","c":"android","k":"ph"},{"n":"Honor Magic V6","s":"512 Go · pliant · ultra fin","p":17900,"e":"commande","b":"honor","c":"android","k":"ph"},{"n":"Honor 400 Pro","s":"256 Go · photo 200 Mpx","p":5600,"e":"neuf","b":"honor","c":"android","k":"ph"},{"n":"Honor X9c","s":"256 Go · écran incurvé · batterie 6 600 mAh","p":2900,"e":"neuf","b":"honor","c":"android","k":"ph"},{"n":"Xiaomi 17","s":"256 Go · Snapdragon dernier cri","p":7200,"e":"neuf","b":"xiaomi","c":"android","k":"ph"},{"n":"Xiaomi 17 Ultra","s":"512 Go · Leica · capteur 1 pouce","p":11900,"e":"neuf","b":"xiaomi","c":"android","k":"ph"},{"n":"Xiaomi 15 Ultra","s":"512 Go · Leica","p":8700,"e":"occasion","b":"xiaomi","c":"android","k":"ph"},{"n":"Redmi Note 15 Pro","s":"256 Go · rapport qualité-prix","p":2600,"e":"neuf","b":"xiaomi","c":"android","k":"ph"},{"n":"POCO F8","s":"512 Go · performance","p":3900,"e":"neuf","b":"xiaomi","c":"android","k":"ph"},{"n":"AirPods Pro 3","s":"Réduction de bruit · boîtier USB-C","p":2950,"e":"neuf","b":"accessoire","c":"accessoire","k":"bd"},{"n":"AirPods 4","s":"Avec réduction de bruit","p":1850,"e":"neuf","b":"accessoire","c":"accessoire","k":"bd"},{"n":"Protection d'écran verre trempé","s":"Toutes tailles · posée sans bulle","p":120,"e":"neuf","b":"accessoire","c":"accessoire","k":"bd"},{"n":"Coque de protection","s":"Silicone ou transparente · toutes marques","p":90,"e":"neuf","b":"accessoire","c":"accessoire","k":"bd"},{"n":"Chargeur rapide 45 W","s":"USB-C · câble tressé fourni","p":260,"e":"neuf","b":"accessoire","c":"accessoire","k":"bd"},{"n":"Batterie externe 20 000 mAh","s":"Charge rapide · double port","p":340,"e":"neuf","b":"accessoire","c":"accessoire","k":"bd"},{"n":"Câble USB-C tressé 2 m","s":"Charge et transfert","p":80,"e":"neuf","b":"accessoire","c":"accessoire","k":"bd"},{"n":"Montre connectée sport","s":"Suivi activité · notifications","p":450,"e":"neuf","b":"accessoire","c":"accessoire","k":"wt"}];
+  var CATALOGUE = [{"n":"iPhone X","s":"64 Go · OLED 5,8″ · Face ID","e":"occasion","b":"apple","c":"iphone","k":"ph","cam":"dual-v","face":"notch","cl":[["Argent","#dcdfe3"],["Gris sidéral","#4a4b50"]],"pn":null,"po":1450,"id":"iphone-x","cap":["64 Go","128 Go","256 Go"],"img":"img/iphone-x.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPhone XR","s":"64 Go · Liquid Retina 6,1″","e":"occasion","b":"apple","c":"iphone","k":"ph","cam":"single","face":"notch","cl":[["Corail","#f4655a"],["Bleu","#4a7fb5"],["Noir","#2b2d31"]],"pn":null,"po":1650,"id":"iphone-xr","cap":["64 Go","128 Go","256 Go"],"img":"img/iphone-xr.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPhone XS","s":"64 Go · acier · OLED 5,8″","e":"occasion","b":"apple","c":"iphone","k":"ph","cam":"dual-v","face":"notch","cl":[["Or","#e3c9a8"],["Argent","#dcdfe3"],["Gris sidéral","#4a4b50"]],"pn":null,"po":1750,"id":"iphone-xs","cap":["64 Go","128 Go","256 Go"],"img":"img/iphone-xs.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPhone XS Max","s":"256 Go · OLED 6,5″","e":"occasion","b":"apple","c":"iphone","k":"ph","cam":"dual-v","face":"notch","cl":[["Or","#e3c9a8"],["Gris sidéral","#4a4b50"]],"pn":null,"po":2100,"id":"iphone-xs-max","cap":["256 Go","512 Go","1 To"],"img":"img/iphone-xs-max.jpg","at":"Markus Kniebes","li":"CC0"},{"n":"iPhone 11","s":"128 Go · double caméra","e":"occasion","b":"apple","c":"iphone","k":"ph","cam":"dual-sq","face":"notch","cl":[["Violet","#d3cfe3"],["Vert","#d3e5d8"],["Noir","#2b2d31"]],"pn":null,"po":2300,"id":"iphone-11","cap":["128 Go","256 Go","512 Go"],"img":"img/iphone-11.png","at":"TheGoldenBox","li":"CC BY-SA 4.0"},{"n":"iPhone 11 Pro","s":"64 Go · triple caméra · acier","e":"occasion","b":"apple","c":"iphone","k":"ph","cam":"triple","face":"notch","cl":[["Vert nuit","#4a5b52"],["Gris sidéral","#4a4b50"]],"pn":null,"po":2750,"id":"iphone-11-pro","cap":["64 Go","128 Go","256 Go"],"img":"img/iphone-11-pro.jpg","at":"Ralph Emmerich","li":"CC BY-SA 4.0"},{"n":"iPhone 11 Pro Max","s":"256 Go · OLED 6,5″","e":"occasion","b":"apple","c":"iphone","k":"ph","cam":"triple","face":"notch","cl":[["Vert nuit","#4a5b52"],["Or","#e3c9a8"]],"pn":null,"po":3200,"id":"iphone-11-pro-max","cap":["256 Go","512 Go","1 To"],"img":"img/iphone-11-pro-max.jpg","at":"Ahmadkurdi44","li":"CC BY-SA 4.0"},{"n":"iPhone 12 mini","s":"64 Go · 5,4″ · 5G","e":"occasion","b":"apple","c":"iphone","k":"ph","cam":"dual-diag","face":"notch","cl":[["Bleu","#2b4a73"],["Noir","#2b2d31"],["Blanc","#eef0f2"]],"pn":null,"po":2450,"id":"iphone-12-mini","cap":["64 Go","128 Go","256 Go"],"img":"img/iphone-12-mini.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPhone 12","s":"128 Go · 5G · MagSafe","e":"occasion","b":"apple","c":"iphone","k":"ph","cam":"dual-diag","face":"notch","cl":[["Bleu","#2b4a73"],["Vert","#d3e5d8"],["Rouge","#c0392b"]],"pn":null,"po":2900,"id":"iphone-12","cap":["128 Go","256 Go","512 Go"],"img":"img/iphone-12.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPhone 12 Pro","s":"128 Go · LiDAR · acier","e":"occasion","b":"apple","c":"iphone","k":"ph","cam":"triple","face":"notch","cl":[["Bleu Pacifique","#2d4f5e"],["Graphite","#4a4b50"]],"pn":null,"po":3400,"id":"iphone-12-pro","cap":["128 Go","256 Go","512 Go"],"img":"img/iphone-12-pro.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPhone 12 Pro Max","s":"256 Go · 6,7″ · LiDAR","e":"occasion","b":"apple","c":"iphone","k":"ph","cam":"triple","face":"notch","cl":[["Bleu Pacifique","#2d4f5e"],["Or","#e3c9a8"]],"pn":null,"po":3900,"id":"iphone-12-pro-max","cap":["256 Go","512 Go","1 To"],"img":"img/iphone-12-pro-max.png","at":"Chabulsqu1","li":"CC BY-SA 4.0"},{"n":"iPhone 13 mini","s":"128 Go · 5,4″ · A15","e":"occasion","b":"apple","c":"iphone","k":"ph","cam":"dual-diag","face":"notch","cl":[["Rose","#f0d5d8"],["Minuit","#1f2937"]],"pn":null,"po":3100,"id":"iphone-13-mini","cap":["128 Go","256 Go","512 Go"],"img":"img/iphone-13-mini.png","at":"DYVER","li":"CC BY-SA 4.0"},{"n":"iPhone 13","s":"128 Go · A15 · double caméra","e":"occasion","b":"apple","c":"iphone","k":"ph","cam":"dual-diag","face":"notch","cl":[["Minuit","#1f2937"],["Rose","#f0d5d8"],["Bleu","#2b4a73"]],"pn":null,"po":3600,"id":"iphone-13","cap":["128 Go","256 Go","512 Go"],"img":"img/iphone-13.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPhone 13 Pro","s":"128 Go · ProMotion 120 Hz","e":"occasion","b":"apple","c":"iphone","k":"ph","cam":"triple","face":"notch","cl":[["Bleu Sierra","#a7c1d9"],["Graphite","#4a4b50"]],"pn":null,"po":4400,"id":"iphone-13-pro","cap":["128 Go","256 Go","512 Go"],"img":"img/iphone-13-pro.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPhone 13 Pro Max","s":"256 Go · 6,7″ · ProMotion","e":"occasion","b":"apple","c":"iphone","k":"ph","cam":"triple","face":"notch","cl":[["Bleu Sierra","#a7c1d9"],["Or","#e3c9a8"]],"pn":null,"po":5100,"id":"iphone-13-pro-max","cap":["256 Go","512 Go","1 To"],"img":"img/iphone-13-pro-max.jpg","at":"Grany29","li":"CC BY 4.0"},{"n":"iPhone 14","s":"128 Go · Détection d'accident","e":"occasion","b":"apple","c":"iphone","k":"ph","cam":"dual-diag","face":"notch","cl":[["Bleu","#a8c8e8"],["Minuit","#1f2937"],["Lumière stellaire","#f0ece5"]],"pn":null,"po":4300,"id":"iphone-14","cap":["128 Go","256 Go","512 Go"],"img":"img/iphone-14.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPhone 14 Plus","s":"128 Go · 6,7″ · grande autonomie","e":"occasion","b":"apple","c":"iphone","k":"ph","cam":"dual-diag","face":"notch","cl":[["Bleu","#a8c8e8"],["Minuit","#1f2937"]],"pn":null,"po":4700,"id":"iphone-14-plus","cap":["128 Go","256 Go","512 Go"],"img":"img/iphone-14-plus.jpg","at":"メイド理世","li":"CC BY-SA 4.0"},{"n":"iPhone 14 Pro","s":"128 Go · Dynamic Island · 48 Mpx","e":"occasion","b":"apple","c":"iphone","k":"ph","cam":"triple","face":"island","cl":[["Violet intense","#55486a"],["Noir sidéral","#43464d"]],"pn":null,"po":5600,"id":"iphone-14-pro","cap":["128 Go","256 Go","512 Go"],"img":"img/iphone-14-pro.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPhone 14 Pro Max","s":"256 Go · 6,7″ · Dynamic Island","e":"occasion","b":"apple","c":"iphone","k":"ph","cam":"triple","face":"island","cl":[["Violet intense","#55486a"],["Or","#e3c9a8"]],"pn":null,"po":6400,"id":"iphone-14-pro-max","cap":["256 Go","512 Go","1 To"],"img":"img/iphone-14-pro-max.jpg","at":"Hajoon0102","li":"CC BY-SA 4.0"},{"n":"iPhone 15","s":"128 Go · USB-C · A16","e":"occasion","b":"apple","c":"iphone","k":"ph","cam":"dual-diag","face":"island","cl":[["Rose","#f3d4d7"],["Bleu","#cfe0e6"],["Noir","#2b2d31"]],"pn":null,"po":5400,"id":"iphone-15","cap":["128 Go","256 Go","512 Go"],"img":"img/iphone-15.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPhone 15 Plus","s":"128 Go · 6,7″ · USB-C","e":"occasion","b":"apple","c":"iphone","k":"ph","cam":"dual-diag","face":"island","cl":[["Vert","#d6e2d4"],["Bleu","#cfe0e6"]],"pn":null,"po":5900,"id":"iphone-15-plus","cap":["128 Go","256 Go","512 Go"],"img":"img/iphone-15-plus.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPhone 15 Pro","s":"128 Go · titane · A17 Pro","e":"occasion","b":"apple","c":"iphone","k":"ph","cam":"triple","face":"island","cl":[["Titane naturel","#b8ada1"],["Titane noir","#3b3b3e"],["Titane blanc","#e6e4e0"]],"pn":null,"po":6900,"id":"iphone-15-pro","cap":["128 Go","256 Go","512 Go"],"img":"img/iphone-15-pro.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPhone 15 Pro Max","s":"256 Go · téléobjectif 5×","e":"occasion","b":"apple","c":"iphone","k":"ph","cam":"triple","face":"island","cl":[["Titane naturel","#b8ada1"],["Titane noir","#3b3b3e"],["Titane blanc","#e6e4e0"]],"pn":null,"po":7900,"id":"iphone-15-pro-max","cap":["256 Go","512 Go","1 To"],"img":"img/iphone-15-pro-max.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPhone 16e","s":"128 Go · A18 · Face ID","e":"neuf","b":"apple","c":"iphone","k":"ph","cam":"single","face":"notch","cl":[["Noir","#2b2d31"],["Blanc","#eef0f2"]],"pn":5200,"po":3750,"id":"iphone-16e","cap":["128 Go","256 Go","512 Go"],"img":"img/iphone-16e.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPhone 16","s":"128 Go · A18 · Camera Control","e":"neuf","b":"apple","c":"iphone","k":"ph","cam":"dual-pill","face":"island","cl":[["Outremer","#3b4ea8"],["Sarcelle","#cfe3dd"],["Noir","#2b2d31"]],"pn":7200,"po":5200,"id":"iphone-16","cap":["128 Go","256 Go","512 Go"],"img":"img/iphone-16.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPhone 16 Plus","s":"128 Go · 6,7″ · A18","e":"neuf","b":"apple","c":"iphone","k":"ph","cam":"dual-pill","face":"island","cl":[["Outremer","#3b4ea8"],["Rose","#f3d4d7"]],"pn":8100,"po":5850,"id":"iphone-16-plus","cap":["128 Go","256 Go","512 Go"],"img":"img/iphone-16-plus.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPhone 16 Pro","s":"128 Go · titane · A18 Pro","e":"neuf","b":"apple","c":"iphone","k":"ph","cam":"triple","face":"island","cl":[["Titane désert","#baa08a"],["Titane naturel","#b8ada1"],["Titane noir","#3b3b3e"]],"pn":9600,"po":6900,"id":"iphone-16-pro","cap":["128 Go","256 Go","512 Go"],"img":"img/iphone-16-pro.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPhone 16 Pro Max","s":"256 Go · 6,9″ · A18 Pro","e":"neuf","b":"apple","c":"iphone","k":"ph","cam":"triple","face":"island","cl":[["Titane désert","#baa08a"],["Titane noir","#3b3b3e"]],"pn":11200,"po":8050,"id":"iphone-16-pro-max","cap":["256 Go","512 Go","1 To"],"img":"img/iphone-16-pro-max.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPhone 17","s":"256 Go · A19 · 6,3″","e":"neuf","b":"apple","c":"iphone","k":"ph","cam":"dual-pill","face":"island","cl":[["Lavande","#cdbfe0"],["Brume","#cfe0ef"],["Noir","#2b2d31"]],"pn":9900,"po":7150,"id":"iphone-17","cap":["256 Go","512 Go","1 To"],"img":"img/iphone-17.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPhone 17 Air","s":"256 Go · 5,6 mm · titane","e":"neuf","b":"apple","c":"iphone","k":"ph","cam":"plateau-mono","face":"island","cl":[["Bleu ciel","#cfe0ef"],["Or clair","#e8dcc4"],["Noir","#2b2d31"]],"pn":12900,"po":9300,"id":"iphone-17-air","cap":["256 Go","512 Go","1 To"],"img":"img/iphone-17-air.jpg","at":"Captainmorlypogi1959","li":"CC BY-SA 4.0"},{"n":"iPhone 17 Pro","s":"256 Go · A19 Pro · aluminium","e":"neuf","b":"apple","c":"iphone","k":"ph","cam":"plateau","face":"island","cl":[["Orange cosmique","#f27a12"],["Bleu profond","#27496d"],["Argent","#dfe2e6"]],"pn":14200,"po":10200,"id":"iphone-17-pro","cap":["256 Go","512 Go","1 To"],"img":"img/iphone-17-pro.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPhone 17 Pro Max","s":"256 Go · 6,9″ · A19 Pro","e":"neuf","b":"apple","c":"iphone","k":"ph","cam":"plateau","face":"island","cl":[["Orange cosmique","#f27a12"],["Bleu profond","#27496d"],["Argent","#dfe2e6"]],"pn":15800,"po":11400,"id":"iphone-17-pro-max","cap":["256 Go","512 Go","1 To"],"img":"img/iphone-17-pro-max.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPhone 18 Pro","s":"256 Go · A20 Pro · ouverture variable","e":"neuf","b":"apple","c":"iphone","k":"ph","cam":"plateau","face":"island","cl":[["Graphite","#3a3d44"],["Orange cosmique","#f27a12"],["Argent","#dfe2e6"]],"pn":16400,"po":null,"id":"iphone-18-pro","cap":["256 Go","512 Go","1 To"],"img":"img/iphone-18-pro.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPhone 18 Pro Max","s":"256 Go · 6,9″ · A20 Pro","e":"neuf","b":"apple","c":"iphone","k":"ph","cam":"plateau","face":"island","cl":[["Graphite","#3a3d44"],["Orange cosmique","#f27a12"],["Argent","#dfe2e6"]],"pn":17900,"po":null,"id":"iphone-18-pro-max","cap":["256 Go","512 Go","1 To"],"img":"img/iphone-18-pro-max.jpg","at":"Junrui Gao","li":"CC BY-SA 4.0"},{"n":"MacBook Air 13″ M4","s":"16 Go / 256 Go · 18 h d'autonomie","e":"commande","b":"apple","c":"mac","k":"lap","cam":"","face":"","cl":[["Gris sidéral","#4a4b50"],["Argent","#dfe2e6"],["Minuit","#1f2937"]],"pn":13900,"po":null,"id":"macbook-air-13-m4","cap":["512 Go","1 To","2 To"],"img":"img/macbook-air-13-m4.png","at":"Всемилостивѣйшій","li":"CC BY-SA 4.0"},{"n":"MacBook Air 15″ M4","s":"16 Go / 512 Go · écran 15,3″","e":"commande","b":"apple","c":"mac","k":"lap","cam":"","face":"","cl":[["Gris sidéral","#4a4b50"],["Argent","#dfe2e6"],["Minuit","#1f2937"]],"pn":16900,"po":null,"id":"macbook-air-15-m4","cap":["512 Go","1 To","2 To"],"img":"img/macbook-air-15-m4.png","at":"Всемилостивѣйшій","li":"CC BY-SA 4.0"},{"n":"MacBook Pro 14″ M5","s":"16 Go / 512 Go · Liquid Retina XDR","e":"commande","b":"apple","c":"mac","k":"lap","cam":"","face":"","cl":[["Gris sidéral","#4a4b50"],["Argent","#dfe2e6"],["Minuit","#1f2937"]],"pn":22500,"po":null,"id":"macbook-pro-14-m5","cap":["512 Go","1 To","2 To"],"img":"img/macbook-pro-14-m5.jpg","at":"DiscoA340","li":"CC0"},{"n":"MacBook Pro 14″ M5 Pro","s":"24 Go / 1 To · ProMotion","e":"commande","b":"apple","c":"mac","k":"lap","cam":"","face":"","cl":[["Gris sidéral","#4a4b50"],["Argent","#dfe2e6"],["Minuit","#1f2937"]],"pn":29900,"po":null,"id":"macbook-pro-14-m5-pro","cap":["512 Go","1 To","2 To"],"img":"img/macbook-pro-14-m5-pro.jpg","at":"DiscoA340","li":"CC0"},{"n":"MacBook Pro 16″ M5 Pro","s":"24 Go / 1 To · écran 16,2″","e":"commande","b":"apple","c":"mac","k":"lap","cam":"","face":"","cl":[["Gris sidéral","#4a4b50"],["Argent","#dfe2e6"],["Minuit","#1f2937"]],"pn":34900,"po":null,"id":"macbook-pro-16-m5-pro","cap":["512 Go","1 To","2 To"],"img":"img/macbook-pro-16-m5-pro.jpg","at":"DiscoA340","li":"CC0"},{"n":"MacBook Pro 16″ M5 Max","s":"36 Go / 1 To · configuration pro","e":"commande","b":"apple","c":"mac","k":"lap","cam":"","face":"","cl":[["Gris sidéral","#4a4b50"],["Argent","#dfe2e6"],["Minuit","#1f2937"]],"pn":38500,"po":null,"id":"macbook-pro-16-m5-max","cap":["512 Go","1 To","2 To"],"img":"img/macbook-pro-16-m5-max.jpg","at":"DiscoA340","li":"CC0"},{"n":"Mac mini M4","s":"16 Go / 256 Go · compact","e":"commande","b":"apple","c":"mac","k":"box","cam":"","face":"","cl":[["Argent","#dfe2e6"]],"pn":8900,"po":null,"id":"mac-mini-m4","cap":["512 Go","1 To","2 To"],"img":"img/mac-mini-m4.jpg","at":"Derorgmas","li":"CC BY-SA 4.0"},{"n":"iMac 24″ M4","s":"16 Go / 512 Go · 4,5K Retina","e":"commande","b":"apple","c":"mac","k":"imac","cam":"","face":"","cl":[["Bleu","#5b8fc7"],["Rose","#e8b4b8"],["Argent","#dfe2e6"]],"pn":17900,"po":null,"id":"imac-24-m4","cap":["512 Go","1 To","2 To"],"img":"img/imac-24-m4.png","at":"Rafael Fernandez","li":"CC BY-SA 4.0"},{"n":"iPad 11″ (A16)","s":"128 Go · Wi-Fi","e":"neuf","b":"apple","c":"ipad","k":"pad","cam":"","face":"","cl":[["Gris sidéral","#4a4b50"],["Argent","#dfe2e6"],["Bleu","#7f9fc4"]],"pn":4600,"po":3300,"id":"ipad-11-a16","cap":["128 Go","256 Go","512 Go"],"img":"img/ipad-11-a16.jpg","at":"彭家杰","li":"CC BY-SA 4.0"},{"n":"iPad mini (A17 Pro)","s":"128 Go · 8,3″ · Apple Pencil Pro","e":"neuf","b":"apple","c":"ipad","k":"pad","cam":"","face":"","cl":[["Gris sidéral","#4a4b50"],["Argent","#dfe2e6"],["Bleu","#7f9fc4"]],"pn":6200,"po":4450,"id":"ipad-mini-a17-pro","cap":["128 Go","256 Go","512 Go"],"img":"img/ipad-mini-a17-pro.png","at":"KK IN HK","li":"CC BY-SA 4.0"},{"n":"iPad Air 11″ M3","s":"128 Go · Wi-Fi","e":"neuf","b":"apple","c":"ipad","k":"pad","cam":"","face":"","cl":[["Gris sidéral","#4a4b50"],["Argent","#dfe2e6"],["Bleu","#7f9fc4"]],"pn":7900,"po":5700,"id":"ipad-air-11-m3","cap":["128 Go","256 Go","512 Go"],"img":"img/ipad-air-11-m3.png","at":"Zach Vega","li":"CC BY-SA 3.0"},{"n":"iPad Air 13″ M3","s":"256 Go · grand écran","e":"neuf","b":"apple","c":"ipad","k":"pad","cam":"","face":"","cl":[["Gris sidéral","#4a4b50"],["Argent","#dfe2e6"],["Bleu","#7f9fc4"]],"pn":10400,"po":7500,"id":"ipad-air-13-m3","cap":["256 Go","512 Go","1 To"],"img":"img/ipad-air-13-m3.png","at":"Zach Vega","li":"CC BY-SA 3.0"},{"n":"iPad Pro 11″ M5","s":"256 Go · Ultra Retina XDR","e":"commande","b":"apple","c":"ipad","k":"pad","cam":"","face":"","cl":[["Gris sidéral","#4a4b50"],["Argent","#dfe2e6"],["Bleu","#7f9fc4"]],"pn":13900,"po":null,"id":"ipad-pro-11-m5","cap":["256 Go","512 Go","1 To"],"img":"img/ipad-pro-11-m5.jpg","at":"Pengjiajie","li":"CC BY-SA 3.0 de"},{"n":"iPad Pro 13″ M5","s":"256 Go · Ultra Retina XDR","e":"commande","b":"apple","c":"ipad","k":"pad","cam":"","face":"","cl":[["Gris sidéral","#4a4b50"],["Argent","#dfe2e6"],["Bleu","#7f9fc4"]],"pn":17400,"po":null,"id":"ipad-pro-13-m5","cap":["256 Go","512 Go","1 To"],"img":"img/ipad-pro-13-m5.jpg","at":"Pengjiajie","li":"CC BY-SA 3.0 de"},{"n":"Apple Watch SE 3","s":"40 mm · GPS · bracelet sport","e":"neuf","b":"apple","c":"watch","k":"wt","cam":"","face":"","cl":[["Minuit","#1f2937"],["Lumière stellaire","#f0ece5"],["Argent","#dfe2e6"]],"pn":3200,"po":2300,"id":"apple-watch-se-3","cap":[],"img":"img/apple-watch-se-3.jpg","at":"AzureSaturn","li":"CC0"},{"n":"Apple Watch Series 11","s":"45 mm · GPS · always-on","e":"neuf","b":"apple","c":"watch","k":"wt","cam":"","face":"","cl":[["Minuit","#1f2937"],["Lumière stellaire","#f0ece5"],["Argent","#dfe2e6"]],"pn":5600,"po":4050,"id":"apple-watch-series-11","cap":[],"img":"img/apple-watch-series-11.png","at":"极客湾Geekerwan","li":"CC BY 3.0"},{"n":"Apple Watch Series 11 Cellular","s":"45 mm · eSIM","e":"neuf","b":"apple","c":"watch","k":"wt","cam":"","face":"","cl":[["Minuit","#1f2937"],["Lumière stellaire","#f0ece5"],["Argent","#dfe2e6"]],"pn":6800,"po":4900,"id":"apple-watch-series-11-cellular","cap":[],"img":"img/apple-watch-series-11-cellular.png","at":"极客湾Geekerwan","li":"CC BY 3.0"},{"n":"Apple Watch Ultra 3","s":"49 mm · titane · 4G","e":"neuf","b":"apple","c":"watch","k":"wt","cam":"","face":"","cl":[["Titane naturel","#b8ada1"],["Titane noir","#3b3b3e"]],"pn":9200,"po":6600,"id":"apple-watch-ultra-3","cap":[],"img":"img/apple-watch-ultra-3.jpg","at":"KKPCW（Kyu3）","li":"CC BY-SA 4.0"},{"n":"Apple Watch Series 10","s":"42 mm · reconditionnée","e":"occasion","b":"apple","c":"watch","k":"wt","cam":"","face":"","cl":[["Minuit","#1f2937"],["Lumière stellaire","#f0ece5"],["Argent","#dfe2e6"]],"pn":null,"po":3900,"id":"apple-watch-series-10","cap":[],"img":"img/apple-watch-series-10.jpg","at":"KK IN HK","li":"Public domain"},{"n":"Galaxy S26","s":"256 Go · Snapdragon 8 Elite Gen 5","e":"neuf","b":"samsung","c":"android","k":"ph","cam":"sam","face":"punch","cl":[["Gris titane","#8c8f96"],["Noir","#25272b"],["Vert","#9fb4a3"]],"pn":9400,"po":6750,"id":"galaxy-s26","cap":["256 Go","512 Go","1 To"],"img":"img/galaxy-s26.jpg","at":"茅野ふたば","li":"CC BY-SA 4.0"},{"n":"Galaxy S26+","s":"256 Go · 6,7″ · charge rapide","e":"neuf","b":"samsung","c":"android","k":"ph","cam":"sam","face":"punch","cl":[["Gris titane","#8c8f96"],["Noir","#25272b"]],"pn":11200,"po":8050,"id":"galaxy-s26-plus","cap":["256 Go","512 Go","1 To"],"img":"img/galaxy-s26-plus.jpg","at":"茅野ふたば","li":"CC BY-SA 4.0"},{"n":"Galaxy S26 Ultra","s":"512 Go · S Pen · capteur 200 Mpx","e":"neuf","b":"samsung","c":"android","k":"ph","cam":"sam","face":"punch","cl":[["Titane noir","#33363b"],["Titane gris","#8c8f96"],["Titane blanc","#e6e4e0"]],"pn":14900,"po":10750,"id":"galaxy-s26-ultra","cap":["512 Go","1 To"],"img":"img/galaxy-s26-ultra.jpg","at":"Dinkun Chen","li":"CC BY-SA 4.0"},{"n":"Galaxy Z Fold 7","s":"512 Go · écran pliant 8″","e":"commande","b":"samsung","c":"android","k":"ph","cam":"sam","face":"punch","cl":[["Bleu","#3d5a80"],["Noir","#25272b"]],"pn":19900,"po":null,"id":"galaxy-z-fold-7","cap":["512 Go","1 To"],"img":"img/galaxy-z-fold-7.jpg","at":"Ka Kit Pang\n\nGoogle LLC","li":"CC BY 3.0"},{"n":"Galaxy Z Flip 7","s":"256 Go · format compact","e":"commande","b":"samsung","c":"android","k":"ph","cam":"sam","face":"punch","cl":[["Menthe","#b8d4c4"],["Noir","#25272b"]],"pn":11900,"po":null,"id":"galaxy-z-flip-7","cap":["256 Go","512 Go","1 To"],"img":"img/galaxy-z-flip-7.png","at":"marcusph","li":"CC BY-SA 4.0"},{"n":"Galaxy S25 Ultra","s":"512 Go · batterie 92%","e":"occasion","b":"samsung","c":"android","k":"ph","cam":"sam","face":"punch","cl":[["Titane noir","#33363b"],["Titane gris","#8c8f96"]],"pn":null,"po":7400,"id":"galaxy-s25-ultra","cap":["512 Go","1 To"],"img":"img/galaxy-s25-ultra.jpg","at":"Jakub CA","li":"CC BY 4.0"},{"n":"Galaxy S24 Ultra","s":"256 Go · titane · S Pen","e":"occasion","b":"samsung","c":"android","k":"ph","cam":"sam","face":"punch","cl":[["Titane violet","#7d7490"],["Titane noir","#33363b"]],"pn":null,"po":6200,"id":"galaxy-s24-ultra","cap":["256 Go","512 Go","1 To"],"img":"img/galaxy-s24-ultra.jpg","at":"Dinkun Chen","li":"CC BY-SA 4.0"},{"n":"Galaxy A56 5G","s":"256 Go · milieu de gamme","e":"neuf","b":"samsung","c":"android","k":"ph","cam":"sam","face":"punch","cl":[["Gris","#8c8f96"],["Olive","#8d9b7e"]],"pn":3400,"po":2450,"id":"galaxy-a56-5g","cap":["256 Go","512 Go","1 To"],"img":"img/galaxy-a56-5g.jpg","at":"Captainmorlypogi1959","li":"CC BY-SA 4.0"},{"n":"Pixel 10","s":"128 Go · Tensor · photo Google","e":"neuf","b":"google","c":"android","k":"ph","cam":"pixel","face":"punch","cl":[["Porcelaine","#efe9df"],["Obsidienne","#2b2d31"],["Indigo","#4a5d8a"]],"pn":6400,"po":4600,"id":"pixel-10","cap":["128 Go","256 Go","512 Go"],"img":"img/pixel-10.jpg","at":"Fabe56","li":"CC BY-SA 4.0"},{"n":"Pixel 10 Pro","s":"256 Go · triple caméra · 6,3″","e":"neuf","b":"google","c":"android","k":"ph","cam":"pixel","face":"punch","cl":[["Porcelaine","#efe9df"],["Obsidienne","#2b2d31"]],"pn":9200,"po":6600,"id":"pixel-10-pro","cap":["256 Go","512 Go","1 To"]},{"n":"Pixel 10 Pro XL","s":"256 Go · 6,8″ · Tensor","e":"neuf","b":"google","c":"android","k":"ph","cam":"pixel","face":"punch","cl":[["Porcelaine","#efe9df"],["Obsidienne","#2b2d31"]],"pn":10800,"po":7800,"id":"pixel-10-pro-xl","cap":["256 Go","512 Go","1 To"]},{"n":"Pixel 10 Pro Fold","s":"256 Go · écran pliant","e":"commande","b":"google","c":"android","k":"ph","cam":"pixel","face":"punch","cl":[["Porcelaine","#efe9df"],["Obsidienne","#2b2d31"]],"pn":18500,"po":null,"id":"pixel-10-pro-fold","cap":["256 Go","512 Go","1 To"]},{"n":"Pixel 9 Pro","s":"128 Go · reconditionné","e":"occasion","b":"google","c":"android","k":"ph","cam":"pixel","face":"punch","cl":[["Rose quartz","#f0d5d8"],["Obsidienne","#2b2d31"]],"pn":null,"po":5400,"id":"pixel-9-pro","cap":["128 Go","256 Go","512 Go"],"img":"img/pixel-9-pro.png","at":"Mliu92","li":"CC BY-SA 4.0"},{"n":"Honor Magic 8 Pro","s":"512 Go · écran 6 000 nits","e":"neuf","b":"honor","c":"android","k":"ph","cam":"honor","face":"punch","cl":[["Noir","#25272b"],["Bleu ciel","#9dc1dd"]],"pn":9800,"po":7050,"id":"honor-magic-8-pro","cap":["512 Go","1 To"],"img":"img/honor-magic-8-pro.jpg","at":"茅野ふたば","li":"CC BY-SA 4.0"},{"n":"Honor Magic V6","s":"512 Go · pliant · ultra fin","e":"commande","b":"honor","c":"android","k":"ph","cam":"honor","face":"punch","cl":[["Noir","#25272b"],["Or","#c9a96a"]],"pn":17900,"po":null,"id":"honor-magic-v6","cap":["512 Go","1 To"],"img":"img/honor-magic-v6.jpg","at":"茅野ふたば","li":"CC BY-SA 4.0"},{"n":"Honor 400 Pro","s":"256 Go · photo 200 Mpx","e":"neuf","b":"honor","c":"android","k":"ph","cam":"honor","face":"punch","cl":[["Gris","#8c8f96"],["Vert","#8fae9b"]],"pn":5600,"po":4050,"id":"honor-400-pro","cap":["256 Go","512 Go","1 To"],"img":"img/honor-400-pro.jpg","at":"茅野ふたば","li":"CC BY-SA 4.0"},{"n":"Honor X9c","s":"256 Go · batterie 6 600 mAh","e":"neuf","b":"honor","c":"android","k":"ph","cam":"honor","face":"punch","cl":[["Noir","#25272b"],["Orange","#d9793f"]],"pn":2900,"po":2100,"id":"honor-x9c","cap":["256 Go","512 Go","1 To"]},{"n":"Xiaomi 17","s":"256 Go · Snapdragon dernier cri","e":"neuf","b":"xiaomi","c":"android","k":"ph","cam":"xiaomi","face":"punch","cl":[["Noir","#25272b"],["Blanc","#eef0f2"]],"pn":7200,"po":5200,"id":"xiaomi-17","cap":["256 Go","512 Go","1 To"],"img":"img/xiaomi-17.jpg","at":"茅野ふたば","li":"CC BY-SA 4.0"},{"n":"Xiaomi 17 Ultra","s":"512 Go · Leica · capteur 1 pouce","e":"neuf","b":"xiaomi","c":"android","k":"ph","cam":"xiaomi","face":"punch","cl":[["Noir","#25272b"],["Blanc","#eef0f2"],["Olive","#8d9b7e"]],"pn":11900,"po":8550,"id":"xiaomi-17-ultra","cap":["512 Go","1 To"],"img":"img/xiaomi-17-ultra.jpg","at":"茅野ふたば","li":"CC BY-SA 4.0"},{"n":"Xiaomi 15 Ultra","s":"512 Go · Leica","e":"occasion","b":"xiaomi","c":"android","k":"ph","cam":"xiaomi","face":"punch","cl":[["Noir","#25272b"],["Argent","#dfe2e6"]],"pn":null,"po":8700,"id":"xiaomi-15-ultra","cap":["512 Go","1 To"],"img":"img/xiaomi-15-ultra.jpg","at":"Andreas Fuchs/Weber Shandwick","li":"CC BY-SA 4.0"},{"n":"Redmi Note 15 Pro","s":"256 Go · rapport qualité-prix","e":"neuf","b":"xiaomi","c":"android","k":"ph","cam":"xiaomi","face":"punch","cl":[["Bleu","#3d5a80"],["Noir","#25272b"]],"pn":2600,"po":1850,"id":"redmi-note-15-pro","cap":["256 Go","512 Go","1 To"],"img":"img/redmi-note-15-pro.jpg","at":"茅野ふたば","li":"CC BY-SA 4.0"},{"n":"POCO F8","s":"512 Go · performance","e":"neuf","b":"xiaomi","c":"android","k":"ph","cam":"xiaomi","face":"punch","cl":[["Noir","#25272b"],["Jaune","#e8c547"]],"pn":3900,"po":2800,"id":"poco-f8","cap":["512 Go","1 To"]},{"n":"AirPods Pro 3","s":"Réduction de bruit · boîtier USB-C","e":"neuf","b":"accessoire","c":"accessoire","k":"buds","cam":"","face":"","cl":[["Blanc","#eef0f2"],["Noir","#25272b"]],"pn":2950,"po":2100,"id":"airpods-pro-3","cap":[],"img":"img/airpods-pro-3.jpg","at":"Ssu","li":"CC BY-SA 4.0"},{"n":"AirPods 4","s":"Avec réduction de bruit","e":"neuf","b":"accessoire","c":"accessoire","k":"buds","cam":"","face":"","cl":[["Blanc","#eef0f2"],["Noir","#25272b"]],"pn":1850,"po":1350,"id":"airpods-4","cap":[],"img":"img/airpods-4.jpg","at":"LWYang from USA","li":"CC BY 2.0"},{"n":"Protection d'écran verre trempé","s":"Toutes tailles · posée sans bulle","e":"neuf","b":"accessoire","c":"accessoire","k":"glass","cam":"","face":"","cl":[["Blanc","#eef0f2"],["Noir","#25272b"]],"pn":120,"po":100,"id":"protection-d-ecran-verre-trempe","cap":[]},{"n":"Coque de protection","s":"Silicone ou transparente · toutes marques","e":"neuf","b":"accessoire","c":"accessoire","k":"case","cam":"","face":"","cl":[["Blanc","#eef0f2"],["Noir","#25272b"]],"pn":90,"po":50,"id":"coque-de-protection","cap":[]},{"n":"Chargeur rapide 45 W","s":"USB-C · câble tressé fourni","e":"neuf","b":"accessoire","c":"accessoire","k":"charger","cam":"","face":"","cl":[["Blanc","#eef0f2"],["Noir","#25272b"]],"pn":260,"po":200,"id":"chargeur-rapide-45-w","cap":[]},{"n":"Batterie externe 20 000 mAh","s":"Charge rapide · double port","e":"neuf","b":"accessoire","c":"accessoire","k":"bank","cam":"","face":"","cl":[["Blanc","#eef0f2"],["Noir","#25272b"]],"pn":340,"po":250,"id":"batterie-externe-20-000-mah","cap":[]},{"n":"Câble USB-C tressé 2 m","s":"Charge et transfert","e":"neuf","b":"accessoire","c":"accessoire","k":"cable","cam":"","face":"","cl":[["Blanc","#eef0f2"],["Noir","#25272b"]],"pn":80,"po":50,"id":"cable-usb-c-tresse-2-m","cap":[]},{"n":"Montre connectée sport","s":"Suivi activité · notifications","e":"neuf","b":"accessoire","c":"accessoire","k":"wt","cam":"","face":"","cl":[["Blanc","#eef0f2"],["Noir","#25272b"]],"pn":450,"po":300,"id":"montre-connectee-sport","cap":[]}];
   var LIB={apple:'Apple',samsung:'Samsung',google:'Google',honor:'Honor',xiaomi:'Xiaomi',accessoire:'Accessoire'};
   var ETAT={neuf:['Neuf scellé','tag'],occasion:['Occasion','tag tag--used'],commande:['Sur commande','tag tag--order']};
   var DISPO={neuf:'disponible',occasion:'contrôlé 18 points',commande:'sous 48 h'};
   var fc='all', fb='all', fe='all', fq='';
   var grid=document.getElementById('shopgrid'), cnt=document.getElementById('shopcount'), vide=document.getElementById('shopempty');
+
+
+  /* ---------- illustrations vectorielles ---------- */
+  function sh(c){ return '<stop offset="0" stop-color="'+c+'" stop-opacity=".0"/><stop offset=".45" stop-color="#fff" stop-opacity=".30"/><stop offset="1" stop-color="#000" stop-opacity=".22"/>'; }
+  var gid=0;
+  function lens(x,y,r,d){ d=d||'#0c0f16'; return '<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="'+d+'"/><circle cx="'+x+'" cy="'+y+'" r="'+(r*.68)+'" fill="#1b2436"/><circle cx="'+(x-r*.28)+'" cy="'+(y-r*.3)+'" r="'+(r*.2)+'" fill="#fff" opacity=".45"/>'; }
+  function rrx(x,y,w,h,r,f,extra){ return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="'+r+'" fill="'+f+'"'+(extra||'')+'/>'; }
+
+  function camModule(cam){
+    var m='';
+    if(cam==='dual-v'){ m+=rrx(20,18,54,104,26,'rgba(0,0,0,.14)')+lens(47,44,15)+lens(47,96,15); }
+    else if(cam==='single'){ m+=rrx(20,18,62,62,20,'rgba(0,0,0,.12)')+lens(51,49,18); }
+    else if(cam==='dual-sq'){ m+=rrx(18,18,84,84,24,'rgba(0,0,0,.12)')+lens(44,44,15)+lens(44,78,15)+'<circle cx="78" cy="78" r="6" fill="#fff6e0"/>'; }
+    else if(cam==='dual-diag'){ m+=rrx(18,18,84,84,24,'rgba(0,0,0,.12)')+lens(44,44,16)+lens(76,76,16)+'<circle cx="78" cy="40" r="6" fill="#fff6e0"/>'; }
+    else if(cam==='triple'){ m+=rrx(16,16,96,96,26,'rgba(0,0,0,.13)')+lens(44,44,16)+lens(44,84,16)+lens(84,44,16)+'<circle cx="84" cy="84" r="7" fill="#fff6e0"/><circle cx="84" cy="100" r="4" fill="#161a22"/>'; }
+    else if(cam==='dual-pill'){ m+=rrx(24,18,48,94,24,'rgba(0,0,0,.13)')+lens(48,42,15)+lens(48,88,15)+'<circle cx="86" cy="40" r="6" fill="#fff6e0"/>'; }
+    else if(cam==='plateau'){ m+=rrx(14,20,172,74,26,'rgba(0,0,0,.17)')+lens(44,44,15)+lens(44,74,15)+lens(76,59,15)+'<circle cx="150" cy="44" r="7" fill="#fff6e0"/><circle cx="150" cy="59" r="3.5" fill="#20242c"/><circle cx="150" cy="76" r="6" fill="#161a22"/>'; }
+    else if(cam==='plateau-mono'){ m+=rrx(14,20,172,60,24,'rgba(0,0,0,.15)')+lens(48,50,17)+'<circle cx="150" cy="50" r="7" fill="#fff6e0"/>'; }
+    else if(cam==='sam'){ m+=lens(40,40,15)+lens(40,78,15)+lens(40,116,13)+'<circle cx="40" cy="146" r="6" fill="#fff6e0"/>'; }
+    else if(cam==='pixel'){ m+=rrx(8,52,184,46,23,'rgba(0,0,0,.22)')+lens(48,75,16)+lens(92,75,16)+'<circle cx="140" cy="75" r="7" fill="#fff6e0"/><rect x="156" y="70" width="14" height="10" rx="5" fill="#20242c"/>'; }
+    else if(cam==='honor'){ m+='<circle cx="100" cy="76" r="54" fill="rgba(0,0,0,.14)"/>'+lens(80,58,16)+lens(120,58,16)+lens(80,98,16)+'<circle cx="120" cy="98" r="7" fill="#fff6e0"/>'; }
+    else if(cam==='xiaomi'){ m+=rrx(14,16,104,104,30,'rgba(0,0,0,.15)')+lens(52,52,21)+lens(96,44,12)+lens(96,88,12)+'<circle cx="54" cy="100" r="6" fill="#fff6e0"/>'; }
+    return m;
+  }
+
+  function visuel(p,view,col,cls){
+    if(p.img && view!=='front'){
+      return '<img class="dev'+(cls||'')+'" src="'+p.img+'" alt="'+esc(p.n)+'" loading="lazy" decoding="async">';
+    }
+    return dev(p,view,col);
+  }
+  function dev(p,view,col){
+    var c=col||((p.cl&&p.cl[0])?p.cl[0][1]:'#cfd4db'), id='g'+(++gid), k=p.k;
+    var G='<defs><linearGradient id="'+id+'" x1="0" y1="0" x2="1" y2="1">'+sh(c)+'</linearGradient></defs>';
+    if(k==='ph'){
+      if(view==='front'){
+        return '<svg class="dev" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">'+G+
+          rrx(2,2,196,396,36,'#0b0e14')+rrx(9,9,182,382,30,'#141a26')+
+          '<defs><linearGradient id="s'+id+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b1f5e"/><stop offset=".55" stop-color="#3b30ff"/><stop offset="1" stop-color="#ff8a00"/></linearGradient></defs>'+
+          rrx(9,9,182,382,30,'url(#s'+id+')')+
+          (p.face==='island'?rrx(68,20,64,20,10,'#0b0e14'):p.face==='punch'?'<circle cx="100" cy="26" r="7" fill="#0b0e14"/>':rrx(60,9,80,26,13,'#0b0e14'))+
+          rrx(70,378,60,4,2,'rgba(255,255,255,.8)')+
+          rrx(2,2,196,396,36,'url(#'+id+')')+'</svg>';
+      }
+      return '<svg class="dev" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">'+G+
+        rrx(2,2,196,396,36,c)+camModule(p.cam)+
+        rrx(2,2,196,396,36,'url(#'+id+')')+
+        rrx(2,2,196,396,36,'none',' stroke="rgba(0,0,0,.16)" stroke-width="2"')+'</svg>';
+    }
+    if(k==='lap'){
+      return '<svg class="dev wide" viewBox="0 0 360 224" xmlns="http://www.w3.org/2000/svg">'+G+
+        rrx(38,4,284,176,10,c)+rrx(48,14,264,150,5,'#10141c')+
+        '<defs><linearGradient id="s'+id+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#232a3a"/><stop offset="1" stop-color="#0d1017"/></linearGradient></defs>'+
+        rrx(48,14,264,150,5,'url(#s'+id+')')+
+        '<circle cx="180" cy="9" r="2" fill="#2a3242"/>'+
+        rrx(38,4,284,176,10,'url(#'+id+')')+
+        rrx(6,182,348,16,7,c)+rrx(6,182,348,16,7,'url(#'+id+')')+
+        rrx(150,182,60,5,3,'rgba(0,0,0,.25)')+'</svg>';
+    }
+    if(k==='imac'){
+      return '<svg class="dev wide" viewBox="0 0 360 260" xmlns="http://www.w3.org/2000/svg">'+G+
+        rrx(20,4,320,196,12,c)+rrx(30,14,300,156,6,'#10141c')+rrx(20,150,320,50,0,c)+
+        rrx(20,4,320,196,12,'url(#'+id+')')+
+        rrx(150,200,60,34,4,c)+rrx(110,234,140,10,5,c)+'</svg>';
+    }
+    if(k==='box'){
+      return '<svg class="dev wide" viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg">'+G+
+        rrx(20,20,220,110,22,c)+rrx(20,20,220,110,22,'url(#'+id+')')+
+        '<circle cx="60" cy="112" r="4" fill="rgba(0,0,0,.3)"/></svg>';
+    }
+    if(k==='pad'){
+      if(view==='front'){
+        return '<svg class="dev" viewBox="0 0 240 330" xmlns="http://www.w3.org/2000/svg">'+G+
+          rrx(2,2,236,326,26,'#0b0e14')+
+          '<defs><linearGradient id="s'+id+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b1f5e"/><stop offset=".55" stop-color="#3b30ff"/><stop offset="1" stop-color="#ff8a00"/></linearGradient></defs>'+
+          rrx(12,12,216,306,18,'url(#s'+id+')')+'<circle cx="120" cy="7" r="3" fill="#20242c"/>'+
+          rrx(2,2,236,326,26,'url(#'+id+')')+'</svg>';
+      }
+      return '<svg class="dev" viewBox="0 0 240 330" xmlns="http://www.w3.org/2000/svg">'+G+
+        rrx(2,2,236,326,26,c)+rrx(22,20,52,52,16,'rgba(0,0,0,.12)')+lens(48,46,15)+
+        rrx(2,2,236,326,26,'url(#'+id+')')+'</svg>';
+    }
+    if(k==='wt'){
+      return '<svg class="dev" viewBox="0 0 180 280" xmlns="http://www.w3.org/2000/svg">'+G+
+        rrx(56,2,68,86,16,'#3a3f48')+rrx(56,192,68,86,16,'#3a3f48')+
+        rrx(38,64,104,152,38,c)+rrx(50,76,80,128,28,'#0b0e14')+
+        '<defs><linearGradient id="s'+id+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b1f5e"/><stop offset="1" stop-color="#ff8a00"/></linearGradient></defs>'+
+        rrx(50,76,80,128,28,'url(#s'+id+')')+
+        rrx(140,116,8,26,4,c)+rrx(140,152,6,20,3,c)+
+        rrx(38,64,104,152,38,'url(#'+id+')')+'</svg>';
+    }
+    if(k==='buds'){
+      return '<svg class="dev wide" viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">'+G+
+        rrx(70,40,120,104,28,c)+rrx(70,40,120,104,28,'url(#'+id+')')+
+        '<rect x="118" y="152" width="24" height="6" rx="3" fill="rgba(0,0,0,.25)"/>'+
+        '<g fill="'+c+'"><ellipse cx="46" cy="60" rx="17" ry="20"/><rect x="38" y="70" width="16" height="56" rx="8"/><ellipse cx="214" cy="60" rx="17" ry="20"/><rect x="206" y="70" width="16" height="56" rx="8"/></g>'+
+        '<g fill="rgba(0,0,0,.18)"><ellipse cx="46" cy="60" rx="8" ry="9"/><ellipse cx="214" cy="60" rx="8" ry="9"/></g></svg>';
+    }
+    if(k==='glass'){
+      return '<svg class="dev" viewBox="0 0 200 330" xmlns="http://www.w3.org/2000/svg">'+G+
+        rrx(10,10,180,310,26,'rgba(160,190,220,.30)')+rrx(10,10,180,310,26,'none',' stroke="rgba(90,130,170,.55)" stroke-width="2"')+
+        '<path d="M20 300 L180 40" stroke="rgba(255,255,255,.7)" stroke-width="18" fill="none" opacity=".35"/>'+
+        rrx(66,18,68,14,7,'rgba(90,130,170,.35)')+'</svg>';
+    }
+    if(k==='case'){
+      return '<svg class="dev" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">'+G+
+        rrx(6,6,188,388,36,c)+rrx(22,22,156,356,26,'rgba(255,255,255,.55)')+
+        rrx(26,24,84,84,24,'rgba(0,0,0,.10)')+
+        rrx(6,6,188,388,36,'url(#'+id+')')+'</svg>';
+    }
+    if(k==='charger'){
+      return '<svg class="dev" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">'+G+
+        rrx(40,50,120,120,26,c)+rrx(40,50,120,120,26,'url(#'+id+')')+
+        '<g fill="#b9bfc9"><rect x="78" y="14" width="10" height="38" rx="3"/><rect x="112" y="14" width="10" height="38" rx="3"/></g>'+
+        rrx(88,168,24,10,4,'#3a3f48')+'</svg>';
+    }
+    if(k==='bank'){
+      return '<svg class="dev" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">'+G+
+        rrx(30,20,140,260,22,c)+rrx(30,20,140,260,22,'url(#'+id+')')+
+        '<g fill="rgba(255,255,255,.75)"><rect x="60" y="240" width="12" height="5" rx="2.5"/><rect x="78" y="240" width="12" height="5" rx="2.5"/><rect x="96" y="240" width="12" height="5" rx="2.5"/><rect x="114" y="240" width="12" height="5" rx="2.5"/></g>'+
+        '<g fill="#3a3f48"><rect x="66" y="40" width="24" height="10" rx="4"/><rect x="104" y="40" width="24" height="10" rx="4"/></g></svg>';
+    }
+    if(k==='cable'){
+      return '<svg class="dev" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">'+G+
+        '<path d="M40 40 C 170 60, 90 150, 220 200" stroke="'+c+'" stroke-width="16" fill="none" stroke-linecap="round"/>'+
+        '<path d="M40 40 C 170 60, 90 150, 220 200" stroke="rgba(255,255,255,.35)" stroke-width="5" fill="none" stroke-linecap="round"/>'+
+        '<g fill="#b9bfc9"><rect x="22" y="26" width="34" height="18" rx="8"/><rect x="206" y="188" width="34" height="18" rx="8"/></g></svg>';
+    }
+    return '<svg class="dev" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">'+G+rrx(30,30,140,140,34,c)+rrx(30,30,140,140,34,'url(#'+id+')')+'</svg>';
+  }
 
   function prix(v){ return v.toLocaleString('fr-FR').replace(/\u202f|\u00a0/g,' ')+' DH'; }
   function esc(t){ return String(t).replace(/[&<>"]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m];}); }
@@ -886,17 +1088,125 @@ footer.site{
       return true;
     });
     grid.innerHTML=liste.map(function(p){
-      var et=ETAT[p.e];
-      return '<article class="card">'+
-        '<div class="shot"><span class="halo"></span><span class="'+et[1]+'">'+et[0]+'</span><span class="obj '+p.k+'"></span></div>'+
+      var dispo=[]; if(p.pn) dispo.push('Neuf'); if(p.po) dispo.push('Occasion');
+      var pmin=p.po||p.pn;
+      return '<a class="card" href="#produit/'+p.id+'" data-prod="'+p.id+'">'+
+        '<div class="shot"><span class="halo"></span>'+visuel(p,'back')+'</div>'+
         '<div class="body"><span class="brand">'+esc(LIB[p.b])+'</span><h3>'+esc(p.n)+'</h3>'+
         '<span class="spec">'+esc(p.s)+'</span>'+
-        '<span class="price">'+(AFFICHER_PRIX?'<b>'+prix(p.p)+'</b>':'<b>Prix en boutique</b>')+
-        '<span>'+DISPO[p.e]+'</span></span></div></article>';
+        '<span class="price">'+(AFFICHER_PRIX?'<b>'+(p.po&&p.pn?'dès ':'')+prix(pmin)+'</b>':'<b>Prix en boutique</b>')+
+        '<span>'+(dispo.length===2?'neuf ou occasion':dispo[0]==='Neuf'?(p.e==='commande'?'sous 48 h':'neuf scellé'):'occasion vérifiée')+'</span></span></div></a>';
     }).join('');
     if(cnt) cnt.textContent=liste.length+(liste.length>1?' modèles':' modèle');
     if(vide) vide.hidden=liste.length>0;
   }
+
+
+  /* ---------- fiche produit ---------- */
+  var ETATLAB={neuf:'Neuf scellé',occasion:'Occasion vérifiée'};
+  var etat='neuf', capa=0, coul=0, vue='back', courant=null;
+
+  function surcout(p){
+    if(!p.cap.length) return 0;
+    var pas = p.c==='mac'?1500:(p.c==='ipad'?600:400);
+    return capa*pas;
+  }
+  function prixCourant(p){ var base = etat==='neuf'?p.pn:p.po; return base?base+surcout(p):null; }
+
+  function pdpRender(){
+    var p=courant, box=document.getElementById('pdp'); if(!p||!box) return;
+    var col=(p.cl[coul]||p.cl[0]||['','#cfd4db'])[1];
+    var px=prixCourant(p), ref=(etat==='occasion'&&p.pn)?p.pn+surcout(p):null;
+    var msg=encodeURIComponent('Bonjour, je suis intéressé par : '+p.n+(p.cap.length?' '+p.cap[capa]:'')+(p.cl[coul]?' — '+p.cl[coul][0]:'')+' en '+(ETATLAB[etat]||'')+'. Est-il disponible ?');
+    var garantie = etat==='neuf' ? 'Garantie boutique · facture remise à l\'achat' : 'Garantie boutique 3 mois · contrôlé sur 18 points';
+    var vues=(p.k==='ph'||p.k==='pad')?['back','front']:['back'];
+    var thumbs = (vues.length>1) ? '<div class="pdp-thumbs">'+vues.map(function(v){
+        return '<button data-vue="'+v+'" aria-pressed="'+(vue===v)+'" aria-label="'+(v==='back'?'Photo':'Écran')+'">'+visuel(p,v,col)+'</button>';
+      }).join('')+'</div>' : '';
+
+    box.innerHTML =
+    '<div class="pdp">'+
+      '<div class="pdp-visual">'+
+        '<div class="pdp-stage"><span class="halo"></span>'+visuel(p,vue,col)+'</div>'+thumbs+(p.at?'<p class="credit">Photo : '+esc(p.at)+' · '+esc(p.li)+' · Wikimedia Commons</p>':'')+
+      '</div>'+
+      '<div class="pdp-info">'+
+        '<span class="pdp-brand">'+esc(LIB[p.b])+'</span>'+
+        '<h1>'+esc(p.n)+'</h1>'+
+        '<p class="pdp-sub">'+esc(p.s)+'</p>'+
+
+        '<div class="pdp-block"><span class="pdp-lab">État</span><div class="opts">'+
+          ['neuf','occasion'].map(function(e){
+            var dispo = e==='neuf'?p.pn:p.po;
+            var sub = e==='neuf' ? (p.e==='commande'?'commande sous 48 h':'scellé, jamais ouvert') : 'contrôlé sur 18 points';
+            if(!dispo) sub = e==='neuf' ? 'non disponible sur ce modèle' : 'aucune pièce en stock';
+            return '<button class="opt" data-etat="'+e+'" aria-pressed="'+(etat===e)+'"'+(dispo?'':' disabled')+'>'+ETATLAB[e]+'<small>'+sub+'</small></button>';
+          }).join('')+'</div></div>'+
+
+        (p.cap.length?'<div class="pdp-block"><span class="pdp-lab">Capacité</span><div class="opts">'+
+          p.cap.map(function(c,i){ return '<button class="opt" data-cap="'+i+'" aria-pressed="'+(capa===i)+'">'+c+'</button>'; }).join('')+
+        '</div></div>':'')+
+
+        (p.cl.length>1?'<div class="pdp-block"><span class="pdp-lab">Couleur</span><div class="opts">'+
+          p.cl.map(function(c,i){ return '<button class="opt opt--col" data-col="'+i+'" aria-pressed="'+(coul===i)+'"><i style="background:'+c[1]+'"></i>'+esc(c[0])+'</button>'; }).join('')+
+        '</div></div>':'')+
+
+        '<div class="pdp-price">'+
+          (AFFICHER_PRIX&&px?'<b>'+prix(px)+'</b>'+(ref?'<span class="ref">'+prix(ref)+'</span>':''):'<b>Prix en boutique</b>')+
+          '<span class="st">'+(px?'disponible':'nous consulter')+'</span>'+
+        '</div>'+
+
+        '<div class="pdp-cta">'+
+          '<a class="btn btn--volt" href="https://wa.me/212661798782?text='+msg+'" target="_blank" rel="noopener">'+
+            '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><use href="#i-wa"/></svg>Réserver sur WhatsApp</a>'+
+          '<a class="btn btn--wire" href="tel:0661798782">06 61 79 87 82</a>'+
+        '</div>'+
+
+        '<div class="pdp-notes">'+
+          '<div><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" aria-hidden="true"><use href="#i-check"/></svg><span><b>'+garantie+'</b></span></div>'+
+          '<div><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" aria-hidden="true"><use href="#i-check"/></svg><span>Testé devant vous avant paiement · reprise de votre ancien appareil possible</span></div>'+
+          '<div><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" aria-hidden="true"><use href="#i-check"/></svg><span>Retrait au Parc Plaza, Imm. C, N7 · carte bancaire et sans contact acceptés</span></div>'+
+        '</div>'+
+
+        '<dl class="pdp-specs">'+
+          '<div><dt>Marque</dt><dd>'+esc(LIB[p.b])+'</dd></div>'+
+          '<div><dt>État</dt><dd>'+(ETATLAB[etat]||'')+'</dd></div>'+
+          (p.cap.length?'<div><dt>Capacité</dt><dd>'+p.cap[capa]+'</dd></div>':'')+
+          (p.cl[coul]?'<div><dt>Couleur</dt><dd>'+esc(p.cl[coul][0])+'</dd></div>':'')+
+          '<div><dt>Détails</dt><dd>'+esc(p.s)+'</dd></div>'+
+          '<div><dt>Garantie</dt><dd>'+(etat==='neuf'?'Garantie boutique':'3 mois, garantie boutique')+'</dd></div>'+
+        '</dl>'+
+      '</div>'+
+    '</div>'+
+    '<div class="pdp-alt"><h2>Dans la même famille</h2><div class="grid">'+
+      CATALOGUE.filter(function(q){ return q.c===p.c && q.id!==p.id; }).slice(0,4).map(function(q){
+        var pm=q.po||q.pn;
+        return '<a class="card" href="#produit/'+q.id+'" data-prod="'+q.id+'"><div class="shot"><span class="halo"></span>'+visuel(q,'back')+'</div>'+
+          '<div class="body"><span class="brand">'+esc(LIB[q.b])+'</span><h3>'+esc(q.n)+'</h3><span class="spec">'+esc(q.s)+'</span>'+
+          '<span class="price">'+(AFFICHER_PRIX?'<b>'+prix(pm)+'</b>':'<b>Prix en boutique</b>')+'<span>voir la fiche</span></span></div></a>';
+      }).join('')+'</div></div>';
+  }
+
+  function ouvrirProduit(id,push){
+    var p=CATALOGUE.filter(function(x){ return x.id===id; })[0];
+    if(!p) return false;
+    courant=p; capa=0; coul=0; vue='back';
+    etat = p.pn ? 'neuf' : 'occasion';
+    show('produit',false);
+    pdpRender();
+    if(push && location.hash!=='#produit/'+id) history.pushState(null,'','#produit/'+id);
+    return true;
+  }
+
+  document.addEventListener('click',function(e){
+    var lnk=e.target.closest('[data-prod]');
+    if(lnk){ e.preventDefault(); ouvrirProduit(lnk.getAttribute('data-prod'),true); return; }
+    var o=e.target.closest('#pdp .opt, #pdp .pdp-thumbs button'); if(!o) return;
+    if(o.hasAttribute('data-etat')) etat=o.getAttribute('data-etat');
+    else if(o.hasAttribute('data-cap')) capa=+o.getAttribute('data-cap');
+    else if(o.hasAttribute('data-col')) coul=+o.getAttribute('data-col');
+    else if(o.hasAttribute('data-vue')) vue=o.getAttribute('data-vue');
+    pdpRender();
+  });
 
   function groupe(attr,set){
     var els=Array.prototype.slice.call(document.querySelectorAll('.chip['+attr+']'));
@@ -913,6 +1223,8 @@ footer.site{
   var srch=document.getElementById('shopsearch');
   if(srch){ var tmo; srch.addEventListener('input',function(){ clearTimeout(tmo); tmo=setTimeout(function(){ fq=srch.value; rendu(); },140); }); }
   rendu();
+  window.ouvrirProduit=ouvrirProduit;
+  route(location.hash,false);
 
   document.querySelectorAll('form').forEach(function(f){
     f.addEventListener('submit',function(e){
