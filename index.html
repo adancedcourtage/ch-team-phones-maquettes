@@ -176,6 +176,20 @@ button.tile{cursor:pointer}
 .obj.lap{width:132px;height:84px;border-radius:9px}
 .obj.wt{width:66px;height:74px;border-radius:21px}
 .obj.bd{width:70px;height:70px;border-radius:25px}
+.shopbar{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-bottom:16px}
+.srch{flex:1 1 320px;display:flex;align-items:center;gap:10px;background:var(--white);border:1px solid var(--line2);border-radius:12px;padding:0 14px;transition:border-color .16s ease}
+.srch:focus-within{border-color:var(--volt)}
+.srch svg{flex:0 0 auto;color:var(--ink3)}
+.srch input{border:none;background:none;padding:13px 0;font-size:15px;width:100%;color:var(--ink)}
+.srch input:focus{outline:none}
+.srch input::-webkit-search-cancel-button{cursor:pointer}
+.count{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}
+.filters--sub{margin-top:-14px;margin-bottom:18px}
+.chip--sm{padding:7px 13px;font-size:12px}
+.empty{border:1px dashed var(--line2);border-radius:14px;padding:22px;text-align:center;color:var(--ink2);font-size:14.5px;line-height:1.6}
+.obj.pad{width:96px;height:124px;border-radius:12px}
+.card .brand{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
+
 .tag{
   position:absolute;z-index:3;top:12px;left:12px;font-family:'IBM Plex Mono',monospace;
   font-size:9px;letter-spacing:.13em;text-transform:uppercase;border-radius:6px;padding:5px 10px;
@@ -458,31 +472,42 @@ footer.site{
     <header class="sec" style="padding-bottom:28px">
       <span class="eyebrow">La boutique</span>
       <h2 style="font-size:clamp(30px,6vw,66px);line-height:.98;margin-bottom:16px;max-width:15ch">Tout ce qui est en vitrine</h2>
-      <p style="max-width:56ch;color:var(--ink2);font-size:16.5px;line-height:1.72;margin:0">Neuf scellé, occasion contrôlée, accessoires, et ce qui se commande en 48 heures. Le stock bouge tous les jours — la disponibilité se confirme par téléphone ou en story.</p>
+      <p style="max-width:56ch;color:var(--ink2);font-size:16.5px;line-height:1.72;margin:0">Apple de l'iPhone X à l'iPhone 18 Pro Max, Mac, iPad et Apple Watch, les derniers Samsung, Google, Honor et Xiaomi, plus les accessoires. Le stock bouge tous les jours — la disponibilité se confirme par téléphone ou en story.</p>
     </header>
     <section class="sec" style="padding-top:0">
-      <div class="filters" role="group" aria-label="Filtrer les produits">
-        <button class="chip" data-f="all" aria-pressed="true">Tout</button>
-        <button class="chip" data-f="neuf" aria-pressed="false">Neuf</button>
-        <button class="chip" data-f="occasion" aria-pressed="false">Occasion</button>
-        <button class="chip" data-f="accessoire" aria-pressed="false">Accessoires</button>
-        <button class="chip" data-f="ordi" aria-pressed="false">Ordinateurs &amp; montres</button>
+      <div class="shopbar">
+        <label class="srch">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
+          <input id="shopsearch" type="search" placeholder="Chercher un modèle : iPhone 13, S26 Ultra, iPad…" autocomplete="off">
+        </label>
+        <span class="count" id="shopcount" aria-live="polite"></span>
       </div>
-      <div class="grid" id="shopgrid">
-        <article class="card" data-cat="neuf"><div class="shot"><span class="halo"></span><span class="tag">Neuf scellé</span><span class="obj ph"></span></div><div class="body"><h3>iPhone 17 Air</h3><span class="spec">256 Go · titane · garantie boutique</span><span class="price"><b>12 900 DH</b><span>disponible</span></span></div></article>
-        <article class="card" data-cat="neuf"><div class="shot"><span class="halo"></span><span class="tag">Neuf scellé</span><span class="obj ph"></span></div><div class="body"><h3>iPhone 16 Pro</h3><span class="spec">128 Go · facture remise</span><span class="price"><b>10 400 DH</b><span>disponible</span></span></div></article>
-        <article class="card" data-cat="neuf"><div class="shot"><span class="halo"></span><span class="tag">Neuf scellé</span><span class="obj ph"></span></div><div class="body"><h3>Xiaomi 15 Ultra</h3><span class="spec">512 Go · garantie boutique</span><span class="price"><b>8 700 DH</b><span>disponible</span></span></div></article>
-        <article class="card" data-cat="occasion"><div class="shot"><span class="halo"></span><span class="tag tag--used">Occasion</span><span class="obj ph"></span></div><div class="body"><h3>Galaxy S24 Ultra</h3><span class="spec">512 Go · batterie 92% · 18 points</span><span class="price"><b>7 400 DH</b><span>1 pièce</span></span></div></article>
-        <article class="card" data-cat="occasion"><div class="shot"><span class="halo"></span><span class="tag tag--used">Occasion</span><span class="obj ph"></span></div><div class="body"><h3>iPhone 13</h3><span class="spec">128 Go · batterie 88% · écran d'origine</span><span class="price"><b>4 300 DH</b><span>2 pièces</span></span></div></article>
-        <article class="card" data-cat="ordi"><div class="shot"><span class="halo"></span><span class="tag">Neuf scellé</span><span class="obj wt"></span></div><div class="body"><h3>Apple Watch Ultra 3</h3><span class="spec">Titane 49 mm · bracelet au choix</span><span class="price"><b>9 200 DH</b><span>disponible</span></span></div></article>
-        <article class="card" data-cat="ordi"><div class="shot"><span class="halo"></span><span class="tag">Neuf scellé</span><span class="obj wt"></span></div><div class="body"><h3>Apple Watch Series 11</h3><span class="spec">45 mm · GPS</span><span class="price"><b>5 600 DH</b><span>disponible</span></span></div></article>
-        <article class="card" data-cat="ordi"><div class="shot"><span class="halo"></span><span class="tag tag--order">48 h</span><span class="obj lap"></span></div><div class="body"><h3>MacBook Pro 16″ M5 Max</h3><span class="spec">Scellé · configuration au choix</span><span class="price"><b>38 500 DH</b><span>sur commande</span></span></div></article>
-        <article class="card" data-cat="ordi"><div class="shot"><span class="halo"></span><span class="tag tag--order">48 h</span><span class="obj lap"></span></div><div class="body"><h3>MacBook Air 15″ M4</h3><span class="spec">Scellé · 16 Go / 512 Go</span><span class="price"><b>16 900 DH</b><span>sur commande</span></span></div></article>
-        <article class="card" data-cat="accessoire"><div class="shot"><span class="halo"></span><span class="tag">Accessoire</span><span class="obj bd"></span></div><div class="body"><h3>AirPods Pro 3</h3><span class="spec">Réduction de bruit · boîtier USB-C</span><span class="price"><b>2 950 DH</b><span>disponible</span></span></div></article>
-        <article class="card" data-cat="accessoire"><div class="shot"><span class="halo"></span><span class="tag">Pose offerte</span><span class="obj bd"></span></div><div class="body"><h3>Protection d'écran verre trempé</h3><span class="spec">Posée sans bulle en boutique</span><span class="price"><b>120 DH</b><span>pose incluse</span></span></div></article>
-        <article class="card" data-cat="accessoire"><div class="shot"><span class="halo"></span><span class="tag">Accessoire</span><span class="obj bd"></span></div><div class="body"><h3>Chargeur rapide 45 W</h3><span class="spec">USB-C · câble tressé fourni</span><span class="price"><b>260 DH</b><span>disponible</span></span></div></article>
+      <div class="filters" role="group" aria-label="Filtrer par marque ou type">
+        <button class="chip" data-c="all" aria-pressed="true">Tout</button>
+        <button class="chip" data-c="iphone" aria-pressed="false">iPhone</button>
+        <button class="chip" data-c="android" aria-pressed="false">Android</button>
+        <button class="chip" data-c="mac" aria-pressed="false">Mac</button>
+        <button class="chip" data-c="ipad" aria-pressed="false">iPad</button>
+        <button class="chip" data-c="watch" aria-pressed="false">Apple Watch</button>
+        <button class="chip" data-c="accessoire" aria-pressed="false">Accessoires</button>
       </div>
-      <p class="note">// Prix et disponibilités de démonstration. Le catalogue réel sera repris de la liste de la boutique.</p>
+      <div class="filters filters--sub" role="group" aria-label="Filtrer par marque">
+        <button class="chip chip--sm" data-b="all" aria-pressed="true">Toutes marques</button>
+        <button class="chip chip--sm" data-b="apple" aria-pressed="false">Apple</button>
+        <button class="chip chip--sm" data-b="samsung" aria-pressed="false">Samsung</button>
+        <button class="chip chip--sm" data-b="google" aria-pressed="false">Google</button>
+        <button class="chip chip--sm" data-b="honor" aria-pressed="false">Honor</button>
+        <button class="chip chip--sm" data-b="xiaomi" aria-pressed="false">Xiaomi</button>
+      </div>
+      <div class="filters filters--sub" role="group" aria-label="Filtrer par état">
+        <button class="chip chip--sm" data-e="all" aria-pressed="true">Tous états</button>
+        <button class="chip chip--sm" data-e="neuf" aria-pressed="false">Neuf scellé</button>
+        <button class="chip chip--sm" data-e="occasion" aria-pressed="false">Occasion vérifiée</button>
+        <button class="chip chip--sm" data-e="commande" aria-pressed="false">Sur commande</button>
+      </div>
+      <div class="grid" id="shopgrid"></div>
+      <p class="empty" id="shopempty" hidden>Aucun modèle ne correspond. Appelez le 06 61 79 87 82 — la plupart des appareils arrivent en 48 heures.</p>
+      <p class="note">// Catalogue de démonstration — modèles réels, prix indicatifs. Les tarifs et le stock exacts sont confirmés en boutique ou par téléphone.</p>
       <div class="sec" style="padding-bottom:0">
         <div class="cta-final">
           <h2>Un modèle que vous ne voyez pas ?</h2>
@@ -837,16 +862,57 @@ footer.site{
   addEventListener('popstate',function(){show(location.hash.slice(1)||'accueil',false);});
   if(location.hash) show(location.hash.slice(1),false);
 
-  var chips=Array.prototype.slice.call(document.querySelectorAll('.chip'));
-  chips.forEach(function(c){
-    c.addEventListener('click',function(){
-      chips.forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false');});
-      var f=c.getAttribute('data-f');
-      document.querySelectorAll('#shopgrid .card').forEach(function(card){
-        card.style.display=(f==='all'||card.getAttribute('data-cat')===f)?'':'none';
+  /* ---------- catalogue ---------- */
+  var AFFICHER_PRIX = true;   /* passer a false pour masquer tous les prix */
+  var CATALOGUE = [{"n":"iPhone X","s":"64 Go · écran OLED 5,8″","p":1450,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone XR","s":"64 Go · Liquid Retina 6,1″","p":1650,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone XS","s":"64 Go · acier · OLED 5,8″","p":1750,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone XS Max","s":"256 Go · OLED 6,5″","p":2100,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 11","s":"128 Go · double caméra","p":2300,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 11 Pro","s":"64 Go · triple caméra · acier","p":2750,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 11 Pro Max","s":"256 Go · OLED 6,5″","p":3200,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 12 mini","s":"64 Go · 5,4″ · 5G","p":2450,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 12","s":"128 Go · 5G · MagSafe","p":2900,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 12 Pro","s":"128 Go · LiDAR · acier","p":3400,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 12 Pro Max","s":"256 Go · 6,7″ · LiDAR","p":3900,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 13 mini","s":"128 Go · 5,4″ · A15","p":3100,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 13","s":"128 Go · A15 · double caméra","p":3600,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 13 Pro","s":"128 Go · ProMotion 120 Hz","p":4400,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 13 Pro Max","s":"256 Go · 6,7″ · ProMotion","p":5100,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 14","s":"128 Go · A15 · Détection d'accident","p":4300,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 14 Plus","s":"128 Go · 6,7″ · grande autonomie","p":4700,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 14 Pro","s":"128 Go · Dynamic Island · 48 Mpx","p":5600,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 14 Pro Max","s":"256 Go · 6,7″ · Dynamic Island","p":6400,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 15","s":"128 Go · USB-C · A16","p":5400,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 15 Plus","s":"128 Go · 6,7″ · USB-C","p":5900,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 15 Pro","s":"128 Go · titane · A17 Pro","p":6900,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 15 Pro Max","s":"256 Go · téléobjectif 5×","p":7900,"e":"occasion","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 16e","s":"128 Go · A18 · Face ID","p":5200,"e":"neuf","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 16","s":"128 Go · A18 · Camera Control","p":7200,"e":"neuf","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 16 Plus","s":"128 Go · 6,7″ · A18","p":8100,"e":"neuf","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 16 Pro","s":"128 Go · titane · A18 Pro","p":9600,"e":"neuf","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 16 Pro Max","s":"256 Go · 6,9″ · A18 Pro","p":11200,"e":"neuf","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 17","s":"256 Go · A19 · 6,3″","p":9900,"e":"neuf","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 17 Air","s":"256 Go · 5,6 mm · titane","p":12900,"e":"neuf","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 17 Pro","s":"256 Go · A19 Pro · aluminium","p":14200,"e":"neuf","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 17 Pro Max","s":"256 Go · 6,9″ · A19 Pro","p":15800,"e":"neuf","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 18 Pro","s":"256 Go · A20 Pro · ouverture variable","p":16400,"e":"neuf","b":"apple","c":"iphone","k":"ph"},{"n":"iPhone 18 Pro Max","s":"256 Go · A20 Pro · 6,9″","p":17900,"e":"neuf","b":"apple","c":"iphone","k":"ph"},{"n":"MacBook Air 13″ M4","s":"16 Go / 256 Go · 18 h d'autonomie","p":13900,"e":"commande","b":"apple","c":"mac","k":"lap"},{"n":"MacBook Air 15″ M4","s":"16 Go / 512 Go · écran 15,3″","p":16900,"e":"commande","b":"apple","c":"mac","k":"lap"},{"n":"MacBook Pro 14″ M5","s":"16 Go / 512 Go · Liquid Retina XDR","p":22500,"e":"commande","b":"apple","c":"mac","k":"lap"},{"n":"MacBook Pro 14″ M5 Pro","s":"24 Go / 1 To · ProMotion","p":29900,"e":"commande","b":"apple","c":"mac","k":"lap"},{"n":"MacBook Pro 16″ M5 Pro","s":"24 Go / 1 To · écran 16,2″","p":34900,"e":"commande","b":"apple","c":"mac","k":"lap"},{"n":"MacBook Pro 16″ M5 Max","s":"36 Go / 1 To · configuration pro","p":38500,"e":"commande","b":"apple","c":"mac","k":"lap"},{"n":"Mac mini M4","s":"16 Go / 256 Go · compact","p":8900,"e":"commande","b":"apple","c":"mac","k":"bd"},{"n":"iMac 24″ M4","s":"16 Go / 512 Go · 4,5K Retina","p":17900,"e":"commande","b":"apple","c":"mac","k":"lap"},{"n":"iPad 11″ (A16)","s":"128 Go · Wi-Fi","p":4600,"e":"neuf","b":"apple","c":"ipad","k":"pad"},{"n":"iPad mini (A17 Pro)","s":"128 Go · 8,3″ · Apple Pencil Pro","p":6200,"e":"neuf","b":"apple","c":"ipad","k":"pad"},{"n":"iPad Air 11″ M3","s":"128 Go · Wi-Fi · Magic Keyboard compatible","p":7900,"e":"neuf","b":"apple","c":"ipad","k":"pad"},{"n":"iPad Air 13″ M3","s":"256 Go · grand écran","p":10400,"e":"neuf","b":"apple","c":"ipad","k":"pad"},{"n":"iPad Pro 11″ M5","s":"256 Go · Ultra Retina XDR","p":13900,"e":"commande","b":"apple","c":"ipad","k":"pad"},{"n":"iPad Pro 13″ M5","s":"256 Go · Ultra Retina XDR","p":17400,"e":"commande","b":"apple","c":"ipad","k":"pad"},{"n":"Apple Watch SE 3","s":"40 mm · GPS · bracelet sport","p":3200,"e":"neuf","b":"apple","c":"watch","k":"wt"},{"n":"Apple Watch Series 11","s":"45 mm · GPS · always-on","p":5600,"e":"neuf","b":"apple","c":"watch","k":"wt"},{"n":"Apple Watch Series 11 Cellular","s":"45 mm · eSIM","p":6800,"e":"neuf","b":"apple","c":"watch","k":"wt"},{"n":"Apple Watch Ultra 3","s":"49 mm · titane · 4G","p":9200,"e":"neuf","b":"apple","c":"watch","k":"wt"},{"n":"Apple Watch Series 10","s":"42 mm · reconditionnée","p":3900,"e":"occasion","b":"apple","c":"watch","k":"wt"},{"n":"Galaxy S26","s":"256 Go · Snapdragon 8 Elite Gen 5","p":9400,"e":"neuf","b":"samsung","c":"android","k":"ph"},{"n":"Galaxy S26+","s":"256 Go · 6,7″ · charge rapide","p":11200,"e":"neuf","b":"samsung","c":"android","k":"ph"},{"n":"Galaxy S26 Ultra","s":"512 Go · S Pen · capteur 200 Mpx","p":14900,"e":"neuf","b":"samsung","c":"android","k":"ph"},{"n":"Galaxy Z Fold 7","s":"512 Go · écran pliant 8″","p":19900,"e":"commande","b":"samsung","c":"android","k":"ph"},{"n":"Galaxy Z Flip 7","s":"256 Go · format compact","p":11900,"e":"commande","b":"samsung","c":"android","k":"ph"},{"n":"Galaxy S25 Ultra","s":"512 Go · batterie 92% · 18 points","p":7400,"e":"occasion","b":"samsung","c":"android","k":"ph"},{"n":"Galaxy S24 Ultra","s":"256 Go · titane · S Pen","p":6200,"e":"occasion","b":"samsung","c":"android","k":"ph"},{"n":"Galaxy A56 5G","s":"256 Go · milieu de gamme","p":3400,"e":"neuf","b":"samsung","c":"android","k":"ph"},{"n":"Pixel 10","s":"128 Go · Tensor · photo Google","p":6400,"e":"neuf","b":"google","c":"android","k":"ph"},{"n":"Pixel 10 Pro","s":"256 Go · triple caméra · 6,3″","p":9200,"e":"neuf","b":"google","c":"android","k":"ph"},{"n":"Pixel 10 Pro XL","s":"256 Go · 6,8″ · Tensor","p":10800,"e":"neuf","b":"google","c":"android","k":"ph"},{"n":"Pixel 10 Pro Fold","s":"256 Go · écran pliant","p":18500,"e":"commande","b":"google","c":"android","k":"ph"},{"n":"Pixel 9 Pro","s":"128 Go · reconditionné","p":5400,"e":"occasion","b":"google","c":"android","k":"ph"},{"n":"Honor Magic 8 Pro","s":"512 Go · écran 6 000 nits","p":9800,"e":"neuf","b":"honor","c":"android","k":"ph"},{"n":"Honor Magic V6","s":"512 Go · pliant · ultra fin","p":17900,"e":"commande","b":"honor","c":"android","k":"ph"},{"n":"Honor 400 Pro","s":"256 Go · photo 200 Mpx","p":5600,"e":"neuf","b":"honor","c":"android","k":"ph"},{"n":"Honor X9c","s":"256 Go · écran incurvé · batterie 6 600 mAh","p":2900,"e":"neuf","b":"honor","c":"android","k":"ph"},{"n":"Xiaomi 17","s":"256 Go · Snapdragon dernier cri","p":7200,"e":"neuf","b":"xiaomi","c":"android","k":"ph"},{"n":"Xiaomi 17 Ultra","s":"512 Go · Leica · capteur 1 pouce","p":11900,"e":"neuf","b":"xiaomi","c":"android","k":"ph"},{"n":"Xiaomi 15 Ultra","s":"512 Go · Leica","p":8700,"e":"occasion","b":"xiaomi","c":"android","k":"ph"},{"n":"Redmi Note 15 Pro","s":"256 Go · rapport qualité-prix","p":2600,"e":"neuf","b":"xiaomi","c":"android","k":"ph"},{"n":"POCO F8","s":"512 Go · performance","p":3900,"e":"neuf","b":"xiaomi","c":"android","k":"ph"},{"n":"AirPods Pro 3","s":"Réduction de bruit · boîtier USB-C","p":2950,"e":"neuf","b":"accessoire","c":"accessoire","k":"bd"},{"n":"AirPods 4","s":"Avec réduction de bruit","p":1850,"e":"neuf","b":"accessoire","c":"accessoire","k":"bd"},{"n":"Protection d'écran verre trempé","s":"Toutes tailles · posée sans bulle","p":120,"e":"neuf","b":"accessoire","c":"accessoire","k":"bd"},{"n":"Coque de protection","s":"Silicone ou transparente · toutes marques","p":90,"e":"neuf","b":"accessoire","c":"accessoire","k":"bd"},{"n":"Chargeur rapide 45 W","s":"USB-C · câble tressé fourni","p":260,"e":"neuf","b":"accessoire","c":"accessoire","k":"bd"},{"n":"Batterie externe 20 000 mAh","s":"Charge rapide · double port","p":340,"e":"neuf","b":"accessoire","c":"accessoire","k":"bd"},{"n":"Câble USB-C tressé 2 m","s":"Charge et transfert","p":80,"e":"neuf","b":"accessoire","c":"accessoire","k":"bd"},{"n":"Montre connectée sport","s":"Suivi activité · notifications","p":450,"e":"neuf","b":"accessoire","c":"accessoire","k":"wt"}];
+  var LIB={apple:'Apple',samsung:'Samsung',google:'Google',honor:'Honor',xiaomi:'Xiaomi',accessoire:'Accessoire'};
+  var ETAT={neuf:['Neuf scellé','tag'],occasion:['Occasion','tag tag--used'],commande:['Sur commande','tag tag--order']};
+  var DISPO={neuf:'disponible',occasion:'contrôlé 18 points',commande:'sous 48 h'};
+  var fc='all', fb='all', fe='all', fq='';
+  var grid=document.getElementById('shopgrid'), cnt=document.getElementById('shopcount'), vide=document.getElementById('shopempty');
+
+  function prix(v){ return v.toLocaleString('fr-FR').replace(/\u202f|\u00a0/g,' ')+' DH'; }
+  function esc(t){ return String(t).replace(/[&<>"]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m];}); }
+  function norm(t){ return t.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase(); }
+
+  function rendu(){
+    if(!grid) return;
+    var q=norm(fq.trim());
+    var liste=CATALOGUE.filter(function(p){
+      if(fc!=='all' && p.c!==fc) return false;
+      if(fb!=='all' && p.b!==fb) return false;
+      if(fe!=='all' && p.e!==fe) return false;
+      if(q && norm(p.n+' '+p.s+' '+LIB[p.b]).indexOf(q)<0) return false;
+      return true;
+    });
+    grid.innerHTML=liste.map(function(p){
+      var et=ETAT[p.e];
+      return '<article class="card">'+
+        '<div class="shot"><span class="halo"></span><span class="'+et[1]+'">'+et[0]+'</span><span class="obj '+p.k+'"></span></div>'+
+        '<div class="body"><span class="brand">'+esc(LIB[p.b])+'</span><h3>'+esc(p.n)+'</h3>'+
+        '<span class="spec">'+esc(p.s)+'</span>'+
+        '<span class="price">'+(AFFICHER_PRIX?'<b>'+prix(p.p)+'</b>':'<b>Prix en boutique</b>')+
+        '<span>'+DISPO[p.e]+'</span></span></div></article>';
+    }).join('');
+    if(cnt) cnt.textContent=liste.length+(liste.length>1?' modèles':' modèle');
+    if(vide) vide.hidden=liste.length>0;
+  }
+
+  function groupe(attr,set){
+    var els=Array.prototype.slice.call(document.querySelectorAll('.chip['+attr+']'));
+    els.forEach(function(c){
+      c.addEventListener('click',function(){
+        els.forEach(function(x){ x.setAttribute('aria-pressed', x===c?'true':'false'); });
+        set(c.getAttribute(attr)); rendu();
       });
     });
-  });
+  }
+  groupe('data-c',function(v){ fc=v; });
+  groupe('data-b',function(v){ fb=v; });
+  groupe('data-e',function(v){ fe=v; });
+  var srch=document.getElementById('shopsearch');
+  if(srch){ var tmo; srch.addEventListener('input',function(){ clearTimeout(tmo); tmo=setTimeout(function(){ fq=srch.value; rendu(); },140); }); }
+  rendu();
 
   document.querySelectorAll('form').forEach(function(f){
     f.addEventListener('submit',function(e){
