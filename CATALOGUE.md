@@ -15,7 +15,7 @@ Les autres sont des estimations, à remplacer par la grille réelle.
 |---|---|---|---|---|---|
 | Apple | **iPhone 11** | 128 Go · double caméra | — | 2 450 DH | 2 300 DH |
 | Apple | **iPhone 11 Pro** | 64 Go · triple caméra · acier | — | 2 900 DH | 2 750 DH |
-| Apple | **iPhone 11 Pro Max** ✅ | 256 Go · OLED 6,5″ | — | 2 200 DH | 2 100 DH |
+| Apple | **iPhone 11 Pro Max** ✅ | 64 Go · OLED 6,5″ | — | 2 200 DH | 2 100 DH |
 | Apple | **iPhone 12** | 128 Go · 5G · MagSafe | — | 3 050 DH | 2 900 DH |
 | Apple | **iPhone 12 Pro** | 128 Go · LiDAR · acier | — | 3 600 DH | 3 400 DH |
 | Apple | **iPhone 12 Pro Max** ✅ | 256 Go · 6,7″ · LiDAR | — | 3 800 DH | 3 600 DH |
@@ -36,7 +36,7 @@ Les autres sont des estimations, à remplacer par la grille réelle.
 | Apple | **iPhone 16 Plus** | 128 Go · 6,7″ · A18 | 8 100 DH | 6 200 DH | 5 850 DH |
 | Apple | **iPhone 16 Pro** | 128 Go · titane · A18 Pro | 9 600 DH | 7 300 DH | 6 900 DH |
 | Apple | **iPhone 16 Pro Max** | 256 Go · 6,9″ · A18 Pro | 11 200 DH | 8 550 DH | 8 050 DH |
-| Apple | **iPhone 16e** | 128 Go · A18 · Face ID | 5 200 DH | 4 000 DH | 3 750 DH |
+| Apple | **iPhone 16e** ✅ | 128 Go · A18 · Face ID | 4 300 DH | 3 600 DH | 3 400 DH |
 | Apple | **iPhone 17** | 256 Go · A19 · 6,3″ | 9 900 DH | 7 600 DH | 7 150 DH |
 | Apple | **iPhone 17 Air** | 256 Go · 5,6 mm · titane | 12 900 DH | 9 850 DH | 9 300 DH |
 | Apple | **iPhone 17 Pro** | 256 Go · A19 Pro · aluminium | 14 200 DH | 10 800 DH | 10 200 DH |

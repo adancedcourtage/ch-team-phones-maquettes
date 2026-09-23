@@ -1,7 +1,7 @@
 ﻿Categorie;Marque;Produit;Details;Prix neuf (DH);Prix reconditionne (DH);Prix occasion (DH);Prix reel confirme;Identifiant fichier photo
 iPhone;Apple;iPhone 11;128 Go · double caméra;;2450;2300;non;iphone-11.jpg
 iPhone;Apple;iPhone 11 Pro;64 Go · triple caméra · acier;;2900;2750;non;iphone-11-pro.jpg
-iPhone;Apple;iPhone 11 Pro Max;256 Go · OLED 6,5″;;2200;2100;oui;iphone-11-pro-max.jpg
+iPhone;Apple;iPhone 11 Pro Max;64 Go · OLED 6,5″;;2200;2100;oui;iphone-11-pro-max.jpg
 iPhone;Apple;iPhone 12;128 Go · 5G · MagSafe;;3050;2900;non;iphone-12.jpg
 iPhone;Apple;iPhone 12 Pro;128 Go · LiDAR · acier;;3600;3400;non;iphone-12-pro.jpg
 iPhone;Apple;iPhone 12 Pro Max;256 Go · 6,7″ · LiDAR;;3800;3600;oui;iphone-12-pro-max.jpg
@@ -22,7 +22,7 @@ iPhone;Apple;iPhone 16;128 Go · A18 · Camera Control;7200;5500;5200;non;iphone
 iPhone;Apple;iPhone 16 Plus;128 Go · 6,7″ · A18;8100;6200;5850;non;iphone-16-plus.jpg
 iPhone;Apple;iPhone 16 Pro;128 Go · titane · A18 Pro;9600;7300;6900;non;iphone-16-pro.jpg
 iPhone;Apple;iPhone 16 Pro Max;256 Go · 6,9″ · A18 Pro;11200;8550;8050;non;iphone-16-pro-max.jpg
-iPhone;Apple;iPhone 16e;128 Go · A18 · Face ID;5200;4000;3750;non;iphone-16e.jpg
+iPhone;Apple;iPhone 16e;128 Go · A18 · Face ID;4300;3600;3400;oui;iphone-16e.jpg
 iPhone;Apple;iPhone 17;256 Go · A19 · 6,3″;9900;7600;7150;non;iphone-17.jpg
 iPhone;Apple;iPhone 17 Air;256 Go · 5,6 mm · titane;12900;9850;9300;non;iphone-17-air.jpg
 iPhone;Apple;iPhone 17 Pro;256 Go · A19 Pro · aluminium;14200;10800;10200;non;iphone-17-pro.jpg
