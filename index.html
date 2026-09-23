@@ -176,6 +176,16 @@ button.tile{cursor:pointer}
 .obj.lap{width:132px;height:84px;border-radius:9px}
 .obj.wt{width:66px;height:74px;border-radius:21px}
 .obj.bd{width:70px;height:70px;border-radius:25px}
+
+.rep-pick{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:end;margin-bottom:20px}
+.rep-sel{display:flex;flex-direction:column;gap:7px;min-width:260px}
+.rep-sel select{font:inherit;font-size:15px;color:var(--ink);background:var(--white);border:1px solid var(--line2);border-radius:12px;padding:13px 15px;width:100%}
+.rep-sel select:focus{outline:none;border-color:var(--volt)}
+@media (max-width:760px){.rep-pick{grid-template-columns:1fr}.rep-sel{min-width:0}}
+.rep-ask{display:inline-flex;align-items:center;gap:7px;background:var(--ink);color:#fff;border-radius:9px;padding:9px 14px;font-size:12.5px;font-weight:700;white-space:nowrap}
+.rep-ask:hover{background:var(--volt)}
+td.rep-name b{display:block;font-weight:700}
+td.rep-name small{color:var(--ink3);font-size:12px}
 .shopbar{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-bottom:16px}
 .srch{flex:1 1 320px;display:flex;align-items:center;gap:10px;background:var(--white);border:1px solid var(--line2);border-radius:12px;padding:0 14px;transition:border-color .16s ease}
 .srch:focus-within{border-color:var(--volt)}
@@ -433,7 +443,7 @@ footer.site{
         <div class="kpis">
           <div><b>4,9</b><span>208 avis</span></div>
           <div><b>17,8K</b><span>abonnés</span></div>
-          <div><b>6 mois</b><span>garantie</span></div>
+          <div><b>3 mois</b><span>garantie</span></div>
           <div><b>48 h</b><span>commande</span></div>
         </div>
       </div>
@@ -461,7 +471,7 @@ footer.site{
         <button class="tile" data-go="reparation">
           <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><use href="#i-wrench"/></svg></span>
           <h3>Réparer</h3>
-          <p>Écran, batterie, connecteur de charge, désoxydation. Diagnostic gratuit, devis avant intervention, garantie six mois.</p>
+          <p>Écran, batterie, connecteur de charge, désoxydation. Diagnostic gratuit, devis avant intervention, garantie trois mois.</p>
           <span class="foot">Les tarifs →</span>
         </button>
         <button class="tile" data-go="occasion">
@@ -600,7 +610,7 @@ footer.site{
     <header class="sec" style="padding-bottom:28px">
       <span class="eyebrow">L'atelier</span>
       <h2 style="font-size:clamp(30px,6vw,66px);line-height:.98;margin-bottom:16px;max-width:15ch">Déposé le matin, repris le soir</h2>
-      <p style="max-width:56ch;color:var(--ink2);font-size:16.5px;line-height:1.72;margin:0">Le diagnostic est gratuit et sans engagement. Le devis est annoncé avant l'intervention et ne bouge plus. La garantie couvre la pièce et la main-d'œuvre pendant six mois.</p>
+      <p style="max-width:56ch;color:var(--ink2);font-size:16.5px;line-height:1.72;margin:0">Le diagnostic est gratuit et sans engagement. Le devis est annoncé avant l'intervention et ne bouge plus. La garantie couvre la pièce et la main-d'œuvre pendant trois mois.</p>
     </header>
 
     <section class="sec" style="padding-top:0">
@@ -609,27 +619,34 @@ footer.site{
         <div class="step"><span class="t">2 min</span><span class="num">ÉTAPE 01</span><h3>Vous décrivez la panne</h3><p>Par WhatsApp avec une photo, ou directement au comptoir du Parc Plaza.</p></div>
         <div class="step"><span class="t">10 min</span><span class="num">ÉTAPE 02</span><h3>Diagnostic et devis</h3><p>L'appareil est ouvert devant vous si besoin. Le prix est annoncé avant toute intervention.</p></div>
         <div class="step"><span class="t">30–45 min</span><span class="num">ÉTAPE 03</span><h3>Intervention</h3><p>La pièce est posée dans la foulée quand elle est en stock. Vous pouvez attendre sur place.</p></div>
-        <div class="step"><span class="t">5 min</span><span class="num">ÉTAPE 04</span><h3>Tests et garantie</h3><p>Tactile, audio, caméras, charge et capteurs testés devant vous. Garantie six mois par écrit.</p></div>
+        <div class="step"><span class="t">5 min</span><span class="num">ÉTAPE 04</span><h3>Tests et garantie</h3><p>Tactile, audio, caméras, charge et capteurs testés devant vous. Garantie trois mois par écrit.</p></div>
       </div>
     </section>
 
     <section class="sec" style="padding-top:0">
-      <div class="sec-h"><span class="eyebrow">Grille</span><h2 style="font-size:clamp(23px,3.6vw,36px)">Tarifs et délais</h2>
-      <p>Prix de départ selon le modèle et la pièce disponible. Le montant exact est confirmé au diagnostic.</p></div>
+      <div class="sec-h"><span class="eyebrow">Tarifs</span><h2 style="font-size:clamp(23px,3.6vw,36px)">Combien coûte la réparation de votre appareil ?</h2>
+      <p>Choisissez votre modèle : le tarif de chaque intervention s'affiche, avec la durée et la disponibilité de la pièce.</p></div>
+
+      <div class="rep-pick">
+        <div class="filters" role="group" aria-label="Choisir la marque">
+          <button class="chip" data-rb="apple" aria-pressed="true">Apple</button>
+          <button class="chip" data-rb="samsung" aria-pressed="false">Samsung</button>
+          <button class="chip" data-rb="google" aria-pressed="false">Google</button>
+          <button class="chip" data-rb="xiaomi" aria-pressed="false">Xiaomi</button>
+          <button class="chip" data-rb="huawei" aria-pressed="false">Huawei</button>
+          <button class="chip" data-rb="pc" aria-pressed="false">PC &amp; Mac</button>
+        </div>
+        <label class="rep-sel">
+          <span class="pdp-lab">Votre modèle</span>
+          <select id="repmodel"></select>
+        </label>
+      </div>
+
       <div class="tbl"><div class="tscroll"><table>
-        <thead><tr><th scope="col">Intervention</th><th scope="col">Appareils</th><th scope="col">Durée</th><th scope="col">À partir de</th><th scope="col">Pièce</th></tr></thead>
-        <tbody>
-          <tr><td>Remplacement d'écran</td><td>iPhone 11 → 15</td><td class="n">45 min</td><td class="n">690 DH</td><td><span class="stat stat--ok">en stock</span></td></tr>
-          <tr><td>Remplacement d'écran</td><td>Samsung Galaxy S / A</td><td class="n">1 h</td><td class="n">750 DH</td><td><span class="stat stat--ok">en stock</span></td></tr>
-          <tr><td>Batterie</td><td>iPhone · Samsung · Xiaomi</td><td class="n">30 min</td><td class="n">280 DH</td><td><span class="stat stat--ok">en stock</span></td></tr>
-          <tr><td>Connecteur de charge</td><td>Toutes marques</td><td class="n">40 min</td><td class="n">220 DH</td><td><span class="stat stat--ok">en stock</span></td></tr>
-          <tr><td>Vitre arrière</td><td>iPhone 12 → 15</td><td class="n">2 h</td><td class="n">450 DH</td><td><span class="stat stat--wait">sur commande</span></td></tr>
-          <tr><td>Caméra arrière</td><td>iPhone · Samsung</td><td class="n">1 h</td><td class="n">390 DH</td><td><span class="stat stat--wait">sur commande</span></td></tr>
-          <tr><td>Désoxydation après contact avec l'eau</td><td>Toutes marques</td><td class="n">24 h</td><td class="n">350 DH</td><td><span class="stat stat--ok">diagnostic inclus</span></td></tr>
-          <tr><td>Diagnostic complet</td><td>Toutes marques</td><td class="n">10 min</td><td class="n"><span class="free">offert</span></td><td><span class="stat stat--ok">sans engagement</span></td></tr>
-        </tbody>
+        <thead><tr><th scope="col">Intervention</th><th scope="col">Durée</th><th scope="col">Tarif</th><th scope="col">Pièce</th><th scope="col"></th></tr></thead>
+        <tbody id="reptable"></tbody>
       </table></div></div>
-      <p class="note">// Grille de démonstration — à remplacer par les tarifs réels de l'atelier avant mise en ligne.</p>
+      <p class="note" id="repnote">// Tarifs indicatifs calculés par gamme d'appareil — à remplacer par la grille réelle de l'atelier avant mise en ligne. Le prix exact est confirmé au diagnostic, qui est gratuit.</p>
     </section>
 
     <section class="sec" style="padding-top:0">
@@ -1339,6 +1356,82 @@ footer.site{
   groupe('data-e',function(v){ fe=v; });
   var srch=document.getElementById('shopsearch');
   if(srch){ var tmo; srch.addEventListener('input',function(){ clearTimeout(tmo); tmo=setTimeout(function(){ fq=srch.value; rendu(); },140); }); }
+
+  /* ---------- tarifs de reparation par appareil ---------- */
+  var REPARS=[
+   {n:"Remplacement d'écran",s:"vitre + dalle, testé devant vous",d:"45 min",p:690,q:'stock'},
+   {n:"Batterie",s:"pièce neuve, capacité 100%",d:"30 min",p:280,q:'stock'},
+   {n:"Connecteur de charge",s:"nappe de charge complète",d:"40 min",p:220,q:'stock'},
+   {n:"Vitre arrière",s:"dépose au laser",d:"2 h",p:450,q:'commande'},
+   {n:"Caméra arrière",s:"module complet",d:"1 h",p:390,q:'commande'},
+   {n:"Haut-parleur / écouteur",s:"son étouffé ou muet",d:"45 min",p:260,q:'stock'},
+   {n:"Face ID / capteur d'empreinte",s:"réparation du module d'origine",d:"2 h",p:490,q:'commande',apple:1},
+   {n:"Désoxydation",s:"après contact avec l'eau",d:"24 h",p:350,q:'inclus',fixe:1},
+   {n:"Diagnostic complet",s:"sans engagement",d:"10 min",p:0,q:'offert',fixe:1}
+  ];
+  var REPARS_PC=[
+   {n:"Remplacement d'écran",s:"dalle compatible ou d'origine",d:"2 h",p:1600,q:'commande'},
+   {n:"Batterie",s:"pièce neuve",d:"1 h",p:650,q:'commande'},
+   {n:"Clavier",s:"nappe complète",d:"1 h 30",p:450,q:'commande'},
+   {n:"Disque SSD",s:"remplacement + transfert des données",d:"2 h",p:550,q:'stock'},
+   {n:"Nettoyage et pâte thermique",s:"surchauffe, ventilation bruyante",d:"1 h",p:300,q:'stock',fixe:1},
+   {n:"Installation système",s:"Windows ou macOS, pilotes inclus",d:"2 h",p:250,q:'stock',fixe:1},
+   {n:"Diagnostic complet",s:"sans engagement",d:"15 min",p:0,q:'offert',fixe:1}
+  ];
+  var QLAB={stock:['en stock','stat--ok'],commande:['sur commande','stat--wait'],inclus:['diagnostic inclus','stat--ok'],offert:['sans engagement','stat--ok']};
+  var rb='apple';
+
+  function gamme(p){
+    var ref=p.pn||p.po||p.pr||0;
+    if(ref<1500) return [0.55,'entrée de gamme'];
+    if(ref<3500) return [0.78,'milieu de gamme'];
+    if(ref<7000) return [1.0,'haut de gamme'];
+    return [1.35,'dernière génération'];
+  }
+  function modelesRep(){
+    return CATALOGUE.filter(function(p){
+      if(rb==='pc') return p.c==='pc'||p.c==='mac';
+      if(p.c!=='iphone' && p.c!=='android') return false;
+      return p.b===rb;
+    });
+  }
+  function remplirModeles(){
+    var sel=document.getElementById('repmodel'); if(!sel) return;
+    var l=modelesRep();
+    sel.innerHTML=l.map(function(p){ return '<option value="'+p.id+'">'+esc(p.n)+'</option>'; }).join('');
+    var pref={apple:'iphone-13',samsung:'galaxy-s24-ultra',google:'pixel-9-pro',xiaomi:'xiaomi-15-ultra',huawei:'huawei-mate-30-pro',pc:'macbook-air-13-m4'}[rb];
+    if(pref && l.some(function(p){return p.id===pref;})) sel.value=pref;
+    tableRep();
+  }
+  function tableRep(){
+    var sel=document.getElementById('repmodel'), tb=document.getElementById('reptable'); if(!sel||!tb) return;
+    var p=CATALOGUE.filter(function(x){ return x.id===sel.value; })[0]; if(!p) return;
+    var pc=(p.c==='pc'||p.c==='mac'), liste=pc?REPARS_PC:REPARS;
+    var g=gamme(p), mult=g[0];
+    tb.innerHTML=liste.filter(function(r){ return !(r.apple && p.b!=='apple'); }).map(function(r){
+      var prixR = r.p===0 ? null : (r.fixe ? r.p : Math.round(r.p*mult/10)*10);
+      var q=QLAB[r.q];
+      var msg=encodeURIComponent('Bonjour, je voudrais un devis pour : '+r.n+' sur '+p.n+'. Merci.');
+      return '<tr><td class="rep-name"><b>'+esc(r.n)+'</b><small>'+esc(r.s)+'</small></td>'+
+        '<td class="n">'+r.d+'</td>'+
+        '<td class="n">'+(prixR===null?'<span class="free">offert</span>':(AFFICHER_PRIX?prix(prixR):'nous consulter'))+'</td>'+
+        '<td><span class="stat '+q[1]+'">'+q[0]+'</span></td>'+
+        '<td><a class="rep-ask" href="https://wa.me/212661798782?text='+msg+'" target="_blank" rel="noopener">Demander</a></td></tr>';
+    }).join('');
+    var nt=document.getElementById('repnote');
+    if(nt) nt.textContent='// '+p.n+' — '+g[1]+'. Tarifs indicatifs calculés par gamme, à remplacer par la grille réelle de l\'atelier. Le prix exact est confirmé au diagnostic, qui est gratuit.';
+  }
+  (function(){
+    var chips=Array.prototype.slice.call(document.querySelectorAll('.chip[data-rb]'));
+    chips.forEach(function(c){ c.addEventListener('click',function(){
+      chips.forEach(function(x){ x.setAttribute('aria-pressed', x===c?'true':'false'); });
+      rb=c.getAttribute('data-rb'); remplirModeles();
+    }); });
+    var sel=document.getElementById('repmodel');
+    if(sel) sel.addEventListener('change',tableRep);
+    remplirModeles();
+  })();
+
   function rendreNouveautes(){
     var g=document.getElementById('newgrid'); if(!g) return;
     var l=CATALOGUE.filter(function(p){ return p.nv!==undefined; })
