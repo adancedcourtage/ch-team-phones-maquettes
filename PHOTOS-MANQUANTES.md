@@ -37,6 +37,7 @@ Nom de fichier attendu = identifiant du produit (voir `CATALOGUE.csv`, dernière
 - Redmi Note 14 Pro
 - Redmi Note 15 Pro
 - Redmi Note 9S
+- Xiaomi 15T Pro
 - Xiaomi 15 Ultra
 - Xiaomi 17
 - Xiaomi 17 Ultra

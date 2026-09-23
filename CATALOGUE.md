@@ -106,6 +106,7 @@ Les autres sont des estimations, à remplacer par la grille réelle.
 | Xiaomi | **Redmi Note 14 Pro** | 256 Go · photo 200 Mpx | — | 2 250 DH | 2 100 DH |
 | Xiaomi | **Redmi Note 15 Pro** | 256 Go · rapport qualité-prix | 2 600 DH | 1 950 DH | 1 850 DH |
 | Xiaomi | **Redmi Note 9S** | 128 Go · batterie 5 020 mAh | — | 950 DH | 900 DH |
+| Xiaomi | **Xiaomi 15T Pro** | 256 Go · Leica · Dimensity 9400+ | 5 200 DH | 3 950 DH | 3 750 DH |
 | Xiaomi | **Xiaomi 15 Ultra** | 512 Go · Leica | — | 9 200 DH | 8 700 DH |
 | Xiaomi | **Xiaomi 17** | 256 Go · Snapdragon dernier cri | 7 200 DH | 5 500 DH | 5 200 DH |
 | Xiaomi | **Xiaomi 17 Ultra** | 512 Go · Leica · capteur 1 pouce | 11 900 DH | 9 050 DH | 8 550 DH |
