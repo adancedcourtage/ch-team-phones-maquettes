@@ -1,0 +1,153 @@
+﻿Categorie;Marque;Produit;Details;Prix neuf (DH);Prix reconditionne (DH);Prix occasion (DH);Prix reel confirme;Identifiant fichier photo
+iPhone;Apple;iPhone 11;128 Go · double caméra;;2450;2300;non;iphone-11.jpg
+iPhone;Apple;iPhone 11 Pro;64 Go · triple caméra · acier;;2900;2750;non;iphone-11-pro.jpg
+iPhone;Apple;iPhone 11 Pro Max;256 Go · OLED 6,5″;;2200;2100;oui;iphone-11-pro-max.jpg
+iPhone;Apple;iPhone 12;128 Go · 5G · MagSafe;;3050;2900;non;iphone-12.jpg
+iPhone;Apple;iPhone 12 Pro;128 Go · LiDAR · acier;;3600;3400;non;iphone-12-pro.jpg
+iPhone;Apple;iPhone 12 Pro Max;256 Go · 6,7″ · LiDAR;;3800;3600;oui;iphone-12-pro-max.jpg
+iPhone;Apple;iPhone 12 mini;64 Go · 5,4″ · 5G;;2600;2450;non;iphone-12-mini.jpg
+iPhone;Apple;iPhone 13;128 Go · A15 · double caméra;;3250;3050;oui;iphone-13.jpg
+iPhone;Apple;iPhone 13 Pro;128 Go · ProMotion 120 Hz;;4550;4300;oui;iphone-13-pro.jpg
+iPhone;Apple;iPhone 13 Pro Max;256 Go · 6,7″ · ProMotion;;5400;5100;non;iphone-13-pro-max.jpg
+iPhone;Apple;iPhone 13 mini;128 Go · 5,4″ · A15;;3300;3100;non;iphone-13-mini.jpg
+iPhone;Apple;iPhone 14;128 Go · Détection d'accident;;4550;4300;non;iphone-14.jpg
+iPhone;Apple;iPhone 14 Plus;128 Go · 6,7″ · grande autonomie;;5000;4700;non;iphone-14-plus.jpg
+iPhone;Apple;iPhone 14 Pro;128 Go · Dynamic Island · 48 Mpx;;4950;4650;oui;iphone-14-pro.jpg
+iPhone;Apple;iPhone 14 Pro Max;256 Go · 6,7″ · Dynamic Island;;6800;6400;non;iphone-14-pro-max.jpg
+iPhone;Apple;iPhone 15;128 Go · USB-C · A16;;5250;4950;oui;iphone-15.jpg
+iPhone;Apple;iPhone 15 Plus;128 Go · 6,7″ · USB-C;;6250;5900;non;iphone-15-plus.jpg
+iPhone;Apple;iPhone 15 Pro;128 Go · titane · A17 Pro;;7300;6900;non;iphone-15-pro.jpg
+iPhone;Apple;iPhone 15 Pro Max;256 Go · téléobjectif 5×;;8350;7900;non;iphone-15-pro-max.jpg
+iPhone;Apple;iPhone 16;128 Go · A18 · Camera Control;7200;5500;5200;non;iphone-16.jpg
+iPhone;Apple;iPhone 16 Plus;128 Go · 6,7″ · A18;8100;6200;5850;non;iphone-16-plus.jpg
+iPhone;Apple;iPhone 16 Pro;128 Go · titane · A18 Pro;9600;7300;6900;non;iphone-16-pro.jpg
+iPhone;Apple;iPhone 16 Pro Max;256 Go · 6,9″ · A18 Pro;11200;8550;8050;non;iphone-16-pro-max.jpg
+iPhone;Apple;iPhone 16e;128 Go · A18 · Face ID;5200;4000;3750;non;iphone-16e.jpg
+iPhone;Apple;iPhone 17;256 Go · A19 · 6,3″;9900;7600;7150;non;iphone-17.jpg
+iPhone;Apple;iPhone 17 Air;256 Go · 5,6 mm · titane;12900;9850;9300;non;iphone-17-air.jpg
+iPhone;Apple;iPhone 17 Pro;256 Go · A19 Pro · aluminium;14200;10800;10200;non;iphone-17-pro.jpg
+iPhone;Apple;iPhone 17 Pro Max;256 Go · 6,9″ · A19 Pro;15800;12100;11400;non;iphone-17-pro-max.jpg
+iPhone;Apple;iPhone 17e;128 Go · A19 · Face ID;5600;4300;4050;non;iphone-17e.jpg
+iPhone;Apple;iPhone 18 Pro;256 Go · A20 Pro · ouverture variable;16400;;;non;iphone-18-pro.jpg
+iPhone;Apple;iPhone 18 Pro Max;256 Go · 6,9″ · A20 Pro;17900;;;non;iphone-18-pro-max.jpg
+iPhone;Apple;iPhone 7;32 Go · écran 4,7″;;700;650;non;iphone-7.jpg
+iPhone;Apple;iPhone 7 Plus;32 Go · 5,5″ · double caméra;;900;850;non;iphone-7-plus.jpg
+iPhone;Apple;iPhone 8;64 Go · charge sans fil;;950;900;non;iphone-8.jpg
+iPhone;Apple;iPhone 8 Plus;64 Go · 5,5″ · double caméra;;1200;1150;non;iphone-8-plus.jpg
+iPhone;Apple;iPhone SE 2020;64 Go · A13 · Touch ID;;1100;1050;non;iphone-se-2020.jpg
+iPhone;Apple;iPhone SE 3;64 Go · A15 · 5G;;1750;1650;non;iphone-se-3.jpg
+iPhone;Apple;iPhone X;64 Go · OLED 5,8″ · Face ID;;1550;1450;non;iphone-x.jpg
+iPhone;Apple;iPhone XR;64 Go · Liquid Retina 6,1″;;1750;1650;non;iphone-xr.jpg
+iPhone;Apple;iPhone XS;64 Go · acier · OLED 5,8″;;1850;1750;non;iphone-xs.jpg
+iPhone;Apple;iPhone XS Max;256 Go · OLED 6,5″;;2250;2100;non;iphone-xs-max.jpg
+Smartphone Android;Google;Pixel 10;128 Go · Tensor · photo Google;6400;4900;4600;non;pixel-10.jpg
+Smartphone Android;Google;Pixel 10 Pro;256 Go · triple caméra · 6,3″;7950;7000;6600;oui;pixel-10-pro.jpg
+Smartphone Android;Google;Pixel 10 Pro Fold;256 Go · écran pliant;18500;;;non;pixel-10-pro-fold.jpg
+Smartphone Android;Google;Pixel 10 Pro XL;256 Go · 6,8″ · Tensor;10800;8250;7800;non;pixel-10-pro-xl.jpg
+Smartphone Android;Google;Pixel 7;128 Go · Tensor G2;;2450;2300;non;pixel-7.jpg
+Smartphone Android;Google;Pixel 7 Pro;128 Go · téléobjectif 5×;;3300;3100;non;pixel-7-pro.jpg
+Smartphone Android;Google;Pixel 8;128 Go · Tensor G3;;3600;3400;non;pixel-8.jpg
+Smartphone Android;Google;Pixel 9 Pro;128 Go · reconditionné;;5700;5400;non;pixel-9-pro.jpg
+Smartphone Android;Google;Pixel 9 Pro XL;256 Go · 6,8″;;6250;5900;non;pixel-9-pro-xl.jpg
+Smartphone Android;Honor;Honor 400 Pro;256 Go · photo 200 Mpx;5600;4300;4050;non;honor-400-pro.jpg
+Smartphone Android;Honor;Honor Magic 8 Pro;512 Go · écran 6 000 nits;9800;7450;7050;non;honor-magic-8-pro.jpg
+Smartphone Android;Honor;Honor Magic V6;512 Go · pliant · ultra fin;17900;;;non;honor-magic-v6.jpg
+Smartphone Android;Honor;Honor X9c;256 Go · batterie 6 600 mAh;2900;2250;2100;non;honor-x9c.jpg
+Smartphone Android;Huawei;Huawei Mate 30 Pro;256 Go · caméra circulaire;;1800;1700;non;huawei-mate-30-pro.jpg
+Smartphone Android;Huawei;Huawei P30 Lite;128 Go · triple caméra;;800;750;non;huawei-p30-lite.jpg
+Smartphone Android;OPPO;OPPO A9 2020;128 Go · grande batterie;;750;700;non;oppo-a9-2020.jpg
+Smartphone Android;Samsung;Galaxy A56 5G;256 Go · milieu de gamme;3400;2600;2450;non;galaxy-a56-5g.jpg
+Smartphone Android;Samsung;Galaxy Note 20 5G;256 Go · S Pen;;2000;1900;non;galaxy-note-20-5g.jpg
+Smartphone Android;Samsung;Galaxy S10+;128 Go · double capteur avant;;1150;1100;non;galaxy-s10-plus.jpg
+Smartphone Android;Samsung;Galaxy S21;128 Go · 5G;;1900;1800;non;galaxy-s21.jpg
+Smartphone Android;Samsung;Galaxy S21 Ultra;256 Go · S Pen · 108 Mpx;;3050;2900;non;galaxy-s21-ultra.jpg
+Smartphone Android;Samsung;Galaxy S22;128 Go · 5G;;2350;2200;non;galaxy-s22.jpg
+Smartphone Android;Samsung;Galaxy S22 Ultra;128 Go / 8 Go RAM · S Pen;;3500;3300;non;galaxy-s22-ultra.jpg
+Smartphone Android;Samsung;Galaxy S22+;256 Go · 6,6″;;2750;2600;non;galaxy-s22-plus.jpg
+Smartphone Android;Samsung;Galaxy S23;256 Go · Snapdragon;;3300;3100;non;galaxy-s23.jpg
+Smartphone Android;Samsung;Galaxy S23 FE;128 Go · édition fan;;2550;2400;non;galaxy-s23-fe.jpg
+Smartphone Android;Samsung;Galaxy S23 Ultra;256 Go · S Pen · 200 Mpx;;4900;4600;non;galaxy-s23-ultra.jpg
+Smartphone Android;Samsung;Galaxy S24;256 Go · Galaxy AI;;4450;4200;non;galaxy-s24.jpg
+Smartphone Android;Samsung;Galaxy S24 Ultra;256 Go · titane · S Pen;;6550;6200;non;galaxy-s24-ultra.jpg
+Smartphone Android;Samsung;Galaxy S24+;256 Go / 12 Go RAM;;5000;4700;oui;galaxy-s24-plus.jpg
+Smartphone Android;Samsung;Galaxy S25;256 Go · Snapdragon 8 Elite;;6550;6200;non;galaxy-s25.jpg
+Smartphone Android;Samsung;Galaxy S25 Ultra;512 Go · batterie 92%;;7850;7400;non;galaxy-s25-ultra.jpg
+Smartphone Android;Samsung;Galaxy S26;256 Go · Snapdragon 8 Elite Gen 5;9400;7150;6750;non;galaxy-s26.jpg
+Smartphone Android;Samsung;Galaxy S26 Ultra;512 Go · S Pen · capteur 200 Mpx;11300;11400;10750;oui;galaxy-s26-ultra.jpg
+Smartphone Android;Samsung;Galaxy S26+;256 Go · 6,7″ · charge rapide;11200;8550;8050;non;galaxy-s26-plus.jpg
+Smartphone Android;Samsung;Galaxy S8;64 Go · écran incurvé;;650;600;non;galaxy-s8.jpg
+Smartphone Android;Samsung;Galaxy Z Flip 6;256 Go · compact;;5950;5600;non;galaxy-z-flip-6.jpg
+Smartphone Android;Samsung;Galaxy Z Flip 7;256 Go · format compact;11900;;;non;galaxy-z-flip-7.jpg
+Smartphone Android;Samsung;Galaxy Z Flip 7 FE;128 Go · compact;;5200;4900;non;galaxy-z-flip-7-fe.jpg
+Smartphone Android;Samsung;Galaxy Z Fold 5;256 Go · pliant 7,6″;;7300;6900;non;galaxy-z-fold-5.jpg
+Smartphone Android;Samsung;Galaxy Z Fold 6;256 Go · pliant;;9950;9400;non;galaxy-z-fold-6.jpg
+Smartphone Android;Samsung;Galaxy Z Fold 7;512 Go · écran pliant 8″;19900;;;non;galaxy-z-fold-7.jpg
+Smartphone Android;Xiaomi;POCO F8;512 Go · performance;3900;2950;2800;non;poco-f8.jpg
+Smartphone Android;Xiaomi;Redmi 10;128 Go · entrée de gamme;;850;800;non;redmi-10.jpg
+Smartphone Android;Xiaomi;Redmi Note 14 Pro;256 Go · photo 200 Mpx;;2250;2100;non;redmi-note-14-pro.jpg
+Smartphone Android;Xiaomi;Redmi Note 15 Pro;256 Go · rapport qualité-prix;2600;1950;1850;non;redmi-note-15-pro.jpg
+Smartphone Android;Xiaomi;Redmi Note 9S;128 Go · batterie 5 020 mAh;;950;900;non;redmi-note-9s.jpg
+Smartphone Android;Xiaomi;Xiaomi 15 Ultra;512 Go · Leica;;9200;8700;non;xiaomi-15-ultra.jpg
+Smartphone Android;Xiaomi;Xiaomi 17;256 Go · Snapdragon dernier cri;7200;5500;5200;non;xiaomi-17.jpg
+Smartphone Android;Xiaomi;Xiaomi 17 Ultra;512 Go · Leica · capteur 1 pouce;11900;9050;8550;non;xiaomi-17-ultra.jpg
+Mac;Apple;Mac mini M2;8 Go / 256 Go;;5200;4900;non;mac-mini-m2.jpg
+Mac;Apple;Mac mini M4;16 Go / 256 Go · compact;8900;;;non;mac-mini-m4.jpg
+Mac;Apple;MacBook Air 13″ M4;16 Go / 256 Go · 18 h d'autonomie;13900;;;non;macbook-air-13-m4.jpg
+Mac;Apple;MacBook Air 15″ M4;16 Go / 512 Go · écran 15,3″;16900;;;non;macbook-air-15-m4.jpg
+Mac;Apple;MacBook Air M2;8 Go / 256 Go · 13,6″;;8350;7900;non;macbook-air-m2.jpg
+Mac;Apple;MacBook Pro 14″ M5;16 Go / 512 Go · Liquid Retina XDR;22500;;;non;macbook-pro-14-m5.jpg
+Mac;Apple;MacBook Pro 14″ M5 Pro;24 Go / 1 To · ProMotion;29900;;;non;macbook-pro-14-m5-pro.jpg
+Mac;Apple;MacBook Pro 16″ M5 Max;36 Go / 1 To · configuration pro;38500;;;non;macbook-pro-16-m5-max.jpg
+Mac;Apple;MacBook Pro 16″ M5 Pro;24 Go / 1 To · écran 16,2″;34900;;;non;macbook-pro-16-m5-pro.jpg
+Mac;Apple;MacBook Pro M3;16 Go / 512 Go · 14″;;13650;12900;non;macbook-pro-m3.jpg
+Mac;Apple;iMac 24″ M4;16 Go / 512 Go · 4,5K Retina;17900;;;non;imac-24-m4.jpg
+PC portable / bureau;HP;HP ENVY x360;Intel · écran tactile convertible;;5200;4900;non;hp-envy-x360.jpg
+PC portable / bureau;HP;HP EliteBook 820 G3;Core i5 · 8 Go / 256 Go SSD;;1700;1600;non;hp-elitebook-820-g3.jpg
+PC portable / bureau;HP;HP EliteDesk 805 G6;mini PC bureau · Ryzen;;3050;2900;non;hp-elitedesk-805-g6.jpg
+PC portable / bureau;HP;HP ZBook;station de travail mobile · carte dédiée;;7200;6800;non;hp-zbook.jpg
+PC portable / bureau;Lenovo;Lenovo V14-IIL;Core i3 · 8 Go / 256 Go SSD;;2550;2400;non;lenovo-v14-iil.jpg
+PC portable / bureau;MEDION;MEDION Recon E10;PC portable gaming;;4450;4200;non;medion-recon-e10.jpg
+PC portable / bureau;Microsoft;Microsoft Surface Pro 7;tablette PC · clavier détachable;;3800;3600;non;microsoft-surface-pro-7.jpg
+iPad / tablette;Apple;iPad 11″ (A16);128 Go · Wi-Fi;4600;3500;3300;non;ipad-11-a16.jpg
+iPad / tablette;Apple;iPad Air 11″ M3;128 Go · Wi-Fi;7900;6050;5700;non;ipad-air-11-m3.jpg
+iPad / tablette;Apple;iPad Air 13″ M3;256 Go · grand écran;10400;7950;7500;non;ipad-air-13-m3.jpg
+iPad / tablette;Apple;iPad Air M2;128 Go · 11″;;5200;4900;non;ipad-air-m2.jpg
+iPad / tablette;Apple;iPad Pro 11″ M5;256 Go · Ultra Retina XDR;13900;;;non;ipad-pro-11-m5.jpg
+iPad / tablette;Apple;iPad Pro 13″ M5;256 Go · Ultra Retina XDR;17400;;;non;ipad-pro-13-m5.jpg
+iPad / tablette;Apple;iPad Pro M2;256 Go · 11″ · ProMotion;;7650;7200;non;ipad-pro-m2.jpg
+iPad / tablette;Apple;iPad mini (A17 Pro);128 Go · 8,3″ · Apple Pencil Pro;6200;4700;4450;non;ipad-mini-a17-pro.jpg
+Montre / objet connecté;Apple;Apple Watch SE 3;40 mm · GPS · bracelet sport;3200;2450;2300;non;apple-watch-se-3.jpg
+Montre / objet connecté;Apple;Apple Watch SE 44 mm Cellular;44 mm · eSIM;;2000;1900;non;apple-watch-se-44-mm-cellular.jpg
+Montre / objet connecté;Apple;Apple Watch Series 10;42 mm · reconditionnée;;4150;3900;non;apple-watch-series-10.jpg
+Montre / objet connecté;Apple;Apple Watch Series 11;45 mm · GPS · always-on;5600;4300;4050;non;apple-watch-series-11.jpg
+Montre / objet connecté;Apple;Apple Watch Series 11 Cellular;45 mm · eSIM;6800;5200;4900;non;apple-watch-series-11-cellular.jpg
+Montre / objet connecté;Apple;Apple Watch Series 3;38 mm · GPS;;600;550;non;apple-watch-series-3.jpg
+Montre / objet connecté;Apple;Apple Watch Series 4;40 mm · GPS;;900;850;non;apple-watch-series-4.jpg
+Montre / objet connecté;Apple;Apple Watch Series 6;44 mm · Cellular;;1500;1400;non;apple-watch-series-6.jpg
+Montre / objet connecté;Apple;Apple Watch Series 6 Nike;44 mm · édition Nike;;1600;1500;non;apple-watch-series-6-nike.jpg
+Montre / objet connecté;Apple;Apple Watch Series 7;45 mm · always-on;;1900;1800;non;apple-watch-series-7.jpg
+Montre / objet connecté;Apple;Apple Watch Series 9;45 mm · double tap;;2750;2600;non;apple-watch-series-9.jpg
+Montre / objet connecté;Apple;Apple Watch Ultra;49 mm · titane;;4450;4200;non;apple-watch-ultra.jpg
+Montre / objet connecté;Apple;Apple Watch Ultra 2;49 mm · titane · 3 000 nits;;6150;5800;non;apple-watch-ultra-2.jpg
+Montre / objet connecté;Apple;Apple Watch Ultra 3;49 mm · titane · 4G;9200;7000;6600;non;apple-watch-ultra-3.jpg
+Montre / objet connecté;WHOOP;WHOOP Peak 5.0;bracelet connecté · suivi santé · sans écran;2400;;;non;whoop-peak-5-0.jpg
+Audio;Beats;Beats Studio 3;casque sans fil · réduction de bruit;;1550;1450;non;beats-studio-3.jpg
+Audio;Bose;Bose QuietComfort;casque sans fil · réduction de bruit;;2450;2300;non;bose-quietcomfort.jpg
+Audio;Jabra;Jabra Elite 75t;écouteurs sans fil;;800;750;non;jabra-elite-75t.jpg
+Audio;Samsung;Galaxy Buds 2;écouteurs sans fil · ANC;;900;850;non;galaxy-buds-2.jpg
+Audio;Soundpeats;Soundpeats Clear;écouteurs sans fil · autonomie longue;320;;;non;soundpeats-clear.jpg
+Accessoire;Accessoire;AirPods 4;Avec réduction de bruit;1850;1450;1350;non;airpods-4.jpg
+Accessoire;Accessoire;AirPods Pro 3;Réduction de bruit · boîtier USB-C;2950;2250;2100;non;airpods-pro-3.jpg
+Accessoire;Accessoire;Batterie externe 20 000 mAh;Charge rapide · double port;340;250;250;non;batterie-externe-20-000-mah.jpg
+Accessoire;Accessoire;Chargeur rapide 45 W;USB-C · câble tressé fourni;260;200;200;non;chargeur-rapide-45-w.jpg
+Accessoire;Accessoire;Coque MagSafe pour iPhone;aimantée · toutes générations;180;;;non;coque-magsafe-pour-iphone.jpg
+Accessoire;Accessoire;Coque de protection;Silicone ou transparente · toutes marques;90;50;50;non;coque-de-protection.jpg
+Accessoire;Accessoire;Cross-Bag;sacoche bandoulière;250;;;non;cross-bag.jpg
+Accessoire;Accessoire;Câble USB-C tressé 2 m;Charge et transfert;80;50;50;non;cable-usb-c-tresse-2-m.jpg
+Accessoire;Accessoire;Montre connectée sport;Suivi activité · notifications;450;300;300;non;montre-connectee-sport.jpg
+Accessoire;Accessoire;Protection d'écran verre trempé;Toutes tailles · posée sans bulle;120;100;100;non;protection-d-ecran-verre-trempe.jpg
+Accessoire;Accessoire;Santa Barbara Cover;cuir · qualité originale;290;;;non;santa-barbara-cover.jpg
+Accessoire;Apple;FineWoven Case iPhone 15 Pro Max;tissage fin · officiel;390;;;non;finewoven-case-iphone-15-pro-max.jpg
+Accessoire;UGREEN;UGREEN Chargeur PD 20W;charge rapide · original;190;;;non;ugreen-chargeur-pd-20w.jpg
+Accessoire;UGREEN;UGREEN GaN 100W;chargeur 4 ports · GaN;590;;;non;ugreen-gan-100w.jpg
+Accessoire;UGREEN;UGREEN HUB 6-en-1;USB-C · HDMI, USB, lecteur SD;420;;;non;ugreen-hub-6-en-1.jpg
