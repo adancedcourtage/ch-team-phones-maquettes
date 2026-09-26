@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
 <title>Atelier Suspendu — Ch Team Phones</title>
 <style>*{box-sizing:border-box}img{max-width:100%}[hidden]{display:none!important}body{margin:0;font:14px system-ui,sans-serif}</style>
 </head>
@@ -911,7 +913,7 @@ footer.site{
           <div class="rb"><span>1 ★</span><span class="track"><span class="fill" style="width:1.4%"></span></span><b>3</b></div>
         </div>
         <div class="rating-cta">
-          <a class="btn btn--ink" href="https://maps.google.com/?cid=2125195035454559714" rel="noopener" target="_blank">Voir sur Google</a>
+          <a class="btn btn--ink" href="https://maps.google.com/?cid=2125195035454559714" rel="noopener noreferrer" target="_blank">Voir sur Google</a>
           <p class="help">Les avis sont vérifiés et hébergés par Google. Ils ne peuvent pas être modifiés par la boutique.</p>
         </div>
       </div>
@@ -998,7 +1000,7 @@ footer.site{
       <div class="cta-final">
         <h2>Vous êtes passé à la boutique ?</h2>
         <p>Un avis prend une minute et aide le prochain client à se décider.</p>
-        <a class="btn btn--volt" href="https://maps.google.com/?cid=2125195035454559714" rel="noopener" target="_blank">Laisser un avis Google</a>
+        <a class="btn btn--volt" href="https://maps.google.com/?cid=2125195035454559714" rel="noopener noreferrer" target="_blank">Laisser un avis Google</a>
       </div>
       <footer class="site"><span>Ch Team Phones · Parc Plaza, Imm. C, N7 · Mohammédia 28810</span><span class="mono">AVIS</span></footer>
     </section>
@@ -1075,6 +1077,13 @@ footer.site{
 </div>
 
 <script>
+/* Tant que "Enforce HTTPS" n'est pas coche cote GitHub, on renvoie nous-memes
+   les visiteurs arrives en clair vers la version chiffree. */
+(function(){
+  if(location.protocol==='http:' && location.hostname.indexOf('chteamphones')>=0){
+    location.replace('https://'+location.host+location.pathname+location.search+location.hash);
+  }
+})();
 (function(){
   var views = Array.prototype.slice.call(document.querySelectorAll('[data-view]'));
   var links = Array.prototype.slice.call(document.querySelectorAll('.topnav button, .botnav button'));
@@ -1458,7 +1467,7 @@ footer.site{
         '</div>'+
 
         '<div class="pdp-cta">'+
-          '<a class="btn btn--volt" href="https://wa.me/212661798782?text='+msg+'" target="_blank" rel="noopener">'+
+          '<a class="btn btn--volt" href="https://wa.me/212661798782?text='+msg+'" target="_blank" rel="noopener noreferrer">'+
             '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><use href="#i-wa"/></svg>Réserver sur WhatsApp</a>'+
           '<a class="btn btn--wire" href="tel:0661798782">06 61 79 87 82</a>'+
         '</div>'+
@@ -1594,7 +1603,7 @@ footer.site{
       return '<tr><td class="rep-name"><b>'+esc(r.n)+'</b><small>'+esc(r.s)+'</small></td>'+
         '<td class="n rep-dur" data-l="Durée">'+r.d+'</td>'+
         '<td class="rep-stat"><span class="stat '+q[1]+'">'+q[0]+'</span></td>'+
-        '<td class="rep-do"><a class="rep-ask" href="https://wa.me/212661798782?text='+msg+'" target="_blank" rel="noopener">Demander le prix</a></td></tr>';
+        '<td class="rep-do"><a class="rep-ask" href="https://wa.me/212661798782?text='+msg+'" target="_blank" rel="noopener noreferrer">Demander le prix</a></td></tr>';
     }).join('');
     var nt=document.getElementById('repnote');
     if(nt) nt.textContent='// '+p.n+' — '+liste.length+' interventions couvertes. Le prix est donné après le diagnostic, qui est gratuit et sans engagement. Comptez 2 h pour une intervention courante, 24 à 48 h quand la pièce est commandée ou la panne complexe.';
@@ -1640,7 +1649,7 @@ footer.site{
 })();
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
 (function(){
   var cv=document.getElementById('phone3d');
