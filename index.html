@@ -1199,11 +1199,23 @@ footer.site{
     return m;
   }
 
+  /* Version des photos : incrementer apres un remplacement d'images pour forcer
+     les navigateurs a recharger au lieu de servir leur cache. */
+  var PHOTOS_V='2';
   function visuel(p,view,col){
     var f=PHOTOS[p.id];
-    if(f && view!=='front') return '<img class="dev photo" src="img/'+f+'" alt="'+esc(p.n)+'" loading="lazy" decoding="async">';
+    if(f && view!=='front') return '<img class="dev photo" src="img/'+f+'?v='+PHOTOS_V+'" alt="'+esc(p.n)+'"'+
+      ' loading="lazy" decoding="async" data-id="'+p.id+'" data-vue="'+(view||'')+'" data-col="'+(col||'')+'"'+
+      ' onerror="photoKo(this)">';
     return dev(p,view,col);
   }
+  /* Si une photo ne charge pas (cache, reseau), l'illustration generee reprend sa place
+     pour ne jamais laisser un cadre vide. */
+  window.photoKo=function(img){
+    var p=CATALOGUE.filter(function(x){ return x.id===img.getAttribute('data-id'); })[0];
+    if(!p) { img.style.display='none'; return; }
+    img.outerHTML=dev(p,img.getAttribute('data-vue')||'back',img.getAttribute('data-col')||undefined);
+  };
   function dev(p,view,col){
     var c=col||((p.cl&&p.cl[0])?p.cl[0][1]:'#cfd4db'), id='a'+(++gid), k=p.k, R;
     if(k==='ph'){
