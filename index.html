@@ -437,6 +437,18 @@ footer.site{
   .sec{padding:44px 0}
   .kpis{grid-template-columns:1fr 1fr}
 
+  /* filtres : une ligne par groupe, glissee lateralement — les produits
+     restent visibles sans avoir a franchir sept rangees de pastilles */
+  .filters{
+    flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x proximity;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;
+    margin-bottom:14px;padding-bottom:2px;
+    margin-right:-16px;padding-right:16px;
+  }
+  .filters::-webkit-scrollbar{display:none}
+  .filters .chip{flex:0 0 auto;scroll-snap-align:start}
+  .filters--sub{margin-top:0}
+
   /* boutique : deux fiches par ligne, tout reste lisible */
   .grid{grid-template-columns:1fr 1fr;gap:10px}
   .shot{height:138px}
