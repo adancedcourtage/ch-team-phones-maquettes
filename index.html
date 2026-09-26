@@ -478,12 +478,11 @@ footer.site{
   td.rep-name{grid-column:1;grid-row:1}
   td.rep-name b{font-size:15px;line-height:1.3}
   td.rep-name small{display:block;margin-top:3px;line-height:1.5}
-  td.rep-price{grid-column:2;grid-row:1;justify-self:end;font-family:'Archivo',sans-serif;font-size:17px;font-weight:800;letter-spacing:-.03em}
-  td.rep-dur{grid-column:1;grid-row:2;color:var(--ink3);font-size:12px}
+  td.rep-stat{grid-column:2;grid-row:1;justify-self:end}
+  td.rep-dur{grid-column:1;grid-row:2;color:var(--ink3);font-size:12px;align-self:center}
   td.rep-dur::before{content:attr(data-l) " · ";letter-spacing:.06em}
-  td.rep-stat{grid-column:2;grid-row:2;justify-self:end}
-  td.rep-do{grid-column:1 / -1;grid-row:3;margin-top:4px}
-  .rep-ask{display:flex;width:100%;justify-content:center;min-height:44px;font-size:13.5px}
+  td.rep-do{grid-column:2;grid-row:2;justify-self:end}
+  .rep-ask{display:flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;font-size:13px}
 
   /* fiche produit : le nom et le prix montent au-dessus de la ligne de flottaison */
   .pdp-stage{min-height:0;height:248px;padding:18px;border-radius:18px}
@@ -761,14 +760,14 @@ footer.site{
       <div class="steps">
         <div class="step"><span class="t">2 min</span><span class="num">ÉTAPE 01</span><h3>Vous décrivez la panne</h3><p>Par WhatsApp avec une photo, ou directement au comptoir du Parc Plaza.</p></div>
         <div class="step"><span class="t">10 min</span><span class="num">ÉTAPE 02</span><h3>Diagnostic et devis</h3><p>L'appareil est ouvert devant vous si besoin. Le prix est annoncé avant toute intervention.</p></div>
-        <div class="step"><span class="t">30–45 min</span><span class="num">ÉTAPE 03</span><h3>Intervention</h3><p>La pièce est posée dans la foulée quand elle est en stock. Vous pouvez attendre sur place.</p></div>
+        <div class="step"><span class="t">2 h</span><span class="num">ÉTAPE 03</span><h3>Intervention</h3><p>Comptez 2 h quand la pièce est en stock, 24 à 48 h si elle est commandée ou la panne complexe.</p></div>
         <div class="step"><span class="t">5 min</span><span class="num">ÉTAPE 04</span><h3>Tests et garantie</h3><p>Tactile, audio, caméras, charge et capteurs testés devant vous. Garantie trois mois par écrit.</p></div>
       </div>
     </section>
 
     <section class="sec" style="padding-top:0">
-      <div class="sec-h"><span class="eyebrow">Tarifs</span><h2 style="font-size:clamp(23px,3.6vw,36px)">Combien coûte la réparation de votre appareil ?</h2>
-      <p>Choisissez votre modèle : le tarif de chaque intervention s'affiche, avec la durée et la disponibilité de la pièce.</p></div>
+      <div class="sec-h"><span class="eyebrow">Interventions</span><h2 style="font-size:clamp(23px,3.6vw,36px)">Ce que l'atelier répare sur votre appareil</h2>
+      <p>Choisissez votre modèle : chaque intervention indique sa durée et la disponibilité de la pièce. Le prix est donné après diagnostic — demandez-le en un message.</p></div>
 
       <div class="rep-pick">
         <div class="filters" role="group" aria-label="Choisir la marque">
@@ -786,10 +785,10 @@ footer.site{
       </div>
 
       <div class="tbl"><div class="tscroll"><table>
-        <thead><tr><th scope="col">Intervention</th><th scope="col">Durée</th><th scope="col">Tarif</th><th scope="col">Pièce</th><th scope="col"></th></tr></thead>
+        <thead><tr><th scope="col">Intervention</th><th scope="col">Durée</th><th scope="col">Pièce</th><th scope="col"></th></tr></thead>
         <tbody id="reptable"></tbody>
       </table></div></div>
-      <p class="note" id="repnote">// Tarifs indicatifs calculés par gamme d'appareil — à remplacer par la grille réelle de l'atelier avant mise en ligne. Le prix exact est confirmé au diagnostic, qui est gratuit.</p>
+      <p class="note" id="repnote">// Le prix est donné après le diagnostic, qui est gratuit et sans engagement.</p>
     </section>
 
     <section class="sec" style="padding-top:0">
@@ -1516,35 +1515,48 @@ footer.site{
 
   /* ---------- tarifs de reparation par appareil ---------- */
   var REPARS=[
-   {n:"Remplacement d'écran",s:"vitre + dalle, testé devant vous",d:"45 min",p:690,q:'stock'},
-   {n:"Batterie",s:"pièce neuve, capacité 100%",d:"30 min",p:280,q:'stock'},
-   {n:"Connecteur de charge",s:"nappe de charge complète",d:"40 min",p:220,q:'stock'},
-   {n:"Vitre arrière",s:"dépose au laser",d:"2 h",p:450,q:'commande'},
-   {n:"Caméra arrière",s:"module complet",d:"1 h",p:390,q:'commande'},
-   {n:"Haut-parleur / écouteur",s:"son étouffé ou muet",d:"45 min",p:260,q:'stock'},
-   {n:"Face ID / capteur d'empreinte",s:"réparation du module d'origine",d:"2 h",p:490,q:'commande',apple:1},
-   {n:"Désoxydation",s:"après contact avec l'eau",d:"24 h",p:350,q:'inclus',fixe:1},
-   {n:"Diagnostic complet",s:"sans engagement",d:"10 min",p:0,q:'offert',fixe:1}
+   {n:"Remplacement d'écran",s:"vitre + dalle, testé devant vous",d:"2 h",q:'stock'},
+   {n:"Batterie",s:"pièce neuve, capacité 100%",d:"2 h",q:'stock'},
+   {n:"Connecteur de charge",s:"nappe complète, charge et données",d:"2 h",q:'stock'},
+   {n:"Haut-parleur externe",s:"son étouffé ou muet",d:"2 h",q:'stock'},
+   {n:"Écouteur interne",s:"voix faible ou absente en appel",d:"2 h",q:'stock'},
+   {n:"Microphone",s:"votre interlocuteur ne vous entend plus",d:"2 h",q:'stock'},
+   {n:"Boutons volume, power, silencieux",s:"nappe complète",d:"2 h",q:'stock'},
+   {n:"Vibreur",s:"plus de vibration, bruit de crécelle",d:"2 h",q:'stock'},
+   {n:"Lecteur SIM",s:"tiroir et lecteur, pas de réseau",d:"2 h",q:'stock'},
+   {n:"Caméra arrière",s:"module complet, photos floues ou noires",d:"2 à 24 h",q:'commande'},
+   {n:"Caméra avant",s:"module selfie et capteur de proximité",d:"2 à 24 h",q:'commande'},
+   {n:"Vitre arrière",s:"dépose au laser, châssis conservé",d:"2 à 24 h",q:'commande'},
+   {n:"Antenne réseau et Wi-Fi",s:"signal faible, coupures",d:"2 à 24 h",q:'commande'},
+   {n:"Recharge sans fil",s:"bobine de charge à induction",d:"2 à 24 h",q:'commande'},
+   {n:"Face ID et lecteur d'empreinte",s:"réparation du module d'origine",d:"24 à 48 h",q:'commande'},
+   {n:"Châssis arrière",s:"redressage ou remplacement complet",d:"24 à 48 h",q:'commande'},
+   {n:"Désoxydation",s:"après contact avec l'eau",d:"24 à 48 h",q:'inclus'},
+   {n:"Micro-soudure carte mère",s:"n'allume plus, boucle de démarrage",d:"24 à 48 h",q:'commande'},
+   {n:"Récupération de données",s:"photos, contacts, messages",d:"24 à 48 h",q:'commande'},
+   {n:"Réinstallation du système",s:"appareil bloqué, restauration complète",d:"2 h",q:'stock'},
+   {n:"Transfert vers un nouvel appareil",s:"données et comptes repris à l'identique",d:"2 h",q:'stock'},
+   {n:"Diagnostic complet",s:"sans engagement, panne identifiée par écrit",d:"2 h",q:'offert'}
   ];
   var REPARS_PC=[
-   {n:"Remplacement d'écran",s:"dalle compatible ou d'origine",d:"2 h",p:1600,q:'commande'},
-   {n:"Batterie",s:"pièce neuve",d:"1 h",p:650,q:'commande'},
-   {n:"Clavier",s:"nappe complète",d:"1 h 30",p:450,q:'commande'},
-   {n:"Disque SSD",s:"remplacement + transfert des données",d:"2 h",p:550,q:'stock'},
-   {n:"Nettoyage et pâte thermique",s:"surchauffe, ventilation bruyante",d:"1 h",p:300,q:'stock',fixe:1},
-   {n:"Installation système",s:"Windows ou macOS, pilotes inclus",d:"2 h",p:250,q:'stock',fixe:1},
-   {n:"Diagnostic complet",s:"sans engagement",d:"15 min",p:0,q:'offert',fixe:1}
+   {n:"Remplacement d'écran",s:"dalle compatible ou d'origine",d:"2 à 24 h",q:'commande'},
+   {n:"Batterie",s:"pièce neuve, autonomie rétablie",d:"2 h",q:'commande'},
+   {n:"Disque SSD",s:"remplacement et transfert des données",d:"2 h",q:'stock'},
+   {n:"Ajout de mémoire RAM",s:"machine lente, multitâche",d:"2 h",q:'stock'},
+   {n:"Nettoyage et pâte thermique",s:"surchauffe, ventilation bruyante",d:"2 h",q:'stock'},
+   {n:"Installation du système",s:"Windows ou macOS, pilotes inclus",d:"2 h",q:'stock'},
+   {n:"Virus et nettoyage logiciel",s:"publicités, lenteurs, démarrage long",d:"2 h",q:'stock'},
+   {n:"Clavier",s:"nappe complète, touches mortes",d:"2 à 24 h",q:'commande'},
+   {n:"Ventilateur",s:"bruit, arrêts intempestifs",d:"2 à 24 h",q:'commande'},
+   {n:"Connecteur d'alimentation",s:"prise de charge dessoudée",d:"24 à 48 h",q:'commande'},
+   {n:"Charnières et châssis",s:"écran qui ne tient plus",d:"24 à 48 h",q:'commande'},
+   {n:"Micro-soudure carte mère",s:"ne démarre plus, pas d'affichage",d:"24 à 48 h",q:'commande'},
+   {n:"Récupération de données",s:"disque défaillant, système mort",d:"24 à 48 h",q:'commande'},
+   {n:"Diagnostic complet",s:"sans engagement, devis écrit",d:"2 h",q:'offert'}
   ];
   var QLAB={stock:['en stock','stat--ok'],commande:['sur commande','stat--wait'],inclus:['diagnostic inclus','stat--ok'],offert:['sans engagement','stat--ok']};
   var rb='apple';
 
-  function gamme(p){
-    var ref=p.pn||p.po||p.pr||0;
-    if(ref<1500) return [0.55,'entrée de gamme'];
-    if(ref<3500) return [0.78,'milieu de gamme'];
-    if(ref<7000) return [1.0,'haut de gamme'];
-    return [1.35,'dernière génération'];
-  }
   function modelesRep(){
     return CATALOGUE.filter(function(p){
       if(rb==='pc') return p.c==='pc'||p.c==='mac';
@@ -1564,19 +1576,16 @@ footer.site{
     var sel=document.getElementById('repmodel'), tb=document.getElementById('reptable'); if(!sel||!tb) return;
     var p=CATALOGUE.filter(function(x){ return x.id===sel.value; })[0]; if(!p) return;
     var pc=(p.c==='pc'||p.c==='mac'), liste=pc?REPARS_PC:REPARS;
-    var g=gamme(p), mult=g[0];
-    tb.innerHTML=liste.filter(function(r){ return !(r.apple && p.b!=='apple'); }).map(function(r){
-      var prixR = r.p===0 ? null : (r.fixe ? r.p : Math.round(r.p*mult/10)*10);
+    tb.innerHTML=liste.map(function(r){
       var q=QLAB[r.q];
-      var msg=encodeURIComponent('Bonjour, je voudrais un devis pour : '+r.n+' sur '+p.n+'. Merci.');
+      var msg=encodeURIComponent('Bonjour, quel est le prix pour : '+r.n+' sur '+p.n+' ? Merci.');
       return '<tr><td class="rep-name"><b>'+esc(r.n)+'</b><small>'+esc(r.s)+'</small></td>'+
         '<td class="n rep-dur" data-l="Durée">'+r.d+'</td>'+
-        '<td class="n rep-price" data-l="Tarif">'+(prixR===null?'<span class="free">offert</span>':(AFFICHER_PRIX?prix(prixR):'nous consulter'))+'</td>'+
         '<td class="rep-stat"><span class="stat '+q[1]+'">'+q[0]+'</span></td>'+
-        '<td class="rep-do"><a class="rep-ask" href="https://wa.me/212661798782?text='+msg+'" target="_blank" rel="noopener">Demander ce tarif</a></td></tr>';
+        '<td class="rep-do"><a class="rep-ask" href="https://wa.me/212661798782?text='+msg+'" target="_blank" rel="noopener">Demander le prix</a></td></tr>';
     }).join('');
     var nt=document.getElementById('repnote');
-    if(nt) nt.textContent='// '+p.n+' — '+g[1]+'. Tarifs indicatifs calculés par gamme, à remplacer par la grille réelle de l\'atelier. Le prix exact est confirmé au diagnostic, qui est gratuit.';
+    if(nt) nt.textContent='// '+p.n+' — '+liste.length+' interventions couvertes. Le prix est donné après le diagnostic, qui est gratuit et sans engagement. Comptez 2 h pour une intervention courante, 24 à 48 h quand la pièce est commandée ou la panne complexe.';
   }
   (function(){
     var chips=Array.prototype.slice.call(document.querySelectorAll('.chip[data-rb]'));
